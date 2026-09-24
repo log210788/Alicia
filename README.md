@@ -17,7 +17,7 @@ Alicia can access the interactive homework portal directly in her browser:
 
 | Portal / Document | Description | Link |
 | :--- | :--- | :--- |
-| **🎙️ Week 1 Interactive Homework & Audio Studio** | Consolidates Exercises 1.1 & 1.2 with an in-browser audio recorder, physical mouth coaching (Schwa `/ə/` & catenation), and self-audit tools. | [`Homework/Week-01-Interactive-Homework.html`](./Homework/Week-01-Interactive-Homework.html) |
+| **🎙️ Week 1 Interactive Homework & Audio Studio** | Consolidates Exercises 1.1 & 1.2 with an in-browser audio recorder, physical mouth coaching (Schwa `/ə/` & catenation), dynamic Intonation Device for executive meeting subtext, and self-audit tools. | [`Homework/Week-01-Interactive-Homework.html`](./Homework/Week-01-Interactive-Homework.html) |
 | **📋 Master Curriculum Overview** | 8-week syllabus roadmap, 5-phase lesson architecture, and diagnostic profile. | [`Curriculum-Overview.md`](./Curriculum-Overview.md) |
 | **🔒 Weeks 2 to 8 Modules** | Available in the portal tabs as upcoming module syllabus previews. Homework unlocks week by week after live lessons. | *Integrated in Portal* |
 
@@ -26,7 +26,7 @@ Alicia can access the interactive homework portal directly in her browser:
 ## 📬 How Alicia Submits Homework Audio to Preply (3 Steps)
 
 1. **Record Directly in Browser**:
-   Open the **[Interactive Portal](https://log210788.github.io/Alicia/)** (or [`Week-01-Interactive-Homework.html`](./Homework/Week-01-Interactive-Homework.html)). Scroll down to **Part 4 (Live Audio Recording Studio)**, click **"Start Recording"**, speak for ~60 seconds, and click **"Stop Recording"**. Listen to your pronunciation immediately using the player.
+   Open the **[Interactive Portal](https://log210788.github.io/Alicia/)** (or [`Week-01-Interactive-Homework.html`](./Homework/Week-01-Interactive-Homework.html)). Scroll down to **Part 5 (Live Audio Recording Studio)**, click **"Start Recording"**, speak for ~60 seconds, and click **"Stop Recording"**. Listen to your pronunciation immediately using the player.
 2. **Download File**:
    Click **"⬇️ Download Audio File"**. It saves to your computer as `Alicia_Week1_Spontaneous_Sprint.webm`.
 3. **Send on Preply**:

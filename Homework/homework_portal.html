@@ -12,28 +12,28 @@
   </script>
   <style>
     body {
-      background-color: #f8fafc;
-      color: #1e293b;
+      background-color: #edf2f7;
+      color: #0f172a;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
     .schwa-mark {
       text-decoration: underline;
       text-decoration-color: #0284c7;
-      text-decoration-thickness: 2px;
-      font-weight: 600;
-      color: #0284c7;
-      background: #f0f9ff;
-      padding: 0 2px;
-      border-radius: 2px;
+      text-decoration-thickness: 2.5px;
+      font-weight: 700;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 0 3px;
+      border-radius: 3px;
     }
     .catenate-mark {
       color: #059669;
-      font-weight: 700;
+      font-weight: 800;
     }
     @keyframes pulse-dot {
       0% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(1.15); }
+      50% { opacity: 0.35; transform: scale(1.2); }
       100% { opacity: 1; transform: scale(1); }
     }
     .live-pulse {
@@ -42,55 +42,60 @@
     @media print {
       body { background: white !important; }
       .no-print { display: none !important; }
-      .card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
+      .card { border: 1px solid #94a3b8 !important; box-shadow: none !important; }
     }
   </style>
 </head>
-<body class="min-h-screen text-slate-800 antialiased flex flex-col">
+<body class="min-h-screen text-slate-800 antialiased flex flex-col bg-[#edf2f7]">
 
-  <!-- Minimal Top Navigation Header -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
-    <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
+  <!-- Deep Executive Navy Navigation Header (Anchors Page Contrast) -->
+  <header class="bg-[#0f172a] border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-sm">
-          RP
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 via-sky-600 to-emerald-500 text-white flex items-center justify-center font-bold text-xs shadow-md">
+          🇬🇧
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-sm font-semibold text-slate-900 tracking-tight">British Accent & Fluency</h1>
-            <span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200">Preply Portal</span>
+            <h1 class="text-sm font-bold text-white tracking-tight">British Accent & Executive Fluency</h1>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-indigo-500/20 text-indigo-300 border border-indigo-400/30">C1 Coaching</span>
           </div>
-          <p class="text-xs text-slate-500">Student: <span class="text-slate-800 font-medium">Alicia M.</span> &bull; Tutor: Lewis O.</p>
+          <p class="text-xs text-slate-400">Student: <span class="text-slate-200 font-medium">Alicia M.</span> &bull; Tutor: <span class="text-slate-200 font-medium">Lewis O.</span></p>
         </div>
       </div>
 
-      <!-- Quick Action / Status -->
+      <!-- Quick Action Buttons -->
       <div class="flex items-center gap-2 text-xs">
-        <a href="#recorderBooth" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium transition shadow-sm flex items-center gap-1.5 no-print">
-          <svg class="w-3.5 h-3.5 text-rose-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+        <a href="#intonationLab" class="px-3 py-1.5 rounded-lg bg-indigo-600/30 hover:bg-indigo-600/50 text-indigo-200 border border-indigo-500/40 font-medium transition flex items-center gap-1.5 no-print">
+          <span>🎯</span> Intonation Lab
+        </a>
+        <a href="#recorderBooth" class="px-3 py-1.5 rounded-lg bg-rose-600 hover:bg-rose-500 text-white font-medium transition shadow-sm flex items-center gap-1.5 no-print">
+          <svg class="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
           Record Voice Note
         </a>
       </div>
     </div>
 
-    <!-- Minimal Week Tab Navigation Bar -->
-    <div class="max-w-4xl mx-auto px-4 overflow-x-auto no-scrollbar border-t border-slate-100">
-      <nav class="flex space-x-1.5 py-2 text-xs font-medium" id="weekTabsContainer">
-        <!-- Rendered via JS -->
-      </nav>
+    <!-- Executive Tab Bar with High Visual Contrast -->
+    <div class="bg-[#0b1329] border-t border-slate-800/80">
+      <div class="max-w-4xl mx-auto px-4 overflow-x-auto no-scrollbar">
+        <nav class="flex space-x-1 py-1.5 text-xs font-medium" id="weekTabsContainer">
+          <!-- Rendered via JS -->
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- Main Content Area -->
+  <!-- Main Content Area with Warm Balanced Palette -->
   <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full" id="mainContainer">
     <!-- Injected dynamically via JS based on selected tab -->
   </main>
 
-  <!-- Clean Minimal Footer -->
-  <footer class="border-t border-slate-200 bg-white py-6 mt-12 text-center text-xs text-slate-400">
+  <!-- Clean Contrast Footer -->
+  <footer class="border-t border-slate-300 bg-white py-6 mt-12 text-center text-xs text-slate-500">
     <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-between gap-3">
       <p>Alicia M. &bull; Executive British Accent & Spontaneous Fluency (Modern RP/SSBE)</p>
-      <p>Tutor: Lewis O. &bull; Preply Coaching</p>
+      <p>Tutor: Lewis O. &bull; Preply Executive Coaching</p>
     </div>
   </footer>
 
@@ -101,8 +106,8 @@
         week: 1,
         title: "British Rhythm, Schwa Reduction & De-Translating Spanish",
         status: "active",
-        subtitle: "Overcoming syllable-timing, mastering /ə/, consonant catenation, and British discourse starters.",
-        liveSessionRecap: "In our first lesson, we trained your immediate English starting reflexes using Exercise 1.1 (Rapid-Fire Sprints) and Exercise 1.2 (Spanish-to-British Reframing). This workbook consolidates those reflexes and introduces stress-timing, the Schwa (/ə/), and catenation for independent practice."
+        subtitle: "Overcoming syllable-timing, mastering /ə/, consonant catenation, British discourse starters, and nuclear intonation stress.",
+        liveSessionRecap: "In our first lesson, we trained your immediate English starting reflexes using Exercise 1.1 (Rapid-Fire Sprints) and Exercise 1.2 (Spanish-to-British Reframing). This workbook consolidates those reflexes and introduces stress-timing, the Schwa (/ə/), catenation, and a dynamic Intonation Device for mastering executive meeting subtext."
       },
       {
         week: 2,
@@ -190,7 +195,185 @@
       }
     ];
 
+    // INTONATION DEVICE DATA: Multi-scenario nuclear stress laboratory
+    const intonationScenarios = [
+      {
+        id: "good_idea",
+        category: "Executive Endorsement & Deliberation",
+        sentenceText: "I think that's a good idea",
+        words: ["I", "think", "that's", "a", "good", "idea"],
+        stressableIndices: [0, 1, 2, 4, 5],
+        variations: {
+          0: {
+            word: "I",
+            phonetic: "/ˈaɪ/ (High Fall)",
+            badge: "Personal Stance & Authorship",
+            subtext: "Personally, speaking for myself, I back this proposal. Other colleagues in the meeting or on the board may hesitate or object, but this is my individual conviction.",
+            spanishTrap: "Spanish speakers naturally rely on syntax ('A mí me parece...' or 'Yo creo...'). In British English, jumping pitch and volume on 'I' asserts calm executive ownership without aggressive wording.",
+            boardroomTip: "Deploy in boardroom meetings when the committee is fractured and you wish to stand behind an innovative proposal without appearing confrontational."
+          },
+          1: {
+            word: "think",
+            phonetic: "/ˈθɪŋk/ (Rise-Fall)",
+            badge: "Prudent British Understatement",
+            subtext: "I believe so in principle, but I haven't reviewed all audit reports or budget models yet. I am reserving final certainty.",
+            spanishTrap: "Spanish executives frequently articulate with flat syllable-timed pitch, which can inadvertently sound categorically rigid. Stressing 'think' injects indispensable diplomatic reservation.",
+            boardroomTip: "Use when an executive colleague pushes you for an immediate green-light: you convey strategic support while keeping your liabilities safe."
+          },
+          2: {
+            word: "that's",
+            phonetic: "/ˈðæts/ (Sharp High Peak)",
+            badge: "Contrastive Selection",
+            subtext: "That specific idea right there is viable — in clear contrast to the earlier alternative proposals which were impractical or unworkable.",
+            spanishTrap: "Spanish speakers express contrast lexically ('Esa propuesta sí que es buena'). British English achieves laser-focused contrast purely by elevating pitch on the demonstrative.",
+            boardroomTip: "Use during project post-mortems or strategy sessions to decisively pivot the room towards a workable path forward."
+          },
+          4: {
+            word: "good",
+            phonetic: "/ˈɡʊd/ (Prolonged Mid-Fall)",
+            badge: "Diplomatic Moderation",
+            subtext: "It is solid and acceptable, but certainly not exceptional, revolutionary, or complete. It leaves substantial room for iteration and refinement.",
+            spanishTrap: "In Spanish, 'buena idea' is often interpreted as enthusiastic praise. In British corporate cadence, stressing 'good' actually moderates praise down to a cautious 'B+'.",
+            boardroomTip: "Use when giving constructive feedback to team members when you want to validate their momentum while nudging them towards deeper rigor."
+          },
+          5: {
+            word: "idea",
+            phonetic: "/aɪˈdɪə/ (High Tonic Fall on -dea)",
+            badge: "Theory vs. Pragmatic Execution",
+            subtext: "It is an attractive concept on paper in theory, but good luck executing it in practice with our current operational bandwidth!",
+            spanishTrap: "Phrase-final stress is the standard Spanish default ('Es una buena idea'). In British English, placing the nuclear stress on 'idea' casts sharp doubt on practical viability.",
+            boardroomTip: "Use when evaluating grand commercial roadmaps that fail to budget for engineering, regulatory, or operational realities."
+          }
+        }
+      },
+      {
+        id: "postpone_launch",
+        category: "Crisis Management & Accountability",
+        sentenceText: "I didn't say we should postpone the launch",
+        words: ["I", "didn't", "say", "we", "should", "postpone", "the", "launch"],
+        stressableIndices: [0, 1, 2, 3, 4, 5, 7],
+        variations: {
+          0: {
+            word: "I",
+            phonetic: "/ˈaɪ/ (Pitch Jump)",
+            badge: "Authorship Deflection",
+            subtext: "Someone else on the executive committee or client side suggested postponing the launch, not me. Do not attribute that recommendation to my team.",
+            spanishTrap: "Spanish speakers use wordy explanations ('Yo no fui quien sugirió...'). Stressing 'I' establishes factual ownership in a single, crisp beat.",
+            boardroomTip: "Vital for reputation management when cross-functional rumors circulate regarding milestone delays."
+          },
+          1: {
+            word: "didn't",
+            phonetic: "/ˈdɪd.nt/ (Emphatic Fall)",
+            badge: "Categorical Denial",
+            subtext: "I flatly deny that accusation. The claim that I ever advocated for a postponement is completely false.",
+            spanishTrap: "Spanish speakers often accelerate tempo when defending themselves. A measured, heavy pitch fall on 'didn't' commands respect and shuts down misinformation.",
+            boardroomTip: "Use to correct inaccurate minutes or false claims in executive steering committees with poise."
+          },
+          2: {
+            word: "say",
+            phonetic: "/ˈseɪ/ (Fall-Rise Contour)",
+            badge: "Verbal vs. Implied Nuance",
+            subtext: "I may have raised serious risk factors or expressed private concern, but I never officially stated or recommended a delay.",
+            spanishTrap: "English employs the classic Fall-Rise tune on 'say' to communicate that while thoughts existed, no formal declaration was made.",
+            boardroomTip: "Deploy when managing sensitive stakeholder politics where you prudently warned of risks without halting operations."
+          },
+          3: {
+            word: "we",
+            phonetic: "/ˈwiː/ (Contrastive Accent)",
+            badge: "Entity Boundary",
+            subtext: "Perhaps the third-party logistics partner, regulator, or marketing agency should delay, but our internal core team is on schedule.",
+            spanishTrap: "Spanish speakers say 'Nosotros no...'. British English simply energizes 'we' to cleanly isolate your team's velocity.",
+            boardroomTip: "Use to defend your direct department's delivery record during cross-functional bottlenecks."
+          },
+          4: {
+            word: "should",
+            phonetic: "/ˈʃʊd/ (Deliberate Fall)",
+            badge: "Contingency vs. Mandate",
+            subtext: "I mentioned that we could explore a postponement as a contingency scenario, not that it is our recommended or mandatory decision.",
+            spanishTrap: "Spanish alternates modal verbs ('podríamos' vs 'deberíamos'). English shifts the nuclear pitch onto the modal auxiliary 'should'.",
+            boardroomTip: "Use when risk-modeling scenarios are misinterpreted by stakeholders as firm operational directives."
+          },
+          5: {
+            word: "postpone",
+            phonetic: "/pəˈspəʊn/ (High Peak on -spone)",
+            badge: "Action Differentiation",
+            subtext: "I suggested we re-scope features or allocate extra engineering headcount, not push back the calendar go-live date.",
+            spanishTrap: "Spanish speakers over-explain alternatives. Stressing 'postpone' pinpoints the specific action being contested.",
+            boardroomTip: "Use to champion agile compromises that safeguard critical go-to-market commitments."
+          },
+          7: {
+            word: "launch",
+            phonetic: "/ˈlɔːntʃ/ (High Tonic Fall)",
+            badge: "Deliverable Prioritization",
+            subtext: "We can postpone the ceremonial press conference or global roadshow, but the core product launch goes ahead as planned.",
+            spanishTrap: "Stressing the final noun establishes that the primary release is non-negotiable, while ancillary deliverables may shift.",
+            boardroomTip: "Keeps teams focused on the primary deliverable under deadline pressure."
+          }
+        }
+      },
+      {
+        id: "different_approach",
+        category: "Strategic Transformation & Leadership",
+        sentenceText: "I believe we need a different approach",
+        words: ["I", "believe", "we", "need", "a", "different", "approach"],
+        stressableIndices: [0, 1, 2, 3, 5, 6],
+        variations: {
+          0: {
+            word: "I",
+            phonetic: "/ˈaɪ/ (Assertive Pitch)",
+            badge: "Executive Leadership Ownership",
+            subtext: "This is my personal conviction as a leader, regardless of what legacy habits or external consultants recommend.",
+            spanishTrap: "Allows Alicia to plant her flag on an issue with quiet, British executive authority without raising volume.",
+            boardroomTip: "Deploy when initiating an organizational pivot."
+          },
+          1: {
+            word: "believe",
+            phonetic: "/bəˈliːv/ (Warm Mid-Rise Fall)",
+            badge: "Core Strategic Gravitas",
+            subtext: "This isn't an impulsive hunch; it is my considered, deeply held professional evaluation based on the evidence.",
+            spanishTrap: "Spanish speakers frequently use 'pienso' flatly. Stressing 'believe' adds weight and executive credibility.",
+            boardroomTip: "Use when presenting high-stakes proposals to senior partners or executive leadership."
+          },
+          2: {
+            word: "we",
+            phonetic: "/ˈwiː/ (Inclusive Focus)",
+            badge: "Team Ownership",
+            subtext: "Our department must change its habits, even if the broader organization is slow to adapt.",
+            spanishTrap: "Builds camaraderie and shared responsibility across direct reports.",
+            boardroomTip: "Use in department all-hands meetings to inspire collective accountability."
+          },
+          3: {
+            word: "need",
+            phonetic: "/ˈniːd/ (High Level Step)",
+            badge: "Critical Imperative",
+            subtext: "This is no longer an optional luxury or nice-to-have; it is an absolute necessity to prevent failure.",
+            spanishTrap: "Injects urgency without sounding panicked or aggressive.",
+            boardroomTip: "Use when cutting through organizational complacency."
+          },
+          5: {
+            word: "different",
+            phonetic: "/ˈdɪf.rənt/ (Sharp Tonic Fall)",
+            badge: "Definitive Strategic Pivot",
+            subtext: "More of the same will fail. The legacy playbook is exhausted; we must change trajectory.",
+            spanishTrap: "Spanish speakers often append adverbs ('totalmente diferente'). English merely shifts pitch onto 'different'.",
+            boardroomTip: "Use when key performance metrics show diminishing returns under legacy processes."
+          },
+          6: {
+            word: "approach",
+            phonetic: "/əˈprəʊtʃ/ (High-to-Low Fall)",
+            badge: "Tactics vs. Overarching Mission",
+            subtext: "Our ultimate vision and business objectives remain sound; it is solely our tactical methodology that requires redesign.",
+            spanishTrap: "Reassures stakeholders that the vision is untouched, protecting investor confidence.",
+            boardroomTip: "Use to reassure teams that the overarching mission is unchanged."
+          }
+        }
+      }
+    ];
+
     let currentWeek = 1;
+    let currentScenarioIdx = 0;
+    let currentStressedWordIdx = 0;
+    let exploredTracker = new Set(["0_0"]); // scenarioIdx_wordIdx
 
     function init() {
       renderTabs();
@@ -205,14 +388,14 @@
         const isLocked = m.status === 'locked';
 
         return `
-          <button onclick="switchTab(${m.week})" class="px-3 py-1.5 rounded-lg whitespace-nowrap transition flex items-center gap-1.5 ${
+          <button onclick="switchTab(${m.week})" class="px-3.5 py-2 rounded-lg whitespace-nowrap transition flex items-center gap-1.5 ${
             isActive 
-              ? 'bg-slate-900 text-white font-medium shadow-sm' 
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              ? 'bg-white text-slate-900 font-bold shadow-sm' 
+              : 'text-slate-300 hover:text-white hover:bg-slate-800/80 font-medium'
           }">
-            ${isLocked ? `<svg class="w-3 h-3 ${isActive ? 'text-slate-300' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>` : ''}
+            ${isLocked ? `<svg class="w-3 h-3 ${isActive ? 'text-slate-500' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>` : ''}
             <span>Week ${m.week}</span>
-            ${m.week === 1 ? `<span class="w-1.5 h-1.5 rounded-full ${isActive ? 'bg-emerald-400' : 'bg-emerald-500'}"></span>` : ''}
+            ${m.week === 1 ? `<span class="w-2 h-2 rounded-full ${isActive ? 'bg-emerald-500' : 'bg-emerald-400'}"></span>` : ''}
           </button>
         `;
       }).join('');
@@ -230,40 +413,40 @@
       const mod = modules.find(m => m.week === currentWeek);
 
       if (mod.status === 'locked') {
-        // CLEAN, ELEGANT "UPCOMING MODULE" PREVIEW (NO HOMEWORK REVEALED)
+        // BALANCED, ELEGANT LOCKED PREVIEW
         main.innerHTML = `
           <div class="max-w-2xl mx-auto py-10">
-            <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm text-center">
-              <div class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-600 flex items-center justify-center mx-auto mb-4">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            <div class="bg-white border border-slate-300 rounded-2xl p-8 shadow-sm text-center">
+              <div class="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-300 text-slate-700 flex items-center justify-center mx-auto mb-4 shadow-inner">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
               </div>
 
-              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200 mb-3">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-100 text-amber-900 border border-amber-300 mb-3">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
                 Module Week ${mod.week} &bull; Unlocks Next Week
               </div>
 
               <h2 class="text-xl font-bold text-slate-900 mb-2">${mod.title}</h2>
-              <p class="text-sm text-slate-500 max-w-md mx-auto mb-6 leading-relaxed">${mod.subtitle}</p>
+              <p class="text-sm text-slate-600 max-w-md mx-auto mb-6 leading-relaxed">${mod.subtitle}</p>
 
               <!-- Upcoming Syllabus Preview -->
-              <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-5 text-left mb-6">
-                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-700 mb-3">What we will cover in our next live session:</h4>
-                <ul class="text-xs text-slate-600 space-y-2.5">
+              <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 text-left mb-6">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-800 mb-3">What we will cover in our next live session:</h4>
+                <ul class="text-xs text-slate-700 space-y-2.5">
                   ${mod.topics.map(t => `
                     <li class="flex items-start gap-2">
-                      <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                      <span>${t}</span>
+                      <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M5 13l4 4L19 7"/></svg>
+                      <span class="font-medium">${t}</span>
                     </li>
                   `).join('')}
                 </ul>
               </div>
 
-              <p class="text-xs text-slate-400 mb-6">
+              <p class="text-xs text-slate-500 mb-6">
                 This homework module and acoustic recording tasks will unlock immediately after your next lesson with Lewis.
               </p>
 
-              <button onclick="switchTab(1)" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-medium transition shadow-sm inline-flex items-center gap-2">
+              <button onclick="switchTab(1)" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-semibold transition shadow-sm inline-flex items-center gap-2">
                 <span>&larr; Back to Week 1 Active Homework</span>
               </button>
             </div>
@@ -272,35 +455,41 @@
         return;
       }
 
-      // WEEK 1: ACTIVE, LIGHT, MINIMAL WORKBOOK
+      // WEEK 1: ACTIVE, RICHLY BALANCED WORKBOOK
       main.innerHTML = `
-        <!-- Week 1 Header Banner -->
-        <div class="mb-8">
-          <div class="flex items-center gap-2 mb-2">
-            <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">Active Assignment</span>
-            <span class="text-xs text-slate-400">&bull; Due prior to Week 2 lesson</span>
+        <!-- Week 1 Header Banner with Visual Weight -->
+        <div class="mb-8 bg-white border border-slate-300 rounded-2xl p-6 shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-300 text-xs font-bold">Active Assignment</span>
+              <span class="text-xs text-slate-500">&bull; Due prior to Week 2 lesson</span>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-1">${mod.title}</h2>
+            <p class="text-sm text-slate-600 leading-relaxed max-w-2xl">${mod.subtitle}</p>
           </div>
-          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-2">${mod.title}</h2>
-          <p class="text-sm text-slate-600 leading-relaxed max-w-3xl">${mod.subtitle}</p>
+          <div class="flex-shrink-0 flex items-center gap-2 bg-slate-50 p-2.5 rounded-xl border border-slate-200 text-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 live-pulse"></span>
+            <span class="font-medium text-slate-700">Week 1 in Progress</span>
+          </div>
         </div>
 
-        <!-- Tutor's Reassuring Note -->
-        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-8 flex items-start gap-4">
-          <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex-shrink-0 flex items-center justify-center text-slate-700 font-semibold text-sm">
+        <!-- Tutor's Reassuring Note with Executive Accent -->
+        <div class="bg-white border border-slate-300 rounded-2xl p-6 shadow-sm mb-8 flex items-start gap-4 border-l-4 border-slate-900">
+          <div class="w-11 h-11 rounded-xl bg-slate-900 text-white flex-shrink-0 flex items-center justify-center font-bold text-sm shadow-sm">
             LO
           </div>
-          <div class="text-xs text-slate-600 leading-relaxed space-y-2">
+          <div class="text-xs text-slate-700 leading-relaxed space-y-2">
             <div class="flex items-center justify-between">
-              <h4 class="text-sm font-semibold text-slate-900">Note from Lewis (Tutor)</h4>
-              <span class="text-[11px] text-slate-400 font-mono">Week 1 Recap</span>
+              <h4 class="text-sm font-bold text-slate-900">Personal Note from Lewis (Your Tutor)</h4>
+              <span class="text-[11px] text-slate-500 font-mono bg-slate-100 px-2 py-0.5 rounded border border-slate-200">Class Recap</span>
             </div>
             <p>
               Hi Alicia! In our first session, we concentrated on de-translating your Spanish cognitive loop with 
-              <strong class="text-slate-900">Exercise 1.1 (Rapid-Fire Sprints)</strong> and 
-              <strong class="text-slate-900">Exercise 1.2 (Speed Reframing)</strong>.
+              <strong class="text-slate-900 font-semibold">Exercise 1.1 (Rapid-Fire Sprints)</strong> and 
+              <strong class="text-slate-900 font-semibold">Exercise 1.2 (Speed Reframing)</strong>.
             </p>
             <p>
-              This homework allows you to consolidate those exact reflexes, and then walk step-by-step through British stress-timing, the Schwa (<code class="text-sky-700 font-mono">/ə/</code>), and catenation at your own pace. When you're ready, record your voice note right here in Part 4 and upload it to Preply!
+              In this workbook, you consolidate those exact reflexes, explore the <strong class="text-indigo-700">Intonation Device</strong> below to see how shifting your stress changes executive subtext, and practice the physical mechanics of British stress-timing and the Schwa (<code class="text-sky-800 font-mono font-bold">/ə/</code>). When ready, record your voice note directly in Part 5 and upload it to Preply!
             </p>
           </div>
         </div>
@@ -309,167 +498,206 @@
         <div class="space-y-8">
 
           <!-- PART 1: CLASS CONSOLIDATION (EX 1.1 & 1.2) -->
-          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+          <section class="bg-white border border-slate-300 rounded-2xl p-6 shadow-sm border-l-4 border-emerald-600">
+            <div class="border-b border-slate-200 pb-3 mb-5 flex items-center justify-between">
               <div>
-                <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Part 1 &bull; Consolidation</span>
+                <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">Part 1 &bull; Consolidation</span>
                 <h3 class="text-base font-bold text-slate-900">Exercises 1.1 & 1.2 Review</h3>
               </div>
-              <span class="text-xs text-slate-400">Classwork Follow-up</span>
+              <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 font-medium">Classwork Follow-up</span>
             </div>
 
             <!-- Task 1.1: 3-Second Reflex Sprints -->
             <div class="mb-6">
-              <h4 class="text-sm font-semibold text-slate-900 mb-1">Exercise 1.1: 3-Second Cognitive Reflex Sprints</h4>
-              <p class="text-xs text-slate-500 mb-3">
+              <h4 class="text-sm font-bold text-slate-900 mb-1">Exercise 1.1: 3-Second Cognitive Reflex Sprints</h4>
+              <p class="text-xs text-slate-600 mb-3">
                 Look at each trigger word. Give yourself only <strong>3 seconds</strong> to open your mouth. Speak for 20–30 seconds without saying "how do you say" or stalling in Spanish:
               </p>
 
-              <!-- Practice Timer -->
-              <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-between mb-4">
+              <!-- Practice Timer Box with Crisp Contrast -->
+              <div class="bg-slate-100 border border-slate-200 rounded-xl p-3.5 flex items-center justify-between mb-4 shadow-inner">
                 <div class="flex items-center gap-3">
-                  <span class="text-xl font-mono font-bold text-slate-900 bg-white px-3 py-1 rounded-lg border border-slate-200" id="sprintClock">00:30</span>
-                  <span class="text-xs text-slate-500">Practice 30-Second Sprint Clock</span>
+                  <span class="text-xl font-mono font-bold text-slate-900 bg-white px-3 py-1 rounded-lg border border-slate-300 shadow-sm" id="sprintClock">00:30</span>
+                  <span class="text-xs text-slate-700 font-medium">Practice 30-Second Sprint Clock</span>
                 </div>
                 <div class="flex items-center gap-1.5">
-                  <button onclick="startSprintClock(20)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-100 rounded-lg border border-slate-200 text-slate-700">20s</button>
-                  <button onclick="startSprintClock(30)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-100 rounded-lg border border-slate-200 text-slate-700">30s</button>
-                  <button onclick="toggleSprintClock()" id="sprintClockBtn" class="px-3 py-1 text-xs bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-lg">Start</button>
+                  <button onclick="startSprintClock(20)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-50 rounded-lg border border-slate-300 text-slate-800 font-medium transition">20s</button>
+                  <button onclick="startSprintClock(30)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-50 rounded-lg border border-slate-300 text-slate-800 font-medium transition">30s</button>
+                  <button onclick="toggleSprintClock()" id="sprintClockBtn" class="px-3.5 py-1 text-xs bg-slate-900 hover:bg-slate-800 text-white font-semibold rounded-lg shadow-sm transition">Start</button>
                 </div>
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
-                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 1</span>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 1</span>
                   <p class="font-bold text-slate-900 text-sm mb-1">"Complacency"</p>
-                  <p class="text-slate-500 mb-2">What happens when citizens or teams take comfort for granted?</p>
-                  <input type="text" id="t1_note_1" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                  <p class="text-slate-600 mb-2">What happens when citizens or executive teams take peace and comfort for granted?</p>
+                  <input type="text" id="t1_note_1" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
                 </div>
 
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
-                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 2</span>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 2</span>
                   <p class="font-bold text-slate-900 text-sm mb-1">"Orchestrated"</p>
-                  <p class="text-slate-500 mb-2">Describe a PR stunt, media narrative, or concert that was staged.</p>
-                  <input type="text" id="t1_note_2" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                  <p class="text-slate-600 mb-2">Describe a PR stunt, media narrative, or concert that felt completely staged.</p>
+                  <input type="text" id="t1_note_2" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
                 </div>
 
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
-                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 3</span>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 3</span>
                   <p class="font-bold text-slate-900 text-sm mb-1">"A Gathering"</p>
-                  <p class="text-slate-500 mb-2">Contrast an informal family gathering with a large public protest.</p>
-                  <input type="text" id="t1_note_3" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                  <p class="text-slate-600 mb-2">Contrast an informal family gathering with a large, tense public protest.</p>
+                  <input type="text" id="t1_note_3" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
                 </div>
 
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
-                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 4</span>
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
+                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 4</span>
                   <p class="font-bold text-slate-900 text-sm mb-1">"Spontaneous"</p>
-                  <p class="text-slate-500 mb-2">Describe an unplanned trip or unexpected decision you once took.</p>
-                  <input type="text" id="t1_note_4" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                  <p class="text-slate-600 mb-2">Describe an unplanned journey or unexpected career risk you once took.</p>
+                  <input type="text" id="t1_note_4" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
                 </div>
               </div>
             </div>
 
             <!-- Task 1.2: Speed Reframers -->
-            <div class="pt-4 border-t border-slate-100">
+            <div class="pt-4 border-t border-slate-200">
               <div class="flex items-center justify-between mb-2">
-                <h4 class="text-sm font-semibold text-slate-900">Exercise 1.2: Spanish-to-British Discourse Starters</h4>
-                <button onclick="toggleHint('ex12_hints')" class="text-xs text-slate-500 hover:text-slate-900 transition flex items-center gap-1">
-                  <span>Reveal Model Phrasing</span>
+                <h4 class="text-sm font-bold text-slate-900">Exercise 1.2: Spanish-to-British Discourse Starters</h4>
+                <button onclick="toggleHint('ex12_hints')" class="text-xs text-indigo-700 hover:text-indigo-900 font-semibold transition flex items-center gap-1">
+                  <span>Toggle Model Phrasing</span>
                 </button>
               </div>
-              <p class="text-xs text-slate-500 mb-4">
+              <p class="text-xs text-slate-600 mb-4">
                 Reframe these Spanish thoughts immediately into natural British English using the required discourse starter:
               </p>
 
               <div class="space-y-3.5 text-xs">
                 <!-- Item 1 -->
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-medium text-slate-700 italic">"El jefe no nos dio tiempo suficiente, pero él tampoco tenía la información."</span>
-                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">To be fair,...</span>
+                    <span class="font-semibold text-slate-800 italic">"El jefe no nos dio tiempo suficiente, pero él tampoco tenía la información."</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 font-semibold border border-slate-200">To be fair,...</span>
                   </div>
-                  <input type="text" id="reframer_1" placeholder="Start your sentence with 'To be fair,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
-                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
-                    <strong>Model:</strong> <em>"To be fair, the manager didn't give us enough time, but to be fair to him, he didn't have all the facts either."</em>
+                  <input type="text" id="reframer_1" placeholder="Start your sentence with 'To be fair,...'" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                    <strong>British Model:</strong> <em>"To be fair, the manager didn't give us enough time, but to be fair to him, he didn't have all the facts either."</em>
                   </div>
                 </div>
 
                 <!-- Item 2 -->
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-medium text-slate-700 italic">"Sinceramente, creo que este informe no sirve para nada y está mal enfocado."</span>
-                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">Quite frankly,...</span>
+                    <span class="font-semibold text-slate-800 italic">"Sinceramente, creo que este informe no sirve para nada y está mal enfocado."</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 font-semibold border border-slate-200">Quite frankly,...</span>
                   </div>
-                  <input type="text" id="reframer_2" placeholder="Start your sentence with 'Quite frankly,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
-                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
-                    <strong>Model:</strong> <em>"Quite frankly, I think this report is completely unhelpful and misses the core issues."</em>
+                  <input type="text" id="reframer_2" placeholder="Start your sentence with 'Quite frankly,...'" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                    <strong>British Model:</strong> <em>"Quite frankly, I think this report is completely unhelpful and misses the core issues."</em>
                   </div>
                 </div>
 
                 <!-- Item 3 -->
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-medium text-slate-700 italic">"Decir que tendremos todo listo el viernes es imposible."</span>
-                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">A bit of a stretch...</span>
+                    <span class="font-semibold text-slate-800 italic">"Decir que tendremos todo listo el viernes es imposible."</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 font-semibold border border-slate-200">A bit of a stretch...</span>
                   </div>
-                  <input type="text" id="reframer_3" placeholder="Start your sentence with 'It's a bit of a stretch to...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
-                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
-                    <strong>Model:</strong> <em>"It's a bit of a stretch to expect the entire deliverable to be completed by Friday."</em>
+                  <input type="text" id="reframer_3" placeholder="Start your sentence with 'It's a bit of a stretch to...'" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                    <strong>British Model:</strong> <em>"It's a bit of a stretch to expect the entire deliverable to be completed by Friday."</em>
                   </div>
                 </div>
 
                 <!-- Item 4 -->
-                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                <div class="p-4 rounded-xl border border-slate-200 bg-white shadow-sm">
                   <div class="flex items-center justify-between mb-1.5">
-                    <span class="font-medium text-slate-700 italic">"Al final lo que importa es si el cliente está contento con los resultados."</span>
-                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">At the end of the day,...</span>
+                    <span class="font-semibold text-slate-800 italic">"Al final lo que importa es si el cliente está contento con los resultados."</span>
+                    <span class="px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-800 font-semibold border border-slate-200">At the end of the day,...</span>
                   </div>
-                  <input type="text" id="reframer_4" placeholder="Start your sentence with 'At the end of the day,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
-                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
-                    <strong>Model:</strong> <em>"At the end of the day, all that truly matters is whether the client is satisfied with the results."</em>
+                  <input type="text" id="reframer_4" placeholder="Start your sentence with 'At the end of the day,...'" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                    <strong>British Model:</strong> <em>"At the end of the day, all that truly matters is whether the client is satisfied with the results."</em>
                   </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- PART 2: SELF-GUIDED PRONUNCIATION CLINIC -->
-          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+          <!-- PART 2: DYNAMIC INTONATION DEVICE (NUCLEAR STRESS LABORATORY) -->
+          <section id="intonationLab" class="bg-white border border-slate-300 rounded-2xl p-6 shadow-sm border-l-4 border-indigo-600">
+            <div class="border-b border-slate-200 pb-3 mb-5 flex flex-wrap items-center justify-between gap-2">
               <div>
-                <span class="text-[11px] font-bold text-sky-600 uppercase tracking-wider">Part 2 &bull; Pronunciation Clinic</span>
+                <span class="text-[11px] font-bold text-indigo-700 uppercase tracking-wider">Part 2 &bull; Interactive Pronunciation Lab</span>
+                <h3 class="text-base font-bold text-slate-900">The British Executive Intonation Device</h3>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="text-[11px] font-semibold bg-indigo-100 text-indigo-900 px-2.5 py-1 rounded-full border border-indigo-200" id="discoveryBadge">
+                  Explored: 1 of 5
+                </span>
+              </div>
+            </div>
+
+            <!-- Pedagogical Intro -->
+            <p class="text-xs text-slate-600 mb-4 leading-relaxed">
+              In Spanish, changing meaning usually requires changing word order or adding syntax (<em class="text-slate-800">"A mí me parece..."</em>, <em class="text-slate-800">"Esa propuesta sí..."</em>). 
+              In British English, the words stay identical, but moving the <strong>Nuclear Tonic Stress</strong> (the pitch peak and elongated vowel) completely transforms the <strong>hidden subtext</strong> heard by your British colleagues.
+            </p>
+
+            <!-- Scenario Selector Tabs -->
+            <div class="flex flex-wrap gap-2 mb-5">
+              ${intonationScenarios.map((sc, sIdx) => `
+                <button onclick="switchIntonationScenario(${sIdx})" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition border ${
+                  sIdx === currentScenarioIdx 
+                    ? 'bg-indigo-600 text-white border-indigo-700 shadow-sm' 
+                    : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
+                }">
+                  ${sc.id === 'good_idea' ? '💡' : sc.id === 'postpone_launch' ? '🛡️' : '🚀'} ${sc.sentenceText}
+                </button>
+              `).join('')}
+            </div>
+
+            <!-- Active Sentence Interactive Word Board -->
+            <div id="intonationInteractiveContainer">
+              <!-- Rendered via renderIntonationDevice() -->
+            </div>
+          </section>
+
+          <!-- PART 3: SELF-GUIDED PRONUNCIATION CLINIC -->
+          <section class="bg-white border border-slate-300 rounded-2xl p-6 shadow-sm border-l-4 border-sky-600">
+            <div class="border-b border-slate-200 pb-3 mb-5 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold text-sky-700 uppercase tracking-wider">Part 3 &bull; Pronunciation Clinic</span>
                 <h3 class="text-base font-bold text-slate-900">British Rhythm, Schwa (/ə/) & Catenation</h3>
               </div>
-              <span class="text-xs text-slate-400">Acoustic Mastery</span>
+              <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 font-medium">Acoustic Mastery</span>
             </div>
 
             <!-- The Metronome Rule -->
             <div class="mb-6">
-              <h4 class="text-sm font-semibold text-slate-900 mb-1.5">1. The Metronome Rule: "Drum Beat" vs. "Machine Gun"</h4>
-              <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                Spanish is <strong>syllable-timed</strong> (every syllable takes equal length: <em>da-da-da-da</em>). 
+              <h4 class="text-sm font-bold text-slate-900 mb-1.5">1. The Metronome Rule: "Drum Beat" vs. "Machine Gun"</h4>
+              <p class="text-xs text-slate-700 leading-relaxed mb-3">
+                Spanish is <strong>syllable-timed</strong> (every syllable receives equal acoustic duration: <em>da-da-da-da</em>). 
                 British English is <strong>stress-timed</strong>: only stressed syllables hit a regular musical beat. All syllables in between are squashed and reduced to <strong>Schwa (/ə/)</strong>.
               </p>
 
-              <!-- Desk Tap Box -->
-              <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs">
-                <span class="font-bold text-slate-800 block mb-2">🥁 Try the Physical Desk Tap Drill:</span>
-                <p class="text-slate-600 mb-3">
+              <!-- Desk Tap Box with High Contrast -->
+              <div class="bg-slate-100 border border-slate-300 rounded-xl p-4 text-xs shadow-inner">
+                <span class="font-bold text-slate-900 block mb-2">🥁 Try the Physical Desk Tap Drill:</span>
+                <p class="text-slate-700 mb-3">
                   Tap your knuckle on your desk at a steady, rhythmic pace: <em>Tap ... Tap ... Tap</em>. 
                   Do <strong>NOT</strong> slow down your hand! Say each sentence below, fitting all extra words between the beats in the exact same duration:
                 </p>
-                <div class="space-y-1.5 font-mono text-slate-800">
-                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
-                    <span>[Tap!] <strong class="text-slate-900">CATS</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-900">EAT</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-900">FISH</strong>.</span>
-                    <span class="text-slate-400 text-[10px]">3 beats / 3 syllables</span>
+                <div class="space-y-2 font-mono text-slate-900">
+                  <div class="p-2.5 rounded-lg bg-white border border-slate-300 flex justify-between shadow-sm">
+                    <span>[Tap!] <strong class="text-slate-950 font-bold">CATS</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-950 font-bold">EAT</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-950 font-bold">FISH</strong>.</span>
+                    <span class="text-slate-500 font-sans text-[11px] font-semibold">3 beats / 3 syllables</span>
                   </div>
-                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
-                    <span>[Tap!] The <strong class="text-slate-900">CATS</strong> &nbsp;&nbsp; [Tap!] will <strong class="text-slate-900">EAT</strong> &nbsp;&nbsp; [Tap!] the <strong class="text-slate-900">FISH</strong>.</span>
-                    <span class="text-slate-400 text-[10px]">3 beats / 5 syllables</span>
+                  <div class="p-2.5 rounded-lg bg-white border border-slate-300 flex justify-between shadow-sm">
+                    <span>[Tap!] The <strong class="text-slate-950 font-bold">CATS</strong> &nbsp;&nbsp; [Tap!] will <strong class="text-slate-950 font-bold">EAT</strong> &nbsp;&nbsp; [Tap!] the <strong class="text-slate-950 font-bold">FISH</strong>.</span>
+                    <span class="text-slate-500 font-sans text-[11px] font-semibold">3 beats / 5 syllables</span>
                   </div>
-                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
-                    <span>[Tap!] The <strong class="text-slate-900">CATS</strong> might have &nbsp;&nbsp; [Tap!] <strong class="text-slate-900">EAT</strong>-en all the &nbsp;&nbsp; [Tap!] <strong class="text-slate-900">FISH</strong>.</span>
-                    <span class="text-slate-400 text-[10px]">3 beats / 8 syllables (same time!)</span>
+                  <div class="p-2.5 rounded-lg bg-white border border-slate-300 flex justify-between shadow-sm">
+                    <span>[Tap!] The <strong class="text-slate-950 font-bold">CATS</strong> might have &nbsp;&nbsp; [Tap!] <strong class="text-slate-950 font-bold">EAT</strong>-en all the &nbsp;&nbsp; [Tap!] <strong class="text-slate-950 font-bold">FISH</strong>.</span>
+                    <span class="text-slate-500 font-sans text-[11px] font-semibold">3 beats / 8 syllables (same time!)</span>
                   </div>
                 </div>
               </div>
@@ -477,25 +705,25 @@
 
             <!-- The Lazy Sigh Technique -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-6">
-              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
                 <span class="font-bold text-slate-900 block mb-1">How to Make the Schwa (/ə/)</span>
-                <p class="text-slate-500 mb-2">The sound your mouth makes when doing zero work:</p>
-                <ul class="space-y-1 text-slate-600 list-disc list-inside">
+                <p class="text-slate-600 mb-2">The sound your mouth makes when doing zero work:</p>
+                <ul class="space-y-1 text-slate-700 list-disc list-inside">
                   <li>Relax your jaw half-open.</li>
                   <li>Do not round your lips (no "o"), do not smile (no "e").</li>
                   <li>Tongue rests limp in the bottom of your mouth.</li>
-                  <li>Make a quiet lazy sigh: <code class="text-sky-700 font-mono font-semibold">/ə/</code>.</li>
+                  <li>Make a quiet lazy sigh: <code class="text-sky-800 font-mono font-bold bg-sky-100 px-1 rounded">/ə/</code>.</li>
                 </ul>
               </div>
 
-              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
                 <span class="font-bold text-slate-900 block mb-1">Consonant-to-Vowel Catenation (‿)</span>
-                <p class="text-slate-500 mb-2">Gliding across word boundaries like one single word:</p>
+                <p class="text-slate-600 mb-2">Gliding across word boundaries like one single word:</p>
                 <div class="grid grid-cols-2 gap-2 text-center font-mono">
-                  <div class="p-1.5 rounded bg-white border border-slate-200">hold + on ➔ <strong>hol-don</strong></div>
-                  <div class="p-1.5 rounded bg-white border border-slate-200">turned + out ➔ <strong>turn-dout</strong></div>
-                  <div class="p-1.5 rounded bg-white border border-slate-200">pick + it + up ➔ <strong>pi-ki-tup</strong></div>
-                  <div class="p-1.5 rounded bg-white border border-slate-200">first + of + all ➔ <strong>firs-tə-vɔːl</strong></div>
+                  <div class="p-2 rounded bg-white border border-slate-200 shadow-sm font-semibold">hold + on ➔ <strong>hol-don</strong></div>
+                  <div class="p-2 rounded bg-white border border-slate-200 shadow-sm font-semibold">turned + out ➔ <strong>turn-dout</strong></div>
+                  <div class="p-2 rounded bg-white border border-slate-200 shadow-sm font-semibold">pick + it + up ➔ <strong>pi-ki-tup</strong></div>
+                  <div class="p-2 rounded bg-white border border-slate-200 shadow-sm font-semibold">first + of + all ➔ <strong>firs-tə-vɔːl</strong></div>
                 </div>
               </div>
             </div>
@@ -503,40 +731,40 @@
             <!-- Phonetic Practice Sentences -->
             <div>
               <div class="flex items-center justify-between mb-2">
-                <h4 class="text-sm font-semibold text-slate-900">Practice Sentences (Read Aloud with Catenation & Schwa)</h4>
-                <button onclick="toggleHint('phono_markup_answers')" class="text-xs text-slate-500 hover:text-slate-900 transition">
+                <h4 class="text-sm font-bold text-slate-900">Practice Sentences (Read Aloud with Catenation & Schwa)</h4>
+                <button onclick="toggleHint('phono_markup_answers')" class="text-xs text-sky-800 hover:text-sky-950 font-semibold transition">
                   Toggle Phonetic Markings
                 </button>
               </div>
               
               <div class="space-y-2 text-xs">
-                <div class="p-3 rounded-xl border border-slate-200 bg-white">
-                  <p class="text-slate-800 font-medium">1. It turned out to be an unexpected gathering of community leaders.</p>
-                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <p class="text-slate-900 font-medium">1. It turned out to be an unexpected gathering of community leaders.</p>
+                  <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     It turned <span class="catenate-mark">‿</span> out to be <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> un<span class="schwa-mark">e</span>xp<span class="schwa-mark">e</span>ct<span class="schwa-mark">e</span>d gath<span class="schwa-mark">e</span>ring <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f c<span class="schwa-mark">o</span>mmun<span class="schwa-mark">i</span>ty l<span class="schwa-mark">ea</span>d<span class="schwa-mark">e</span>rs.
                   </p>
                 </div>
-                <div class="p-3 rounded-xl border border-slate-200 bg-white">
-                  <p class="text-slate-800 font-medium">2. Hold on a second, to be fair he made an enormous effort.</p>
-                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <p class="text-slate-900 font-medium">2. Hold on a second, to be fair he made an enormous effort.</p>
+                  <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     Hold <span class="catenate-mark">‿</span> on <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> second, t<span class="schwa-mark">o</span> be fair he made <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">e</span>norm<span class="schwa-mark">ou</span>s <span class="catenate-mark">‿</span> effort.
                   </p>
                 </div>
-                <div class="p-3 rounded-xl border border-slate-200 bg-white">
-                  <p class="text-slate-800 font-medium">3. At the end of the day, an official announcement was made in Hampshire.</p>
-                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <p class="text-slate-900 font-medium">3. At the end of the day, an official announcement was made in Hampshire.</p>
+                  <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     <span class="schwa-mark">A</span>t th<span class="schwa-mark">e</span> end <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f th<span class="schwa-mark">e</span> day, <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>ffic<span class="schwa-mark">ia</span>l <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>nnounc<span class="schwa-mark">e</span>m<span class="schwa-mark">e</span>nt w<span class="schwa-mark">a</span>s made <span class="catenate-mark">‿</span> in Hampsh<span class="schwa-mark">i</span>re (/ˈhæmp.ʃə/).
                   </p>
                 </div>
-                <div class="p-3 rounded-xl border border-slate-200 bg-white">
-                  <p class="text-slate-800 font-medium">4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.</p>
-                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <p class="text-slate-900 font-medium">4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.</p>
+                  <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     Quite frankly, it <span class="catenate-mark">‿</span> is <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> bit <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> stretch t<span class="schwa-mark">o</span> s<span class="schwa-mark">u</span>ppose she will brush <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> off.
                   </p>
                 </div>
-                <div class="p-3 rounded-xl border border-slate-200 bg-white">
-                  <p class="text-slate-800 font-medium">5. Can I pick it up from the woman at the front desk?</p>
-                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
+                  <p class="text-slate-900 font-medium">5. Can I pick it up from the woman at the front desk?</p>
+                  <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     C<span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> I pick <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> up fr<span class="schwa-mark">o</span>m th<span class="schwa-mark">e</span> wom<span class="schwa-mark">a</span>n <span class="schwa-mark">a</span>t th<span class="schwa-mark">e</span> front desk?
                   </p>
                 </div>
@@ -544,134 +772,138 @@
             </div>
           </section>
 
-          <!-- PART 3: EXTENDING THE LEXICON -->
-          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-            <div class="border-b border-slate-100 pb-3 mb-4">
-              <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">Part 3 &bull; Lexicon</span>
+          <!-- PART 4: EXTENDING THE LEXICON -->
+          <section class="bg-white border border-slate-300 rounded-2xl p-6 shadow-sm border-l-4 border-amber-500">
+            <div class="border-b border-slate-200 pb-3 mb-4">
+              <span class="text-[11px] font-bold text-amber-700 uppercase tracking-wider">Part 4 &bull; Lexicon</span>
               <h3 class="text-base font-bold text-slate-900">3 Essential British Expressions</h3>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
                 <span class="font-bold text-slate-900 text-sm block mb-1">Come across (as)</span>
-                <p class="text-slate-500 mb-2">How one is perceived by others.</p>
-                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"In the meeting, she came across as very decisive."</p>
-                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "give the impression of"</span>
+                <p class="text-slate-600 mb-2">How one is perceived by others.</p>
+                <p class="italic text-slate-800 bg-white p-2.5 rounded-lg border border-slate-200 font-medium">"In the meeting, she came across as very decisive."</p>
+                <span class="text-[10px] text-rose-600 mt-2 block font-semibold">🚫 Don't say: "give the impression of"</span>
               </div>
 
-              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
                 <span class="font-bold text-slate-900 text-sm block mb-1">Turn out</span>
-                <p class="text-slate-500 mb-2">To result in or end up as.</p>
-                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"We expected delays, but it turned out fine."</p>
-                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "result in" / "end up"</span>
+                <p class="text-slate-600 mb-2">To result in or end up as.</p>
+                <p class="italic text-slate-800 bg-white p-2.5 rounded-lg border border-slate-200 font-medium">"We expected delays, but it turned out fine."</p>
+                <span class="text-[10px] text-rose-600 mt-2 block font-semibold">🚫 Don't say: "result in" / "end up"</span>
               </div>
 
-              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
                 <span class="font-bold text-slate-900 text-sm block mb-1">Brush off</span>
-                <p class="text-slate-500 mb-2">To dismiss criticism or setbacks lightly.</p>
-                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"He just brushed off the rumor and kept working."</p>
-                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "pass from" / "ignore"</span>
+                <p class="text-slate-600 mb-2">To dismiss criticism or setbacks lightly.</p>
+                <p class="italic text-slate-800 bg-white p-2.5 rounded-lg border border-slate-200 font-medium">"He just brushed off the rumor and kept working."</p>
+                <span class="text-[10px] text-rose-600 mt-2 block font-semibold">🚫 Don't say: "pass from" / "ignore"</span>
               </div>
             </div>
           </section>
 
-          <!-- PART 4: LIVE AUDIO RECORDER BOOTH & PREPLY SUBMISSION -->
-          <section id="recorderBooth" class="bg-white border-2 border-slate-900/10 rounded-2xl p-6 shadow-sm">
-            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+          <!-- PART 5: SOUND BOOTH (AUDIO STUDIO & PREPLY UPLOAD) -->
+          <!-- Dark Contrast Sound Booth Container Anchors Page Balance -->
+          <section id="recorderBooth" class="bg-[#0f172a] text-slate-100 border-2 border-slate-800 rounded-2xl p-6 shadow-xl">
+            <div class="border-b border-slate-800 pb-3 mb-5 flex items-center justify-between">
               <div>
-                <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider">Part 4 &bull; Final Submission</span>
-                <h3 class="text-base font-bold text-slate-900">Audio Recording Studio & Preply Submission</h3>
+                <span class="text-[11px] font-bold text-rose-400 uppercase tracking-wider flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-500"></span>
+                  Part 5 &bull; Capstone Audio Task
+                </span>
+                <h3 class="text-base font-bold text-white">Audio Recording Studio & Preply Submission</h3>
               </div>
-              <span id="liveRecBadge" class="hidden px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-semibold flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-rose-600 live-pulse"></span> REC LIVE
+              <span id="liveRecBadge" class="hidden px-2.5 py-0.5 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 text-xs font-semibold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500 live-pulse"></span> REC LIVE
               </span>
             </div>
 
             <!-- Prompt -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6">
+            <div class="bg-slate-800/80 border border-slate-700/80 rounded-xl p-4 mb-6">
               <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">60-Second Spontaneous Speech Prompt</span>
-              <blockquote class="text-sm font-medium text-slate-800 italic leading-relaxed">
+              <blockquote class="text-sm font-medium text-slate-200 italic leading-relaxed">
                 "Think about a recent news story or social media trend that caught your attention. In your opinion, was it an authentic social movement, or was it orchestrated to distract the public? Give your honest thoughts using at least two target phrases from Week 1."
               </blockquote>
             </div>
 
             <!-- Live Browser Recorder Box -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center mb-6">
-              <div class="text-3xl font-mono font-bold text-slate-900 mb-1" id="recTimer">00:00</div>
-              <p class="text-xs text-slate-500 mb-4" id="recStatus">Click below to record your voice note directly in your browser.</p>
+            <div class="bg-[#0b1329] border border-slate-800 rounded-xl p-6 text-center mb-6">
+              <div class="text-4xl font-mono font-bold text-white mb-1 tracking-wider" id="recTimer">00:00</div>
+              <p class="text-xs text-slate-400 mb-4" id="recStatus">Click below to record your voice note directly in your browser.</p>
 
               <div class="flex items-center justify-center gap-2">
-                <button id="mainRecBtn" onclick="toggleRecording()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs shadow-sm transition flex items-center gap-2">
-                  <span id="recDot" class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <button id="mainRecBtn" onclick="toggleRecording()" class="px-6 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-semibold text-xs shadow-md transition flex items-center gap-2">
+                  <span id="recDot" class="w-2.5 h-2.5 rounded-full bg-white"></span>
                   <span id="recText">Start Recording</span>
                 </button>
-                <button id="resetRecBtn" onclick="resetRecording()" class="hidden px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium transition">
+                <button id="resetRecBtn" onclick="resetRecording()" class="hidden px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-medium transition">
                   Reset
                 </button>
               </div>
 
               <!-- Audio Player & Download -->
-              <div id="playbackContainer" class="hidden mt-5 pt-4 border-t border-slate-200/80 flex flex-col items-center space-y-3">
-                <span class="text-xs text-emerald-700 font-medium">✓ Recording Complete! Listen back before sending:</span>
-                <audio id="audioElement" controls class="w-full max-w-sm rounded bg-white shadow-sm border border-slate-200"></audio>
-                <a id="downloadBtn" download="Alicia_Week1_Spontaneous_Sprint.webm" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold shadow-sm transition inline-flex items-center gap-1.5">
+              <div id="playbackContainer" class="hidden mt-5 pt-4 border-t border-slate-800 flex flex-col items-center space-y-3">
+                <span class="text-xs text-emerald-400 font-medium">✓ Recording Complete! Listen back before sending:</span>
+                <audio id="audioElement" controls class="w-full max-w-sm rounded bg-slate-900 border border-slate-700"></audio>
+                <a id="downloadBtn" download="Alicia_Week1_Spontaneous_Sprint.webm" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold shadow-md transition inline-flex items-center gap-1.5">
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-                  <span>Download Audio File</span>
+                  <span>Download Audio File (.webm)</span>
                 </a>
               </div>
             </div>
 
             <!-- How to Upload to Preply Guide -->
-            <div class="bg-white border border-slate-200 rounded-xl p-5 mb-5">
+            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-5 mb-5 text-slate-200">
               <div class="flex items-center justify-between mb-3">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
-                  <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
-                  How to Send Your Audio to Lewis on Preply
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                  How to Send Your Audio to Lewis on Preply (3 Steps)
                 </h4>
-                <a href="https://preply.com/messages" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-900 font-semibold hover:underline flex items-center gap-1">
+                <a href="https://preply.com/messages" target="_blank" rel="noopener noreferrer" class="text-xs text-sky-400 font-semibold hover:underline flex items-center gap-1">
                   <span>Open Preply Messages</span> &nearr;
                 </a>
               </div>
 
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-600 mb-3">
-                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <span class="font-bold text-slate-900 block mb-1">1. Download File</span>
-                  Click "Download Audio File" above to save your recording.
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-300 mb-3">
+                <div class="p-3 rounded-lg bg-slate-900 border border-slate-700">
+                  <span class="font-bold text-white block mb-1">1. Download Audio</span>
+                  Click "Download Audio File" above to save your `.webm` recording.
                 </div>
-                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <span class="font-bold text-slate-900 block mb-1">2. Open Preply Chat</span>
+                <div class="p-3 rounded-lg bg-slate-900 border border-slate-700">
+                  <span class="font-bold text-white block mb-1">2. Open Preply Chat</span>
                   Open your message thread with your tutor <strong>Lewis O.</strong>
                 </div>
-                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
-                  <span class="font-bold text-slate-900 block mb-1">3. Attach & Send</span>
+                <div class="p-3 rounded-lg bg-slate-900 border border-slate-700">
+                  <span class="font-bold text-white block mb-1">3. Attach & Send</span>
                   Click the <strong>Paperclip (📎)</strong>, attach the file, and press send.
                 </div>
               </div>
 
-              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100 text-xs text-slate-500">
-                <span>Copy note for chat: <em>"Hi Lewis! Here is my Week 1 spontaneous speech sprint. Looking forward to your feedback!"</em></span>
-                <button onclick="copyPreplyNote()" id="copyBtn" class="px-2.5 py-1 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-[11px] font-medium transition ml-2">Copy</button>
+              <div class="flex items-center justify-between p-3 rounded-lg bg-slate-900/90 border border-slate-700 text-xs text-slate-300">
+                <span>Copy chat note: <em class="text-slate-400">"Hi Lewis! Here is my Week 1 spontaneous speech sprint. Looking forward to your feedback!"</em></span>
+                <button onclick="copyPreplyNote()" id="copyBtn" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-xs font-semibold transition ml-2">Copy</button>
               </div>
             </div>
 
             <!-- Self-Audit Checklist -->
-            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs">
-              <span class="font-bold text-slate-800 block mb-2">Checklist Before Sending:</span>
-              <div class="space-y-1.5 text-slate-600">
+            <div class="bg-slate-800/50 border border-slate-700 rounded-xl p-4 text-xs text-slate-300">
+              <span class="font-bold text-white block mb-2">Checklist Before Sending:</span>
+              <div class="space-y-1.5">
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="chk_1" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <input type="checkbox" id="chk_1" onchange="saveCheck(this.id, this.checked)" class="rounded text-indigo-500 bg-slate-900 border-slate-700">
                   <span>Started speaking within 3 seconds without saying "how do you say"</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="chk_2" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <input type="checkbox" id="chk_2" onchange="saveCheck(this.id, this.checked)" class="rounded text-indigo-500 bg-slate-900 border-slate-700">
                   <span>Used at least two target starters (To be fair, Quite frankly, At the end of the day, A bit of a stretch)</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="chk_3" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <input type="checkbox" id="chk_3" onchange="saveCheck(this.id, this.checked)" class="rounded text-indigo-500 bg-slate-900 border-slate-700">
                   <span>Linked words smoothly (catenation) across boundaries</span>
                 </label>
                 <label class="flex items-center gap-2 cursor-pointer">
-                  <input type="checkbox" id="chk_4" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <input type="checkbox" id="chk_4" onchange="saveCheck(this.id, this.checked)" class="rounded text-indigo-500 bg-slate-900 border-slate-700">
                   <span>Relaxed unstressed vowels into neutral Schwa (/ə/)</span>
                 </label>
               </div>
@@ -681,7 +913,177 @@
         </div>
       `;
 
+      renderIntonationDevice();
       loadStoredData();
+    }
+
+    // INTONATION DEVICE CONTROLLER
+    function switchIntonationScenario(sIdx) {
+      currentScenarioIdx = sIdx;
+      const sc = intonationScenarios[sIdx];
+      currentStressedWordIdx = sc.stressableIndices[0];
+      exploredTracker.add(`${sIdx}_${currentStressedWordIdx}`);
+      renderContent();
+    }
+
+    function selectStressedWord(wIdx) {
+      currentStressedWordIdx = wIdx;
+      exploredTracker.add(`${currentScenarioIdx}_${wIdx}`);
+      renderIntonationDevice();
+    }
+
+    function renderIntonationDevice() {
+      const container = document.getElementById("intonationInteractiveContainer");
+      if (!container) return;
+
+      const sc = intonationScenarios[currentScenarioIdx];
+      const variation = sc.variations[currentStressedWordIdx] || sc.variations[sc.stressableIndices[0]];
+      
+      // Update badge count
+      const totalPossible = sc.stressableIndices.length;
+      let exploredCount = 0;
+      sc.stressableIndices.forEach(idx => {
+        if (exploredTracker.has(`${currentScenarioIdx}_${idx}`)) exploredCount++;
+      });
+      const badge = document.getElementById("discoveryBadge");
+      if (badge) badge.innerText = `Explored: ${exploredCount} of ${totalPossible} nuances`;
+
+      container.innerHTML = `
+        <!-- Interactive Sentence Word Tokens -->
+        <div class="bg-slate-100 border border-slate-300 rounded-xl p-5 mb-5 shadow-inner">
+          <div class="text-[11px] font-bold text-slate-600 uppercase tracking-wider mb-2 flex items-center justify-between">
+            <span>Click any word to move the Nuclear Tonic Stress:</span>
+            <span class="text-indigo-700 font-mono text-[10px]">Tonic Peak: [${variation.word.toUpperCase()}]</span>
+          </div>
+
+          <div class="flex flex-wrap items-center justify-center gap-2 py-3">
+            ${sc.words.map((w, idx) => {
+              const isStressable = sc.stressableIndices.includes(idx);
+              const isSelected = idx === currentStressedWordIdx;
+
+              if (!isStressable) {
+                return `
+                  <span class="px-3 py-2 text-slate-400 font-serif text-lg font-medium select-none">
+                    ${w}
+                  </span>
+                `;
+              }
+
+              return `
+                <button onclick="selectStressedWord(${idx})" class="px-4 py-2.5 rounded-xl font-bold transition transform ${
+                  isSelected 
+                    ? 'bg-indigo-600 text-white shadow-md ring-4 ring-indigo-200 scale-105 border border-indigo-700' 
+                    : 'bg-white text-slate-800 border border-slate-300 hover:border-indigo-400 hover:bg-indigo-50 shadow-sm'
+                } flex flex-col items-center">
+                  <span class="text-base">${w}</span>
+                  ${isSelected ? `<span class="text-[9px] uppercase tracking-wider font-mono text-indigo-100 mt-0.5">↑ Stress</span>` : `<span class="text-[9px] text-slate-400 font-mono mt-0.5">&nbsp;</span>`}
+                </button>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- Acoustic Listen Button & Pitch Curve -->
+          <div class="mt-4 pt-3 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+            <div class="flex items-center gap-2 text-xs text-slate-600">
+              <span class="font-mono bg-white px-2 py-1 rounded border border-slate-300 text-indigo-700 font-bold">${variation.phonetic}</span>
+              <span>Acoustic contour: Pitch peak + elongated vowel duration</span>
+            </div>
+            <button onclick="playIntonationAcoustic()" class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold transition flex items-center gap-1.5 shadow-sm">
+              <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+              <span>🔊 Hear Stress Audio Tune</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- High-Contrast Discovery Breakdown Card -->
+        <div class="bg-indigo-50/70 border border-indigo-200 rounded-xl p-5 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+            <div class="flex items-center gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-indigo-600 text-white text-[11px] font-bold">
+                STRESSED: "${variation.word.toUpperCase()}"
+              </span>
+              <span class="text-xs font-semibold text-indigo-900">${variation.badge}</span>
+            </div>
+            <span class="text-[11px] text-slate-500 font-mono">Listener Perception</span>
+          </div>
+
+          <!-- The Subtext Revelation -->
+          <div class="bg-white border border-indigo-100 rounded-xl p-4 mb-4 shadow-sm">
+            <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-1 flex items-center gap-1.5">
+              <span>🇬🇧</span> What British Colleagues Actually Hear (The Hidden Subtext):
+            </h5>
+            <p class="text-sm font-semibold text-slate-900 leading-relaxed">
+              "${variation.subtext}"
+            </p>
+          </div>
+
+          <!-- Spanish Transfer Note & Boardroom Tip Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+            <div class="bg-white/80 border border-indigo-100 rounded-lg p-3">
+              <span class="font-bold text-slate-800 block mb-1">🇪🇸 Spanish Transfer Trap:</span>
+              <p class="text-slate-600 leading-relaxed">${variation.spanishTrap}</p>
+            </div>
+            <div class="bg-white/80 border border-indigo-100 rounded-lg p-3">
+              <span class="font-bold text-slate-800 block mb-1">💼 Boardroom Implementation Tip:</span>
+              <p class="text-slate-600 leading-relaxed">${variation.boardroomTip}</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // Play pitch contour chimes using Web Audio API + SpeechSynthesis
+    function playIntonationAcoustic() {
+      const sc = intonationScenarios[currentScenarioIdx];
+      const stressedIdx = currentStressedWordIdx;
+
+      try {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (AudioCtx) {
+          const ctx = new AudioCtx();
+          let time = ctx.currentTime + 0.05;
+
+          sc.words.forEach((w, idx) => {
+            if (!sc.stressableIndices.includes(idx)) return;
+            const isStressed = idx === stressedIdx;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = isStressed ? 'triangle' : 'sine';
+            const dur = isStressed ? 0.38 : 0.18;
+            const freq = isStressed ? 360 : (idx > stressedIdx ? 170 : 220);
+
+            osc.frequency.setValueAtTime(freq, time);
+            if (isStressed) {
+              osc.frequency.exponentialRampToValueAtTime(220, time + dur);
+            }
+
+            gain.gain.setValueAtTime(0.001, time);
+            gain.gain.exponentialRampToValueAtTime(isStressed ? 0.28 : 0.09, time + 0.03);
+            gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(time);
+            osc.stop(time + dur);
+
+            time += dur + 0.06;
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(sc.sentenceText);
+        const voices = window.speechSynthesis.getVoices();
+        const ukVoice = voices.find(v => v.lang === 'en-GB' || v.name.includes('UK') || v.name.includes('British') || v.name.includes('English'));
+        if (ukVoice) utterance.voice = ukVoice;
+        utterance.rate = 0.85;
+        window.speechSynthesis.speak(utterance);
+      }
     }
 
     function toggleHint(className) {
@@ -732,7 +1134,7 @@
       }
     }
 
-    // Audio Recorder
+    // Live Audio Recorder (HTML5 MediaRecorder)
     let mediaRecorder = null;
     let audioChunks = [];
     let recTimerInterval = null;
@@ -786,8 +1188,8 @@
 
           const btn = document.getElementById('mainRecBtn');
           if (btn) {
-            btn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
-            btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
+            btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
+            btn.classList.add('bg-rose-700', 'hover:bg-rose-600');
             document.getElementById('recText').innerText = 'Stop Recording';
             document.getElementById('recDot').classList.add('rounded-sm');
           }
@@ -812,8 +1214,8 @@
         document.getElementById('liveRecBadge')?.classList.add('hidden');
         const btn = document.getElementById('mainRecBtn');
         if (btn) {
-          btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
-          btn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+          btn.classList.remove('bg-rose-700', 'hover:bg-rose-600');
+          btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
           document.getElementById('recText').innerText = 'Record Again';
           document.getElementById('recDot').classList.remove('rounded-sm');
         }
@@ -840,8 +1242,8 @@
 
       const btn = document.getElementById('mainRecBtn');
       if (btn) {
-        btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
-        btn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+        btn.classList.remove('bg-rose-700', 'hover:bg-rose-600');
+        btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
         document.getElementById('recText').innerText = 'Start Recording';
       }
       const status = document.getElementById('recStatus');
@@ -861,20 +1263,20 @@
 
     // Auto-save logic
     function saveCheck(id, checked) {
-      localStorage.setItem('alicia_light_chk_' + id, checked ? 'true' : 'false');
+      localStorage.setItem('alicia_balanced_chk_' + id, checked ? 'true' : 'false');
     }
 
     function loadStoredData() {
       document.querySelectorAll('input[type="text"]').forEach(el => {
-        const val = localStorage.getItem('alicia_light_' + el.id);
+        const val = localStorage.getItem('alicia_balanced_' + el.id);
         if (val) el.value = val;
         el.addEventListener('input', () => {
-          localStorage.setItem('alicia_light_' + el.id, el.value);
+          localStorage.setItem('alicia_balanced_' + el.id, el.value);
         });
       });
 
       document.querySelectorAll('input[type="checkbox"]').forEach(el => {
-        const val = localStorage.getItem('alicia_light_chk_' + el.id);
+        const val = localStorage.getItem('alicia_balanced_chk_' + el.id);
         if (val === 'true') el.checked = true;
       });
     }
