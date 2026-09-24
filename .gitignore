@@ -1,5 +1,10 @@
-# Teacher only materials (Answer keys, future unreleased homeworks)
+# Teacher only materials (Answer keys, future unreleased homeworks, lesson plans, chat logs, textbook)
 Teacher-Materials/
+Lessons/
+messages/
+*.pdf
+Curriculum-Overview.md
+Homework/
 
 # OS metadata
 Thumbs.db
