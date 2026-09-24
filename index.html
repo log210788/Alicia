@@ -441,6 +441,7 @@
     let exploredTracker = new Set(["0_0"]); // scenarioIdx_wordIdx
 
     function init() {
+      initRPVoiceEngine();
       renderTabs();
       renderContent();
       loadStoredData();
@@ -804,31 +805,56 @@
               
               <div class="space-y-2 text-xs">
                 <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <p class="text-slate-900 font-medium">1. It turned out to be an unexpected gathering of community leaders.</p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-slate-900 font-medium">1. It turned out to be an unexpected gathering of community leaders.</p>
+                    <button onclick="playBritishRPSpeech('It turned out to be an unexpected gathering of community leaders.')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                      <span>🔊 RP Audio</span>
+                    </button>
+                  </div>
                   <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     It turned <span class="catenate-mark">‿</span> out to be <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> un<span class="schwa-mark">e</span>xp<span class="schwa-mark">e</span>ct<span class="schwa-mark">e</span>d gath<span class="schwa-mark">e</span>ring <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f c<span class="schwa-mark">o</span>mmun<span class="schwa-mark">i</span>ty l<span class="schwa-mark">ea</span>d<span class="schwa-mark">e</span>rs.
                   </p>
                 </div>
                 <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <p class="text-slate-900 font-medium">2. Hold on a second, to be fair he made an enormous effort.</p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-slate-900 font-medium">2. Hold on a second, to be fair he made an enormous effort.</p>
+                    <button onclick="playBritishRPSpeech('Hold on a second, to be fair he made an enormous effort.')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                      <span>🔊 RP Audio</span>
+                    </button>
+                  </div>
                   <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     Hold <span class="catenate-mark">‿</span> on <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> second, t<span class="schwa-mark">o</span> be fair he made <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">e</span>norm<span class="schwa-mark">ou</span>s <span class="catenate-mark">‿</span> effort.
                   </p>
                 </div>
                 <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <p class="text-slate-900 font-medium">3. At the end of the day, an official announcement was made in Hampshire.</p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-slate-900 font-medium">3. At the end of the day, an official announcement was made in Hampshire.</p>
+                    <button onclick="playBritishRPSpeech('At the end of the day, an official announcement was made in Hampshire.')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                      <span>🔊 RP Audio</span>
+                    </button>
+                  </div>
                   <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     <span class="schwa-mark">A</span>t th<span class="schwa-mark">e</span> end <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f th<span class="schwa-mark">e</span> day, <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>ffic<span class="schwa-mark">ia</span>l <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>nnounc<span class="schwa-mark">e</span>m<span class="schwa-mark">e</span>nt w<span class="schwa-mark">a</span>s made <span class="catenate-mark">‿</span> in Hampsh<span class="schwa-mark">i</span>re (/ˈhæmp.ʃə/).
                   </p>
                 </div>
                 <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <p class="text-slate-900 font-medium">4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.</p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-slate-900 font-medium">4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.</p>
+                    <button onclick="playBritishRPSpeech('Quite frankly, it is a bit of a stretch to suppose she will brush it off.')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                      <span>🔊 RP Audio</span>
+                    </button>
+                  </div>
                   <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     Quite frankly, it <span class="catenate-mark">‿</span> is <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> bit <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> stretch t<span class="schwa-mark">o</span> s<span class="schwa-mark">u</span>ppose she will brush <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> off.
                   </p>
                 </div>
                 <div class="p-3.5 rounded-xl border border-slate-200 bg-white shadow-sm">
-                  <p class="text-slate-900 font-medium">5. Can I pick it up from the woman at the front desk?</p>
+                  <div class="flex items-center justify-between">
+                    <p class="text-slate-900 font-medium">5. Can I pick it up from the woman at the front desk?</p>
+                    <button onclick="playBritishRPSpeech('Can I pick it up from the woman at the front desk?')" class="px-2 py-0.5 rounded bg-slate-100 hover:bg-slate-200 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                      <span>🔊 RP Audio</span>
+                    </button>
+                  </div>
                   <p class="phono_markup_answers hidden text-slate-700 font-serif mt-1 pt-1.5 border-t border-slate-100">
                     C<span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> I pick <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> up fr<span class="schwa-mark">o</span>m th<span class="schwa-mark">e</span> wom<span class="schwa-mark">a</span>n <span class="schwa-mark">a</span>t th<span class="schwa-mark">e</span> front desk?
                   </p>
@@ -1055,7 +1081,7 @@
             </div>
             <button onclick="playIntonationAcoustic()" class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-xs font-semibold transition flex items-center gap-1.5 shadow-sm">
               <svg class="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-              <span>🔊 Hear Stress Audio Tune</span>
+              <span>🔊 Listen in British RP Accent</span>
             </button>
           </div>
         </div>
@@ -1097,11 +1123,144 @@
       `;
     }
 
-    // Play pitch contour chimes using Web Audio API + SpeechSynthesis
+    // ==========================================
+    // 🇬🇧 BRITISH RP (RECEIVED PRONUNCIATION) AUDIO ENGINE
+    // ==========================================
+    let rpVoicesList = [];
+    let selectedRPVoice = null;
+    let rpAudioElement = null;
+
+    function initRPVoiceEngine() {
+      if (typeof window === 'undefined' || !window.speechSynthesis) return;
+
+      function loadVoices() {
+        const allVoices = window.speechSynthesis.getVoices() || [];
+        const excludedLangs = ['en-us', 'en_us', 'united states', 'david', 'zira', 'mark', 'australia', 'en-au', 'en-in', 'india', 'en-ca', 'canada'];
+
+        rpVoicesList = allVoices.filter(v => {
+          const name = (v.name || '').toLowerCase();
+          const lang = (v.lang || '').toLowerCase().replace('_', '-');
+
+          if (excludedLangs.some(ex => name.includes(ex) || lang.includes(ex))) {
+            return false;
+          }
+
+          // Positive British RP identifiers
+          if (lang === 'en-gb' || lang.startsWith('en-gb')) return true;
+          if (name.includes('united kingdom') || name.includes('uk english') || name.includes('british')) return true;
+          if (name.includes('george') || name.includes('hazel') || name.includes('susan') || name.includes('daniel') || name.includes('oliver') || name.includes('serena') || name.includes('ryan') || name.includes('sonia') || name.includes('libby')) {
+            if (lang.startsWith('en')) return true;
+          }
+          return false;
+        });
+
+        // Priority sorting: Natural neural voices > Google UK > Standard UK
+        rpVoicesList.sort((a, b) => {
+          const aName = a.name.toLowerCase();
+          const bName = b.name.toLowerCase();
+          if (aName.includes('natural') && !bName.includes('natural')) return -1;
+          if (bName.includes('natural') && !aName.includes('natural')) return 1;
+          if (aName.includes('google uk') && !bName.includes('google uk')) return -1;
+          if (bName.includes('google uk') && !aName.includes('google uk')) return 1;
+          return 0;
+        });
+
+        if (rpVoicesList.length > 0) {
+          selectedRPVoice = rpVoicesList[0];
+        }
+      }
+
+      loadVoices();
+      if (window.speechSynthesis.onvoiceschanged !== undefined) {
+        window.speechSynthesis.onvoiceschanged = loadVoices;
+      }
+    }
+
+    // Play text in authentic British RP accent
+    function playBritishRPSpeech(text, stressedIndex, wordsArray) {
+      // 1. If Web Speech API has a genuine British RP voice available:
+      if (window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+
+        if (!selectedRPVoice && rpVoicesList.length > 0) {
+          selectedRPVoice = rpVoicesList[0];
+        }
+
+        if (selectedRPVoice) {
+          if (stressedIndex !== undefined && wordsArray && wordsArray.length > 0) {
+            // Segmented nuclear stress speech: pre-nuclear -> tonic peak -> post-nuclear fall
+            const preWords = wordsArray.slice(0, stressedIndex).join(' ');
+            const stressedWord = wordsArray[stressedIndex];
+            const postWords = wordsArray.slice(stressedIndex + 1).join(' ');
+
+            if (preWords.trim()) {
+              const u1 = new SpeechSynthesisUtterance(preWords + ' ');
+              u1.voice = selectedRPVoice;
+              u1.lang = 'en-GB';
+              u1.rate = 0.88;
+              u1.pitch = 0.98;
+              window.speechSynthesis.speak(u1);
+            }
+
+            // Nuclear Stressed Word: High pitch spike + lengthened vowel duration
+            const u2 = new SpeechSynthesisUtterance(stressedWord + (postWords ? ', ' : '.'));
+            u2.voice = selectedRPVoice;
+            u2.lang = 'en-GB';
+            u2.rate = 0.78; // elongated vowel
+            u2.pitch = 1.35; // British RP pitch jump!
+            u2.volume = 1.0;
+            window.speechSynthesis.speak(u2);
+
+            if (postWords.trim()) {
+              const u3 = new SpeechSynthesisUtterance(postWords);
+              u3.voice = selectedRPVoice;
+              u3.lang = 'en-GB';
+              u3.rate = 0.92;
+              u3.pitch = 0.82; // British low falling tail
+              window.speechSynthesis.speak(u3);
+            }
+            return;
+          } else {
+            // Full sentence British RP utterance
+            const utt = new SpeechSynthesisUtterance(text);
+            utt.voice = selectedRPVoice;
+            utt.lang = 'en-GB';
+            utt.rate = 0.85;
+            utt.pitch = 1.05;
+            window.speechSynthesis.speak(utt);
+            return;
+          }
+        }
+      }
+
+      // 2. High-Fidelity British RP Audio Stream Fallback (guaranteed en-GB RP on any device/OS)
+      try {
+        if (rpAudioElement) {
+          rpAudioElement.pause();
+          rpAudioElement.currentTime = 0;
+        }
+        const streamUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&tl=en-GB&client=tw-ob&q=' + encodeURIComponent(text);
+        rpAudioElement = new Audio(streamUrl);
+        rpAudioElement.play().catch(e => {
+          // If browser restricts autoplay without user gesture or offline, fallback to utterance
+          if (window.speechSynthesis) {
+            const fallbackUtt = new SpeechSynthesisUtterance(text);
+            fallbackUtt.lang = 'en-GB';
+            fallbackUtt.rate = 0.85;
+            window.speechSynthesis.speak(fallbackUtt);
+          }
+        });
+      } catch (err) {
+        console.log('Audio playback error:', err);
+      }
+    }
+
+    // Play intonation acoustic contour and British RP audio
     function playIntonationAcoustic() {
       const sc = intonationScenarios[currentScenarioIdx];
       const stressedIdx = currentStressedWordIdx;
 
+      // Play melodic pitch contour chimes
       try {
         const AudioCtx = window.AudioContext || window.webkitAudioContext;
         if (AudioCtx) {
@@ -1140,15 +1299,8 @@
         console.log(err);
       }
 
-      if (window.speechSynthesis) {
-        window.speechSynthesis.cancel();
-        const utterance = new SpeechSynthesisUtterance(sc.sentenceText);
-        const voices = window.speechSynthesis.getVoices();
-        const ukVoice = voices.find(v => v.lang === 'en-GB' || v.name.includes('UK') || v.name.includes('British') || v.name.includes('English'));
-        if (ukVoice) utterance.voice = ukVoice;
-        utterance.rate = 0.85;
-        window.speechSynthesis.speak(utterance);
-      }
+      // Play authentic British RP accent
+      playBritishRPSpeech(sc.sentenceText, stressedIdx, sc.words);
     }
 
     function toggleHint(className) {
