@@ -195,70 +195,192 @@
       }
     ];
 
-    // INTONATION DEVICE DATA: Multi-scenario nuclear stress laboratory
+    // INTONATION DEVICE DATA: Everyday life & workplace scenarios
     const intonationScenarios = [
       {
         id: "good_idea",
-        category: "Executive Endorsement & Deliberation",
+        category: "Everyday Social Life &bull; Weekend Plans with Friends",
         sentenceText: "I think that's a good idea",
         words: ["I", "think", "that's", "a", "good", "idea"],
         stressableIndices: [0, 1, 2, 4, 5],
+        listenerLabel: "What Your Friends / Partner Hear:",
+        tipLabel: "☕ Everyday Social Conversation Tip:",
         variations: {
           0: {
             word: "I",
             phonetic: "/ˈaɪ/ (High Fall)",
-            badge: "Personal Stance & Authorship",
-            subtext: "Personally, speaking for myself, I back this proposal. Other colleagues in the meeting or on the board may hesitate or object, but this is my individual conviction.",
-            spanishTrap: "Spanish speakers naturally rely on syntax ('A mí me parece...' or 'Yo creo...'). In British English, jumping pitch and volume on 'I' asserts calm executive ownership without aggressive wording.",
-            boardroomTip: "Deploy in boardroom meetings when the committee is fractured and you wish to stand behind an innovative proposal without appearing confrontational."
+            badge: "Personal Backing & Enthusiasm",
+            subtext: "Speaking for myself, I'm definitely up for it! (Even if Sarah or Tom are complaining about the weather or ticket prices, count me in!)",
+            spanishTrap: "Spanish speakers often say 'Por mi parte...' or 'Yo creo que sí'. In British English, simply stepping up the pitch on 'I' shows friendly individual enthusiasm.",
+            boardroomTip: "Use when friends in a group chat are dithering or indecisive about where to go on Saturday and you want to champion an option."
           },
           1: {
             word: "think",
             phonetic: "/ˈθɪŋk/ (Rise-Fall)",
-            badge: "Prudent British Understatement",
-            subtext: "I believe so in principle, but I haven't reviewed all audit reports or budget models yet. I am reserving final certainty.",
-            spanishTrap: "Spanish executives frequently articulate with flat syllable-timed pitch, which can inadvertently sound categorically rigid. Stressing 'think' injects indispensable diplomatic reservation.",
-            boardroomTip: "Use when an executive colleague pushes you for an immediate green-light: you convey strategic support while keeping your liabilities safe."
+            badge: "Gentle Caution & Prudence",
+            subtext: "I reckon so, but we should probably check if they're fully booked or if train strikes are on before we buy tickets.",
+            spanishTrap: "Spanish speakers often speak with uniform pitch, which can accidentally sound completely certain. Stressing 'think' is friendly British caution.",
+            boardroomTip: "Use to show warmth toward a friend's spontaneous idea while gently suggesting a practical reality check."
           },
           2: {
             word: "that's",
             phonetic: "/ˈðæts/ (Sharp High Peak)",
             badge: "Contrastive Selection",
-            subtext: "That specific idea right there is viable — in clear contrast to the earlier alternative proposals which were impractical or unworkable.",
-            spanishTrap: "Spanish speakers express contrast lexically ('Esa propuesta sí que es buena'). British English achieves laser-focused contrast purely by elevating pitch on the demonstrative.",
-            boardroomTip: "Use during project post-mortems or strategy sessions to decisively pivot the room towards a workable path forward."
+            subtext: "Now that specific suggestion sounds lovely — much better than that noisy pub or crowded café we went to last week!",
+            spanishTrap: "Spanish uses syntax ('Esa idea sí'). British English achieves instant contrast purely by jumping pitch on 'that's'.",
+            boardroomTip: "Use when someone finally suggests a really appealing restaurant or weekend activity after a dozen bad ideas."
           },
           4: {
             word: "good",
             phonetic: "/ˈɡʊd/ (Prolonged Mid-Fall)",
-            badge: "Diplomatic Moderation",
-            subtext: "It is solid and acceptable, but certainly not exceptional, revolutionary, or complete. It leaves substantial room for iteration and refinement.",
-            spanishTrap: "In Spanish, 'buena idea' is often interpreted as enthusiastic praise. In British corporate cadence, stressing 'good' actually moderates praise down to a cautious 'B+'.",
-            boardroomTip: "Use when giving constructive feedback to team members when you want to validate their momentum while nudging them towards deeper rigor."
+            badge: "Moderate Approval",
+            subtext: "It's alright, pretty decent. Not mind-blowing or amazing, but it'll do if there's nothing better on offer.",
+            spanishTrap: "In Spanish, 'buena idea' conveys complete excitement. In British social cadence, stressing 'good' casually moderates praise to a 'pleasant, but keep looking'.",
+            boardroomTip: "Use when browsing Airbnb options or holiday rentals to signal mild interest without committing."
           },
           5: {
             word: "idea",
             phonetic: "/aɪˈdɪə/ (High Tonic Fall on -dea)",
-            badge: "Theory vs. Pragmatic Execution",
-            subtext: "It is an attractive concept on paper in theory, but good luck executing it in practice with our current operational bandwidth!",
-            spanishTrap: "Phrase-final stress is the standard Spanish default ('Es una buena idea'). In British English, placing the nuclear stress on 'idea' casts sharp doubt on practical viability.",
-            boardroomTip: "Use when evaluating grand commercial roadmaps that fail to budget for engineering, regulatory, or operational realities."
+            badge: "Theory vs. Reality Skepticism",
+            subtext: "It sounds lovely in theory, but remember what happened last time we tried driving to the coast on a bank holiday in the pouring rain!",
+            spanishTrap: "Spanish default sentence-final stress ('Es una buena idea') sounds neutral. In British English, tonic stress on 'idea' adds gentle, witty skepticism.",
+            boardroomTip: "Use with a friendly smile when someone suggests an overly ambitious day trip or unrealistic DIY project."
+          }
+        }
+      },
+      {
+        id: "go_out_tonight",
+        category: "Everyday Home & Relationship Life &bull; Friday Night Plans",
+        sentenceText: "I thought you wanted to go out tonight",
+        words: ["I", "thought", "you", "wanted", "to", "go", "out", "tonight"],
+        stressableIndices: [0, 1, 2, 3, 5, 7],
+        listenerLabel: "What Your Partner / Friend Hears:",
+        tipLabel: "🍕 Real-Life Everyday Relationship Tip:",
+        variations: {
+          0: {
+            word: "I",
+            phonetic: "/ˈaɪ/ (Pitch Jump)",
+            badge: "Personal Assumption Clarification",
+            subtext: "Well, *I* certainly thought so! Did someone else tell you we were staying in on the sofa?",
+            spanishTrap: "Spanish speakers say 'Yo pensaba que...'. British English emphasizes 'I' to clarify where the communication crossed wires.",
+            boardroomTip: "Use when arriving home to find your flatmate or partner in pyjamas after you spent 20 minutes getting ready."
+          },
+          1: {
+            word: "thought",
+            phonetic: "/ˈθɔːt/ (High Fall)",
+            badge: "Realizing a Misunderstanding",
+            subtext: "Wait, was I completely mistaken? You're under a blanket watching Netflix—I genuinely believed we had a dinner booking!",
+            spanishTrap: "Stressing 'thought' softly admits an assumption was wrong without blaming anyone.",
+            boardroomTip: "The most diplomatic British way to say 'Oops, clearly there's been a mix-up!'"
+          },
+          2: {
+            word: "you",
+            phonetic: "/ˈjuː/ (Emphatic Contrast)",
+            badge: "The Ultimate Everyday Revelation",
+            subtext: "Hold on! *I* didn't even want to go out! I was exhausted and only put on nice shoes because I thought *you* were desperate to go!",
+            spanishTrap: "Spanish speakers rely on wordy explanations ('¡Por mí nos quedábamos!'). Stressing 'you' delivers the humorous revelation in one single syllable.",
+            boardroomTip: "The classic British couples comedy moment when both realize neither actually wanted to leave the house."
+          },
+          3: {
+            word: "wanted",
+            phonetic: "/ˈwɒn.tɪd/ (Level Step)",
+            badge: "Desire vs. Obligation",
+            subtext: "I thought this was something you actually felt like doing for fun, not an annoying chore you feel forced into!",
+            spanishTrap: "Spanish uses modal shifts. English shifts stress to 'wanted' to check whether someone is doing something out of guilt.",
+            boardroomTip: "Use with friends or family to check if they're genuinely excited or just being polite."
+          },
+          5: {
+            word: "go",
+            phonetic: "/ˈɡəʊ/ (Dynamic High Fall)",
+            badge: "Activity Contrast",
+            subtext: "I thought we were actually going *out*—to the pub, comedy gig, or dinner—not ordering Deliveroo and sitting here!",
+            spanishTrap: "Stressing 'go' contrasts leaving the house with staying indoors.",
+            boardroomTip: "Use when clarifying plans between an active evening out versus a quiet night in."
+          },
+          7: {
+            word: "tonight",
+            phonetic: "/təˈnaɪt/ (Tonic Fall on -night)",
+            badge: "Calendar & Date Mix-up",
+            subtext: "I thought our booking was for *tonight* (Friday)! Don't tell me you booked the table for tomorrow (Saturday)!",
+            spanishTrap: "Stressing the time marker isolates the date as the sole point of confusion.",
+            boardroomTip: "Use when discovering a diary clash or double-booked weekend."
+          }
+        }
+      },
+      {
+        id: "dinner_food",
+        category: "Everyday Social Banter &bull; Dinner Parties & Cooking",
+        sentenceText: "I never said I didn't like the food",
+        words: ["I", "never", "said", "I", "didn't", "like", "the", "food"],
+        stressableIndices: [0, 1, 2, 4, 5, 7],
+        listenerLabel: "What The Host / Friend Hears:",
+        tipLabel: "🍽️ Dinner & Social Etiquette Tip:",
+        variations: {
+          0: {
+            word: "I",
+            phonetic: "/ˈaɪ/ (Shocked Pitch Jump)",
+            badge: "Deflecting Social Blame",
+            subtext: "Someone else at the table made a face or grumbled, not me! I personally think your roast was lovely!",
+            spanishTrap: "Spanish speakers say '¡Yo no he sido!'. British English jumps on 'I' to instantly clear your name with the host.",
+            boardroomTip: "Essential social etiquette at dinner parties when another guest makes a tactless comment."
+          },
+          1: {
+            word: "never",
+            phonetic: "/ˈnev.ə/ (Emphatic Fall)",
+            badge: "Absolute Denial",
+            subtext: "Goodness, no! I have literally never said that in my life! Don't put words in my mouth!",
+            spanishTrap: "A warm, emphatic fall on 'never' turns potential offense into lighthearted banter.",
+            boardroomTip: "Use when teasing a friend who accuses you of being overly fussy with food."
+          },
+          2: {
+            word: "said",
+            phonetic: "/ˈsed/ (Fall-Rise Nuance)",
+            badge: "Unspoken Observation",
+            subtext: "I might have hesitated or looked full, but I certainly never said anything bad about your cooking!",
+            spanishTrap: "The British Fall-Rise on 'said' creates polite ambiguity that softens any awkwardness.",
+            boardroomTip: "Use when someone playfully catches you pushing food around your plate."
+          },
+          4: {
+            word: "didn't",
+            phonetic: "/ˈdɪd.nt/ (Reassurance Fall)",
+            badge: "Affirming Appreciation",
+            subtext: "On the contrary, I *do* like it! I'm just completely stuffed because I had a massive lunch earlier!",
+            spanishTrap: "Spanish speakers scramble to explain. Stressing 'didn't' reassures the host immediately before explaining.",
+            boardroomTip: "The polite British formula for explaining why you can't manage a second helping."
+          },
+          5: {
+            word: "like",
+            phonetic: "/ˈlaɪk/ (Warm Rise-Fall)",
+            badge: "Enthusiastic Reassurance",
+            subtext: "I like it! In fact, I love it—I just literally cannot fit another single bite onto this fork!",
+            spanishTrap: "Elevating pitch on 'like' confirms positive taste while separating appetite from appreciation.",
+            boardroomTip: "Reassures proud home cooks who worry you aren't enjoying their recipe."
+          },
+          7: {
+            word: "food",
+            phonetic: "/ˈfuːd/ (High Tonic Fall)",
+            badge: "Item vs. Ambience",
+            subtext: "The food itself is delicious—it's just the blaring music in this restaurant that is giving me a headache!",
+            spanishTrap: "Stressing the noun isolates the food from the surrounding environment (service, music, noise).",
+            boardroomTip: "Use to praise a host or chef while diplomatically commenting on the atmosphere or venue."
           }
         }
       },
       {
         id: "postpone_launch",
-        category: "Crisis Management & Accountability",
+        category: "Workplace &bull; Crisis & Project Deadlines",
         sentenceText: "I didn't say we should postpone the launch",
         words: ["I", "didn't", "say", "we", "should", "postpone", "the", "launch"],
         stressableIndices: [0, 1, 2, 3, 4, 5, 7],
+        listenerLabel: "What Your Colleagues / Boss Hear:",
+        tipLabel: "💼 Executive Meeting Tip:",
         variations: {
           0: {
             word: "I",
             phonetic: "/ˈaɪ/ (Pitch Jump)",
             badge: "Authorship Deflection",
-            subtext: "Someone else on the executive committee or client side suggested postponing the launch, not me. Do not attribute that recommendation to my team.",
-            spanishTrap: "Spanish speakers use wordy explanations ('Yo no fui quien sugirió...'). Stressing 'I' establishes factual ownership in a single, crisp beat.",
+            subtext: "Someone else on the committee or client side suggested postponing, not me. Do not attribute that recommendation to my team.",
+            spanishTrap: "Stressing 'I' establishes factual ownership in a single, crisp beat.",
             boardroomTip: "Vital for reputation management when cross-functional rumors circulate regarding milestone delays."
           },
           1: {
@@ -266,7 +388,7 @@
             phonetic: "/ˈdɪd.nt/ (Emphatic Fall)",
             badge: "Categorical Denial",
             subtext: "I flatly deny that accusation. The claim that I ever advocated for a postponement is completely false.",
-            spanishTrap: "Spanish speakers often accelerate tempo when defending themselves. A measured, heavy pitch fall on 'didn't' commands respect and shuts down misinformation.",
+            spanishTrap: "A measured, heavy pitch fall on 'didn't' commands respect and shuts down misinformation.",
             boardroomTip: "Use to correct inaccurate minutes or false claims in executive steering committees with poise."
           },
           2: {
@@ -281,8 +403,8 @@
             word: "we",
             phonetic: "/ˈwiː/ (Contrastive Accent)",
             badge: "Entity Boundary",
-            subtext: "Perhaps the third-party logistics partner, regulator, or marketing agency should delay, but our internal core team is on schedule.",
-            spanishTrap: "Spanish speakers say 'Nosotros no...'. British English simply energizes 'we' to cleanly isolate your team's velocity.",
+            subtext: "Perhaps the third-party logistics partner or client needs to delay, but our internal core team is on schedule.",
+            spanishTrap: "British English simply energizes 'we' to cleanly isolate your team's velocity.",
             boardroomTip: "Use to defend your direct department's delivery record during cross-functional bottlenecks."
           },
           4: {
@@ -290,7 +412,7 @@
             phonetic: "/ˈʃʊd/ (Deliberate Fall)",
             badge: "Contingency vs. Mandate",
             subtext: "I mentioned that we could explore a postponement as a contingency scenario, not that it is our recommended or mandatory decision.",
-            spanishTrap: "Spanish alternates modal verbs ('podríamos' vs 'deberíamos'). English shifts the nuclear pitch onto the modal auxiliary 'should'.",
+            spanishTrap: "English shifts the nuclear pitch onto the modal auxiliary 'should'.",
             boardroomTip: "Use when risk-modeling scenarios are misinterpreted by stakeholders as firm operational directives."
           },
           5: {
@@ -298,7 +420,7 @@
             phonetic: "/pəˈspəʊn/ (High Peak on -spone)",
             badge: "Action Differentiation",
             subtext: "I suggested we re-scope features or allocate extra engineering headcount, not push back the calendar go-live date.",
-            spanishTrap: "Spanish speakers over-explain alternatives. Stressing 'postpone' pinpoints the specific action being contested.",
+            spanishTrap: "Stressing 'postpone' pinpoints the specific action being contested.",
             boardroomTip: "Use to champion agile compromises that safeguard critical go-to-market commitments."
           },
           7: {
@@ -308,63 +430,6 @@
             subtext: "We can postpone the ceremonial press conference or global roadshow, but the core product launch goes ahead as planned.",
             spanishTrap: "Stressing the final noun establishes that the primary release is non-negotiable, while ancillary deliverables may shift.",
             boardroomTip: "Keeps teams focused on the primary deliverable under deadline pressure."
-          }
-        }
-      },
-      {
-        id: "different_approach",
-        category: "Strategic Transformation & Leadership",
-        sentenceText: "I believe we need a different approach",
-        words: ["I", "believe", "we", "need", "a", "different", "approach"],
-        stressableIndices: [0, 1, 2, 3, 5, 6],
-        variations: {
-          0: {
-            word: "I",
-            phonetic: "/ˈaɪ/ (Assertive Pitch)",
-            badge: "Executive Leadership Ownership",
-            subtext: "This is my personal conviction as a leader, regardless of what legacy habits or external consultants recommend.",
-            spanishTrap: "Allows Alicia to plant her flag on an issue with quiet, British executive authority without raising volume.",
-            boardroomTip: "Deploy when initiating an organizational pivot."
-          },
-          1: {
-            word: "believe",
-            phonetic: "/bəˈliːv/ (Warm Mid-Rise Fall)",
-            badge: "Core Strategic Gravitas",
-            subtext: "This isn't an impulsive hunch; it is my considered, deeply held professional evaluation based on the evidence.",
-            spanishTrap: "Spanish speakers frequently use 'pienso' flatly. Stressing 'believe' adds weight and executive credibility.",
-            boardroomTip: "Use when presenting high-stakes proposals to senior partners or executive leadership."
-          },
-          2: {
-            word: "we",
-            phonetic: "/ˈwiː/ (Inclusive Focus)",
-            badge: "Team Ownership",
-            subtext: "Our department must change its habits, even if the broader organization is slow to adapt.",
-            spanishTrap: "Builds camaraderie and shared responsibility across direct reports.",
-            boardroomTip: "Use in department all-hands meetings to inspire collective accountability."
-          },
-          3: {
-            word: "need",
-            phonetic: "/ˈniːd/ (High Level Step)",
-            badge: "Critical Imperative",
-            subtext: "This is no longer an optional luxury or nice-to-have; it is an absolute necessity to prevent failure.",
-            spanishTrap: "Injects urgency without sounding panicked or aggressive.",
-            boardroomTip: "Use when cutting through organizational complacency."
-          },
-          5: {
-            word: "different",
-            phonetic: "/ˈdɪf.rənt/ (Sharp Tonic Fall)",
-            badge: "Definitive Strategic Pivot",
-            subtext: "More of the same will fail. The legacy playbook is exhausted; we must change trajectory.",
-            spanishTrap: "Spanish speakers often append adverbs ('totalmente diferente'). English merely shifts pitch onto 'different'.",
-            boardroomTip: "Use when key performance metrics show diminishing returns under legacy processes."
-          },
-          6: {
-            word: "approach",
-            phonetic: "/əˈprəʊtʃ/ (High-to-Low Fall)",
-            badge: "Tactics vs. Overarching Mission",
-            subtext: "Our ultimate vision and business objectives remain sound; it is solely our tactical methodology that requires redesign.",
-            spanishTrap: "Reassures stakeholders that the vision is untouched, protecting investor confidence.",
-            boardroomTip: "Use to reassure teams that the overarching mission is unchanged."
           }
         }
       }
@@ -627,7 +692,7 @@
             <div class="border-b border-slate-200 pb-3 mb-5 flex flex-wrap items-center justify-between gap-2">
               <div>
                 <span class="text-[11px] font-bold text-indigo-700 uppercase tracking-wider">Part 2 &bull; Interactive Pronunciation Lab</span>
-                <h3 class="text-base font-bold text-slate-900">The British Executive Intonation Device</h3>
+                <h3 class="text-base font-bold text-slate-900">The British Everyday & Social Intonation Device</h3>
               </div>
               <div class="flex items-center gap-2">
                 <span class="text-[11px] font-semibold bg-indigo-100 text-indigo-900 px-2.5 py-1 rounded-full border border-indigo-200" id="discoveryBadge">
@@ -639,7 +704,7 @@
             <!-- Pedagogical Intro -->
             <p class="text-xs text-slate-600 mb-4 leading-relaxed">
               In Spanish, changing meaning usually requires changing word order or adding syntax (<em class="text-slate-800">"A mí me parece..."</em>, <em class="text-slate-800">"Esa propuesta sí..."</em>). 
-              In British English, the words stay identical, but moving the <strong>Nuclear Tonic Stress</strong> (the pitch peak and elongated vowel) completely transforms the <strong>hidden subtext</strong> heard by your British colleagues.
+              In British English, the words stay identical, but moving the <strong>Nuclear Tonic Stress</strong> (the pitch peak and elongated vowel) completely transforms the <strong>hidden subtext</strong> heard by your British friends, partner, or colleagues in normal daily life.
             </p>
 
             <!-- Scenario Selector Tabs -->
@@ -650,7 +715,7 @@
                     ? 'bg-indigo-600 text-white border-indigo-700 shadow-sm' 
                     : 'bg-slate-100 text-slate-700 border-slate-200 hover:bg-slate-200'
                 }">
-                  ${sc.id === 'good_idea' ? '💡' : sc.id === 'postpone_launch' ? '🛡️' : '🚀'} ${sc.sentenceText}
+                  ${sc.id === 'good_idea' ? '☕' : sc.id === 'go_out_tonight' ? '🍕' : sc.id === 'dinner_food' ? '🍽️' : '💼'} ${sc.sentenceText}
                 </button>
               `).join('')}
             </div>
@@ -1010,7 +1075,7 @@
           <!-- The Subtext Revelation -->
           <div class="bg-white border border-indigo-100 rounded-xl p-4 mb-4 shadow-sm">
             <h5 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-1 flex items-center gap-1.5">
-              <span>🇬🇧</span> What British Colleagues Actually Hear (The Hidden Subtext):
+              <span>🇬🇧</span> ${sc.listenerLabel || "What British Friends & Colleagues Hear (The Hidden Subtext):"}
             </h5>
             <p class="text-sm font-semibold text-slate-900 leading-relaxed">
               "${variation.subtext}"
@@ -1024,7 +1089,7 @@
               <p class="text-slate-600 leading-relaxed">${variation.spanishTrap}</p>
             </div>
             <div class="bg-white/80 border border-indigo-100 rounded-lg p-3">
-              <span class="font-bold text-slate-800 block mb-1">💼 Boardroom Implementation Tip:</span>
+              <span class="font-bold text-slate-800 block mb-1">${sc.tipLabel || "☕ Real-Life Conversation Tip:"}</span>
               <p class="text-slate-600 leading-relaxed">${variation.boardroomTip}</p>
             </div>
           </div>
