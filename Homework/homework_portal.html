@@ -3,1037 +3,744 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alicia M. | British Accent & Executive Fluency Homework Portal</title>
-  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <title>Executive British Accent & Fluency | Alicia M.</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    if (typeof tailwind === 'undefined') {
+      document.write('<script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"><\/script>');
+    }
+  </script>
   <style>
-    :root {
-      --bg: #0f172a;
-      --card-bg: #1e293b;
-      --card-border: #334155;
-      --accent: #38bdf8;
-      --accent-hover: #0ea5e9;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --success: #34d399;
-      --warning: #fbbf24;
-      --tag-bg: #1e293b;
-    }
     body {
-      background-color: #0b0f19;
-      color: #f1f5f9;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-    .schwa {
+    .schwa-mark {
       text-decoration: underline;
-      text-decoration-color: #38bdf8;
+      text-decoration-color: #0284c7;
       text-decoration-thickness: 2px;
       font-weight: 600;
-      color: #38bdf8;
+      color: #0284c7;
+      background: #f0f9ff;
+      padding: 0 2px;
+      border-radius: 2px;
     }
-    .catenation {
-      color: #34d399;
+    .catenate-mark {
+      color: #059669;
       font-weight: 700;
     }
-    .ipa-badge {
-      display: inline-block;
-      padding: 0.15rem 0.45rem;
-      border-radius: 0.375rem;
-      background: #1e293b;
-      border: 1px solid #334155;
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 0.85rem;
-      color: #38bdf8;
+    @keyframes pulse-dot {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.15); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    .live-pulse {
+      animation: pulse-dot 1.2s infinite ease-in-out;
     }
     @media print {
-      body { background: #fff !important; color: #000 !important; }
+      body { background: white !important; }
       .no-print { display: none !important; }
-      .card { border: 1px solid #ddd !important; background: #fff !important; color: #000 !important; }
-      .answer-box { display: block !important; }
+      .card { border: 1px solid #cbd5e1 !important; box-shadow: none !important; }
     }
   </style>
 </head>
-<body class="min-h-screen pb-20">
+<body class="min-h-screen text-slate-800 antialiased flex flex-col">
 
-  <!-- Sticky Top Header -->
-  <header class="sticky top-0 z-50 bg-[#0f172a]/95 backdrop-blur border-b border-slate-800 shadow-md">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+  <!-- Minimal Top Navigation Header -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-50 shadow-[0_1px_3px_rgba(0,0,0,0.02)]">
+    <div class="max-w-4xl mx-auto px-4 py-3.5 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center font-bold text-lg text-white shadow-lg shadow-sky-500/20">
-          🇬🇧
+        <div class="w-8 h-8 rounded-lg bg-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-sm">
+          RP
         </div>
         <div>
-          <h1 class="text-base font-bold text-white leading-tight">Executive British Accent & Fluency</h1>
-          <p class="text-xs text-slate-400">Student: <span class="text-sky-300 font-medium">Alicia M.</span> &bull; Tutor: <span class="text-slate-300">Lewis O.</span> &bull; Model: <span class="text-emerald-400">Modern RP / SSBE</span></p>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm font-semibold text-slate-900 tracking-tight">British Accent & Fluency</h1>
+            <span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200">Preply Portal</span>
+          </div>
+          <p class="text-xs text-slate-500">Student: <span class="text-slate-800 font-medium">Alicia M.</span> &bull; Tutor: Lewis O.</p>
         </div>
       </div>
 
-      <!-- Action Controls -->
-      <div class="flex items-center gap-2">
-        <button id="toggleModeBtn" onclick="toggleGlobalAnswers()" class="px-3 py-1.5 rounded-lg bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs font-semibold flex items-center gap-1.5 transition">
-          <span id="modeIcon">👁️</span> <span id="modeText">Reveal All Answers</span>
-        </button>
-        <button onclick="toggleTimerModal()" class="px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold flex items-center gap-1.5 transition">
-          ⏱️ Speech Sprint Timer
-        </button>
-        <button onclick="window.print()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-medium no-print transition">
-          🖨️ Print / PDF
-        </button>
+      <!-- Quick Action / Status -->
+      <div class="flex items-center gap-2 text-xs">
+        <a href="#recorderBooth" class="px-3 py-1.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium transition shadow-sm flex items-center gap-1.5 no-print">
+          <svg class="w-3.5 h-3.5 text-rose-400" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+          Record Voice Note
+        </a>
       </div>
     </div>
 
-    <!-- Week Navigation Tabs -->
-    <div class="max-w-6xl mx-auto px-4 overflow-x-auto no-scrollbar border-t border-slate-800/80">
-      <nav class="flex space-x-1 py-2 text-xs font-medium" id="weekTabs">
+    <!-- Minimal Week Tab Navigation Bar -->
+    <div class="max-w-4xl mx-auto px-4 overflow-x-auto no-scrollbar border-t border-slate-100">
+      <nav class="flex space-x-1.5 py-2 text-xs font-medium" id="weekTabsContainer">
         <!-- Rendered via JS -->
       </nav>
     </div>
   </header>
 
-  <!-- Timer Bar Modal -->
-  <div id="timerModal" class="hidden max-w-6xl mx-auto px-4 mt-4">
-    <div class="bg-gradient-to-r from-slate-900 to-slate-800 border border-amber-500/40 rounded-2xl p-4 shadow-xl flex flex-wrap items-center justify-between gap-4">
-      <div class="flex items-center space-x-4">
-        <div class="text-2xl font-mono font-bold text-amber-400 bg-black/40 px-4 py-1.5 rounded-xl border border-amber-500/30 tracking-wider" id="timerDisplay">
-          01:00
-        </div>
-        <div>
-          <h4 class="text-sm font-semibold text-white">Spontaneous Speech Sprint Counter</h4>
-          <p class="text-xs text-slate-400">Target: continuous speech, zero pauses &gt; 2s, stress-timed cadence.</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2">
-        <button onclick="setTimerDuration(60)" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 border border-slate-700">60s</button>
-        <button onclick="setTimerDuration(90)" class="px-2.5 py-1 text-xs bg-slate-800 hover:bg-slate-700 rounded-lg text-slate-300 border border-slate-700">90s</button>
-        <button id="startTimerBtn" onclick="toggleTimer()" class="px-4 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-xs shadow-md transition">Start Sprint</button>
-        <button onclick="resetTimer()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 rounded-lg text-xs transition">Reset</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main Container -->
-  <main class="max-w-6xl mx-auto px-4 mt-6">
-    <div id="contentContainer">
-      <!-- Injected dynamically via JS based on selected week -->
-    </div>
+  <!-- Main Content Area -->
+  <main class="max-w-4xl mx-auto px-4 py-8 flex-1 w-full" id="mainContainer">
+    <!-- Injected dynamically via JS based on selected tab -->
   </main>
 
+  <!-- Clean Minimal Footer -->
+  <footer class="border-t border-slate-200 bg-white py-6 mt-12 text-center text-xs text-slate-400">
+    <div class="max-w-4xl mx-auto px-4 flex flex-wrap items-center justify-between gap-3">
+      <p>Alicia M. &bull; Executive British Accent & Spontaneous Fluency (Modern RP/SSBE)</p>
+      <p>Tutor: Lewis O. &bull; Preply Coaching</p>
+    </div>
+  </footer>
+
   <script>
-    // Weeks Data Store
-    const weeksData = [
+    // Modules Metadata: Only Week 1 has active homework; Weeks 2-8 are preview teasers
+    const modules = [
       {
         week: 1,
-        title: "British Rhythm, Schwa Reduction & Conversational Flow",
-        subtitle: "Overcoming Spanish syllable-timing, mastering /ə/, consonant catenation, and British qualifiers.",
-        tasks: {
-          task1: {
-            title: "Task 1: Phonetic & Connected Speech Marking (Written)",
-            instructions: "Identify vowels that reduce to Schwa (/ə/) and mark consonant-to-vowel catenation (‿).",
-            items: [
-              {
-                original: "1. It turned out to be an unexpected gathering of community leaders.",
-                answer: "It turned ‿ out to be <span class='schwa'>a</span>n ‿ un<span class='schwa'>e</span>xp<span class='schwa'>e</span>ct<span class='schwa'>e</span>d gath<span class='schwa'>e</span>ring ‿ <span class='schwa'>o</span>f c<span class='schwa'>o</span>mmun<span class='schwa'>i</span>ty l<span class='schwa'>ea</span>d<span class='schwa'>e</span>rs.",
-                phonetics: "Catenation: 'turned-dout', 'an-unexpected', 'gathering-of'. Schwa: /kəˈmjuːnəti/, /ˈliːdəz/."
-              },
-              {
-                original: "2. Hold on a second, to be fair he made an enormous effort.",
-                answer: "Hold ‿ on ‿ <span class='schwa'>a</span> second, t<span class='schwa'>o</span> be fair he made ‿ <span class='schwa'>a</span>n ‿ <span class='schwa'>e</span>norm<span class='schwa'>ou</span>s ‿ effort.",
-                phonetics: "Catenation: 'hol-don-a', 'made-an-enormous-effort'. Schwa: /tə/, /ən/, /ɪˈnɔːməs/, /ˈefət/."
-              },
-              {
-                original: "3. At the end of the day, an official announcement was made in Hampshire.",
-                answer: "<span class='schwa'>A</span>t th<span class='schwa'>e</span> end ‿ <span class='schwa'>o</span>f th<span class='schwa'>e</span> day, <span class='schwa'>a</span>n ‿ <span class='schwa'>o</span>ffic<span class='schwa'>ia</span>l ‿ <span class='schwa'>a</span>nnounc<span class='schwa'>e</span>m<span class='schwa'>e</span>nt w<span class='schwa'>a</span>s made ‿ in Hampsh<span class='schwa'>i</span>re.",
-                phonetics: "Catenation: 'end-of', 'an-official-announcement', 'made-in'. British place name: Hampshire is /ˈhæmp.ʃə/."
-              },
-              {
-                original: "4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.",
-                answer: "Quite frankly, it ‿ is ‿ <span class='schwa'>a</span> bit ‿ <span class='schwa'>o</span>f ‿ <span class='schwa'>a</span> stretch t<span class='schwa'>o</span> s<span class='schwa'>u</span>ppose she will brush ‿ it ‿ off.",
-                phonetics: "Catenation: 'i-ti-za', 'bi-tə-va', 'bru-shi-toff'. Schwa: suppose = /səˈpəʊz/."
-              },
-              {
-                original: "5. Can I pick it up from the woman at the front desk?",
-                answer: "C<span class='schwa'>a</span>n ‿ I pick ‿ it ‿ up fr<span class='schwa'>o</span>m th<span class='schwa'>e</span> wom<span class='schwa'>a</span>n <span class='schwa'>a</span>t th<span class='schwa'>e</span> front desk?",
-                phonetics: "Catenation: 'Ca-nI', 'pi-ki-tup'. Weak forms: can /kən/, woman /ˈwʊm.ən/."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Speech Self-Recording",
-            guidelines: [
-              "Relax jaw and vocal cords into neutral /ə/ for unstressed vowels (community, observe, leaders).",
-              "Connect word boundaries seamlessly (turn-dout, hol-don, pi-ki-tup).",
-              "Send audio recording to Lewis prior to Week 2."
-            ],
-            checklist: [
-              "Vowels in unstressed positions reduced to /ə/",
-              "Consonant-to-vowel catenation executed without glottal hesitation",
-              "British place name ending '-shire' pronounced as /ʃə/"
-            ]
-          },
-          task3: {
-            title: "Task 3: Anti-Translation Lexical Integration (Written)",
-            prompts: [
-              {
-                es: "Para ser justos, el jefe no tenía toda la información antes de decidir.",
-                target: "To be fair + make a decision",
-                model: "To be fair, the boss didn't have all the information before making a decision."
-              },
-              {
-                es: "Al final, creo que su actitud dio una impresión muy poco profesional.",
-                target: "At the end of the day + come across as",
-                model: "At the end of the day, I believe her attitude came across as very unprofessional."
-              },
-              {
-                es: "Decir que el gobierno resolverá esto en un mes es exagerar demasiado.",
-                target: "A bit of a stretch + complacent",
-                model: "Claiming that the government will resolve this within a month is a bit of a stretch, considering how complacent they have been."
-              },
-              {
-                es: "Sinceramente, pensé que el evento iba a ser un desastre, pero salió genial.",
-                target: "Quite frankly + turn out",
-                model: "Quite frankly, I anticipated the event would be an utter disaster, but it turned out brilliantly."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second Spontaneous Speech Sprint",
-            prompt: "Think about a recent news story or social media trend that caught your attention. In your opinion, was it an authentic social movement, or was it orchestrated to distract the public? Give your honest thoughts using at least two target phrases from Week 1.",
-            modelTranscript: "Quite frankly, when I first observed the viral boycott spreading across social media last month, it struck me as remarkably artificial. To be fair, there were genuine grassroots concerns at the very beginning, but as soon as major political figures jumped on the bandwagon, the whole narrative felt heavily orchestrated to divert public attention. At the end of the day, claiming that millions of people mobilized spontaneously overnight is a bit of a stretch."
-          }
-        }
+        title: "British Rhythm, Schwa Reduction & De-Translating Spanish",
+        status: "active",
+        subtitle: "Overcoming syllable-timing, mastering /ə/, consonant catenation, and British discourse starters.",
+        liveSessionRecap: "In our first lesson, we trained your immediate English starting reflexes using Exercise 1.1 (Rapid-Fire Sprints) and Exercise 1.2 (Spanish-to-British Reframing). This workbook consolidates those reflexes and introduces stress-timing, the Schwa (/ə/), and catenation for independent practice."
       },
       {
         week: 2,
-        title: "Consonant Elision, Gemination & Professional Idiomaticity",
-        subtitle: "Dropping /t/ and /d/ in consonant clusters, identical consonant gemination, eliminating Spanish epenthetic /e/.",
-        tasks: {
-          task1: {
-            title: "Task 1: Elision & Gemination Marking (Written)",
-            instructions: "Cross out elided /t/ and /d/ in consonant clusters; mark geminated twin consonants (‿).",
-            items: [
-              {
-                original: "1. Last week an old friend told me that we must not cut corners.",
-                answer: "Las(t) week an ol(d) friend told me that we mus(t) not cut corners.",
-                phonetics: "/lɑːs wiːk/, /əʊl frend/, /mʌs nɒt/."
-              },
-              {
-                original: "2. The Prime Minister held back his speech until next Monday.",
-                answer: "The Prime ‿ Minister hel(d) back his speech until nex(t) Monday.",
-                phonetics: "Gemination: Prime‿Minister (/mː/). Elision: hel(d) back, nex(t) Monday."
-              },
-              {
-                original: "3. Don't dare drink that hot tea while you look closely at the bad dog.",
-                answer: "Don't dare drink tha(t) hot ‿ tea while you look ‿ closely at the bad ‿ dog.",
-                phonetics: "Geminations: hot‿tea (/tː/), look‿closely (/kː/), bad‿dog (/dː/)."
-              },
-              {
-                original: "4. It was first class work, but the client was held back by budget limits.",
-                answer: "It was firs(t) class work, but the client was hel(d) back by budget limits.",
-                phonetics: "/fɜːs klɑːs/, /hel bæk/."
-              },
-              {
-                original: "5. Stop please, let us iron out the details before we hammer out a contract.",
-                answer: "Stop ‿ please, let us iron ‿ out the details before we hammer ‿ out a contract.",
-                phonetics: "Gemination: Stop‿please (/pː/). Linking: iron-nout, hammer-rout."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Self-Recording",
-            guidelines: [
-              "Drop /t/ in last week, must not, first class, next Monday.",
-              "Drop /d/ in old friend, held back.",
-              "Pronounce speech, start, strategy with clean hiss (/s/), with zero preceding /e/."
-            ],
-            checklist: [
-              "Zero Spanish epenthetic /e/ before /s/ clusters",
-              "Smooth gemination without double-release stuttering",
-              "Fluid alveolar stop elision"
-            ]
-          },
-          task3: {
-            title: "Task 3: Professional Business Scenario Writing",
-            prompts: [
-              {
-                es: "Draft a 4-to-6 sentence email to a demanding client who wants to launch immediately without proper QA testing.",
-                target: "Touch and go, Cut corners, Take with a pinch of salt, Iron out, Hammer out, Weigh up",
-                model: "Subject: Update on Project Milestone & Quality Assurance\n\nDear Mr. Reynolds,\n\nThank you for your update regarding our release schedule. While I appreciate the commercial urgency to launch ahead of time, releasing without end-to-end QA testing would force us to cut corners on user data security. It was touch and go during our initial staging phase, and we should take early automated test results with a pinch of salt until human regression testing is complete. Having weighed up the operational risks against immediate delivery, our engineering team needs two extra days to iron out the remaining edge-case bugs and hammer out a final deployment protocol. We are confident this short delay will safeguard our reputation and ensure a flawless rollout.\n\nWarm regards,\nAlicia M."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second Spontaneous Dilemma Sprint",
-            prompt: "When is it acceptable in a professional environment to cut corners, if ever? Or should quality and thoroughness always take absolute priority, even if deadlines are missed? Weigh up both perspectives and conclude with your opinion using at least two target expressions.",
-            modelTranscript: "When looking at deadline pressures in business, deciding whether to cut corners is never straightforward. On one hand, in fast-moving tech environments where speed to market is paramount, leaders must occasionally weigh up delivering an imperfect beta product against missing a commercial window entirely. However, when it comes to system architecture or compliance, cutting corners is an unacceptable gamble. In my experience, if you rush delivery, the situation inevitably becomes touch and go, and you end up spending twice as much time trying to iron out severe defects post-launch."
-          }
-        }
+        title: "Consonant Elision, Gemination & Articulatory Flow",
+        status: "locked",
+        subtitle: "Dropping /t/ and /d/ in consonant clusters, identical stop gemination, eliminating Spanish epenthetic /e/.",
+        topics: [
+          "Alveolar stop elision across word boundaries (las' week, ol' friend, nex' Monday)",
+          "Consonant gemination without double-releasing (Prime Minister, hot tea, bad dog)",
+          "Clean initial /s/-clusters (strategy, specific, spontaneous) with zero Spanish /e/",
+          "Corporate agility idioms: touch and go, cut corners, iron out, hammer out"
+        ]
       },
       {
         week: 3,
         title: "Strong vs. Weak Forms & Diplomatic Understatement",
-        subtitle: "Rhythmic reduction of auxiliary verbs and prepositions, British indirectness, and corporate tact.",
-        tasks: {
-          task1: {
-            title: "Task 1: Weak Form Phonetic Identification (Written)",
-            instructions: "Identify whether the structural word is spoken as Weak (/kən/, /wəz/, /tə/, /fə/, /frəm/, /ət/, /əv/) or Strong (/kæn/, /wɒz/, /tuː/, /fɔː/, /frɒm/, /æt/, /ɒv/).",
-            items: [
-              {
-                original: "1. Where were you coming from? I was coming from London.",
-                answer: "Where were you coming from [ <strong>Strong: /frɒm/</strong> ]? I was coming from [ <strong>Weak: /frəm/</strong> ] London.",
-                phonetics: "Sentence-final stranded prepositions are strong; pre-nominal prepositions are weak."
-              },
-              {
-                original: "2. What are you looking at? I am looking at the data.",
-                answer: "What are you looking at [ <strong>Strong: /æt/</strong> ]? I am looking at [ <strong>Weak: /ət/</strong> ] the data.",
-                phonetics: "Final stranded = strong /æt/; pre-nominal = weak /ət/."
-              },
-              {
-                original: "3. This report was written by and for senior executives.",
-                answer: "This report was written by and for [ <strong>Strong: /fɔː/</strong> ] senior executives.",
-                phonetics: "Paired/coordinated prepositions take strong form."
-              },
-              {
-                original: "4. He can speak three languages, but nobody thought he could.",
-                answer: "He can [ <strong>Weak: /kən/</strong> ] speak three languages, but nobody thought he could [ <strong>Strong: /kʊd/</strong> ].",
-                phonetics: "Auxiliary before main verb is weak /kən/; clause-final stranded modal is strong /kʊd/."
-              },
-              {
-                original: "5. A cup of tea for you and for me.",
-                answer: "A cup of [ <strong>Weak: /əv/</strong> ] tea for [ <strong>Weak: /fə/</strong> ] you and for [ <strong>Weak: /fə/</strong> ] me.",
-                phonetics: "Prepositions before object pronouns are standardly weak /fə/ in British rhythm."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Speech Self-Recording",
-            guidelines: [
-              "Record the target paragraph compressing all weak forms.",
-              "Squash 'was' into /wəz/, 'were' into /wə/, 'for' into /fə/, 'a lot of the' into /ə-lɒ-təv-ðə/.",
-              "Maintain strict stress-timing rhythm."
-            ],
-            checklist: [
-              "No full /wɒz/ or /fɔː/ in unstressed positions",
-              "Smooth metric foot compression",
-              "Forward momentum without hesitation"
-            ]
-          },
-          task3: {
-            title: "Task 3: Blunt-to-Diplomatic British Rewriting (Written)",
-            prompts: [
-              {
-                es: "This graphic design is horrible and nobody in marketing will like it.",
-                target: "Not quite what I had in mind + room for improvement",
-                model: "To be fair, this visual direction is not quite what I had in mind, and I suspect there is still some room for improvement before we present it to marketing."
-              },
-              {
-                es: "Your consultant wants €400 an hour? That is crazy and we won't pay it.",
-                target: "A bit steep + weigh up",
-                model: "That day rate does seem a bit steep, so we will need to weigh up whether our current quarterly budget can accommodate it."
-              },
-              {
-                es: "I hate doing repetitive administrative tasks all day.",
-                target: "Not really my cup of tea",
-                model: "Spending the entire working day on repetitive administrative tasks is not really my cup of tea."
-              },
-              {
-                es: "We tried to launch in Germany but everything went wrong and failed.",
-                target: "Didn't pan out + fell through",
-                model: "Unfortunately, our initial expansion into Germany didn't pan out as anticipated, and several commercial partnerships fell through."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second Diplomatic Pushback Sprint",
-            prompt: "Your new company wants to assign you to lead a high-stakes client meeting completely alone during your very first week on the job. Push back diplomatically to your boss using at least two target understatement expressions and fluid weak forms.",
-            modelTranscript: "Thank you for the opportunity to lead the client pitch next Tuesday; I'm genuinely delighted by the vote of confidence. However, heading into such a high-stakes negotiation completely on my own during my very first week is not quite what I had in mind from a risk management perspective. While I've reviewed the dossiers, the client's commercial expectations are a bit steep. I believe it would be far wiser to weigh up the reputational stakes and have an experienced account director join me so we guarantee the deal doesn't fall through."
-          }
-        }
+        status: "locked",
+        subtitle: "Rhythmic reduction of auxiliaries and prepositions; British understatement and tact.",
+        topics: [
+          "Weak form reductions: was (/wəz/), for (/fə/), can (/kən/), of (/əv/)",
+          "Metric foot compression: preserving British stress-timing beats",
+          "Diplomatic understatement: not quite what I had in mind, a bit steep, room for improvement",
+          "Pushback simulation: handling high-stakes workplace expectations"
+        ]
       },
       {
         week: 4,
         title: "Vowel Linking, Glides & Professional Adaptability",
-        subtitle: "Intrusive [j] and [w] glides, eliminating glottal stops [ʔ], /b/ vs /v/ calibration, and conversational agility.",
-        tasks: {
-          task1: {
-            title: "Task 1: Glide Identification & Marking (Written)",
-            instructions: "Insert the ligature and identify which intrusive glide occurs: write [j] or [w].",
-            items: [
-              {
-                original: "1. May I ask if you agree with the proposal?",
-                answer: "May ‿ <strong>[j]</strong> ‿ I ask if you ‿ <strong>[w]</strong> ‿ agree with the proposal?",
-                phonetics: "May ends in front vowel /eɪ/ ➔ [j]; you ends in back rounded /uː/ ➔ [w]."
-              },
-              {
-                original: "2. She wants to know if they can see it today.",
-                answer: "She wants to know ‿ <strong>[w]</strong> ‿ if they can see ‿ <strong>[j]</strong> ‿ it today.",
-                phonetics: "know /əʊ/ ➔ [w]; see /iː/ ➔ [j]."
-              },
-              {
-                original: "3. You always speak off the cuff so effortlessly.",
-                answer: "You ‿ <strong>[w]</strong> ‿ always speak off the cuff so ‿ <strong>[w]</strong> ‿ effortlessly.",
-                phonetics: "You /uː/ ➔ [w]; so /əʊ/ ➔ [w]."
-              },
-              {
-                original: "4. Try again to do it before you go away.",
-                answer: "Try ‿ <strong>[j]</strong> ‿ again to do ‿ <strong>[w]</strong> ‿ it before you go ‿ <strong>[w]</strong> ‿ away.",
-                phonetics: "Try /aɪ/ ➔ [j]; do /uː/ ➔ [w]; go /əʊ/ ➔ [w]."
-              },
-              {
-                original: "5. In a nutshell, they ought to step up and buy eight more units.",
-                answer: "In a nutshell, they ‿ <strong>[j]</strong> ‿ ought to step up and buy ‿ <strong>[j]</strong> ‿ eight more units.",
-                phonetics: "they /eɪ/ ➔ [j]; buy /aɪ/ ➔ [j]."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Minimal Pair & Glide Self-Recording",
-            guidelines: [
-              "Record minimal pairs (/b/ vs /v/): berry/very, best/vest, ban/van, boat/vote, curb/curve.",
-              "Ensure upper teeth touch lower inner lip for /v/.",
-              "Glides must bridge words without glottal catches [ʔ]."
-            ],
-            checklist: [
-              "Clean acoustic distinction between Spanish bilabial [β] and English labiodental /v/",
-              "Smooth [j] and [w] glides without glottal stops",
-              "Connected phrasing on 'say [j] it again' and 'do [w] it right'"
-            ]
-          },
-          task3: {
-            title: "Task 3: Professional Reflection Writing",
-            prompts: [
-              {
-                es: "Write a concise 5-to-7 sentence reflection on entering a new corporate company using target phrases.",
-                target: "Spot on, In a nutshell, Off the cuff, Brush up on, Step up, Wind down",
-                model: "Title: Navigating My First 30 Days in a New Role\n\nStepping into a high-level corporate environment always requires a strategic balance of active listening and decisive initiative. In a nutshell, my priority during these first few weeks is to observe internal stakeholder dynamics and identify where cross-functional processes need refinement. Before our initial department review, I made sure to brush up on our quarterly performance metrics so that my feedback was spot on. While leading an unscripted discussion with executive leadership initially felt intimidating, being able to speak off the cuff with confidence proved to be an invaluable asset. Taking the initiative to step up on this transformation project has energized my team, though I am equally intentional about taking time in the evenings to wind down and recharge."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 90-Second 'Off the Cuff' Monologue",
-            prompt: "Imagine you are introducing yourself to your new team at an informal welcome meeting. Explain your background, what excites you most about your new role, and how you approach challenges. Keep speech smooth and use at least two target phrases.",
-            modelTranscript: "Good afternoon everyone, it's wonderful to finally meet all of you in person. To be fair, while joining a new leadership team in the middle of a major fiscal quarter can be quite intense, I'm genuinely chuffed to bits to be here. By way of background, I've spent the past decade leading commercial growth initiatives across European markets. In a nutshell, what excites me most about joining this department is the sheer caliber of talent in this room and our opportunity to scale our digital offerings. When it comes to tackling operational roadblocks, I prefer to weigh up the data quickly and then empower teams to step up and take decisive ownership."
-          }
-        }
+        status: "locked",
+        subtitle: "Intrusive [j] and [w] glides, eliminating glottal stops [ʔ], /b/ vs /v/ clarity.",
+        topics: [
+          "Hiatus resolution: intrusive [j] after front vowels (see [j] it, they [j] are)",
+          "Intrusive [w] after back rounded vowels (go [w] out, you [w] always)",
+          "Spanish /b/ vs English labiodental /v/ minimal pair calibration",
+          "Executive collocations: spot on, off the cuff, in a nutshell, step up"
+        ]
       },
       {
         week: 5,
         title: "British R-Sounds (Linking & Intrusive) and Societal Discourse",
-        subtitle: "Non-rhoticity in RP, linking /r/, intrusive /r/ after /ə/, /ɔː/, /ɑː/, and political debate agility.",
-        tasks: {
-          task1: {
-            title: "Task 1: Phonetic R-Sound Classification (Written)",
-            instructions: "Classify each instance as [NR] Non-Rhotic, [LR] Linking /r/, or [IR] Intrusive /r/.",
-            items: [
-              {
-                original: "1. The media [ ___ ] alert caused widespread panic.",
-                answer: "The media <u>[ <strong>IR</strong> ]</u> alert caused widespread panic.",
-                phonetics: "/ðə ˈmiː.di.ə-r-əˈlɜːt/ ➔ No 'r' in spelling; phantom intrusive /r/ inserted."
-              },
-              {
-                original: "2. I have no idea [ ___ ] of where my brother [ ___ ] is living.",
-                answer: "I have no idea <u>[ <strong>IR</strong> ]</u> of where my brothe<u>r [ <strong>LR</strong> ]</u> is living.",
-                phonetics: "idea [IR] of (/aɪˈdɪə-r-əv/); brother [LR] is (/ˈbrʌð.ər-ɪz/)."
-              },
-              {
-                original: "3. The govern[ ___ ]ment tried to play down the disaster [ ___ ] and move for[ ___ ]ward.",
-                answer: "The govern<u>[ <strong>NR</strong> ]</u>ment tried to play down the disaste<u>r [ <strong>LR</strong> ]</u> and move fo<u>r [ <strong>NR</strong> ]</u>ward.",
-                phonetics: "govern[NR]ment (silent before /n/); disaster[LR] and; for[NR]ward (silent before /w/)."
-              },
-              {
-                original: "4. She was standing far [ ___ ] away from the car [ ___ ] insurance office.",
-                answer: "She was standing fa<u>r [ <strong>LR</strong> ]</u> away from the ca<u>r [ <strong>LR</strong> ]</u> insurance office.",
-                phonetics: "far[LR] away (/fɑːr-əˈweɪ/); car[LR] insurance (/kɑːr-ɪnˈʃʊə.rəns/)."
-              },
-              {
-                original: "5. Let us draw [ ___ ] a conclusion from the raw [ ___ ] evidence.",
-                answer: "Let us draw <u>[ <strong>IR</strong> ]</u> a conclusion from the raw <u>[ <strong>IR</strong> ]</u> evidence.",
-                phonetics: "draw [IR] a (/drɔː-r-ə/); raw [IR] evidence (/rɔː-r-ˈevɪdəns/)."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Self-Recording",
-            guidelines: [
-              "Produce subtle phantom [r] in 'media [r] is' and 'law [r] and order'.",
-              "Connect 'far-r-away' and 'better-r-off' seamlessly.",
-              "Ensure zero curled retroflex American 'r' in 'parties' or 'order'."
-            ],
-            checklist: [
-              "Accurate Intrusive /r/ on vowel junctions",
-              "Authentic non-rhoticity on syllable-final consonants",
-              "Continuous British stress cadence"
-            ]
-          },
-          task3: {
-            title: "Task 3: Discourse Argumentation Writing",
-            prompts: [
-              {
-                es: "Write a short 5-sentence opinion piece on modern news consumption using at least 4 target phrases.",
-                target: "Entrenched views, At loggerheads, Stir up, Play down, Call out, Zero in on",
-                model: "Title: The Algorithmic Architecture of Outrage\n\nIn contemporary political journalism, digital media platforms deliberately design their algorithms to stir up emotional outrage rather than foster nuanced civil discourse. Rather than offering balanced context, news networks consistently zero in on sensationalist culture war clashes that keep ideological opponents at loggerheads. Whenever independent watchdog organizations call out obvious algorithmic bias, corporate executives attempt to play down the societal fallout. This relentless sensationalism reinforces deeply entrenched views on both sides of the spectrum, eroding public trust in democratic institutions. Ultimately, until consumers demand substantive investigative reporting over viral clickbait, our collective media ecosystem will remain deeply dysfunctional."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second 'Devil's Advocate' Challenge",
-            prompt: "Argue that public complacency is actually a positive sign of a stable, prosperous society, and that when citizens get too engaged in politics, it only leads to chaos. Speak smoothly using at least two target phrases.",
-            modelTranscript: "While modern commentators frequently call out public complacency as a societal failing, to be fair, a high degree of political apathy is often the hallmark of a flourishing civilization. When citizens are constantly out in the streets and political factions remain at loggerheads over every minor policy adjustment, it signals deep institutional insecurity. By contrast, when the general public is relatively complacent, it indicates that basic infrastructure and commercial markets are functioning so reliably that ordinary people don't need to worry about them on a daily basis."
-          }
-        }
+        status: "locked",
+        subtitle: "Non-rhoticity in RP, linking /r/, intrusive /r/ after /ə/, /ɔː/, /ɑː/, and debate flow.",
+        topics: [
+          "RP Non-rhoticity: silent 'r' before consonants and utterance pauses",
+          "Linking /r/: bridging spelled 'r' before initial vowels (far away, car insurance)",
+          "Intrusive /r/: bridging unspelled vowels (media [r] alert, law [r] and order)",
+          "Debate agility: entrenched views, at loggerheads, stir up, play down"
+        ]
       },
       {
         week: 6,
         title: "Sentence Stress, Tonic Nuance & Executive Subtext",
-        subtitle: "Nuclear syllable placement, pitch leaps, decoding corporate subtext, and boardroom persuasion.",
-        tasks: {
-          task1: {
-            title: "Task 1: Nuclear Stress & Subtext Analysis (Written)",
-            instructions: "Explain the distinct pragmatic subtext conveyed by shifting the capitalized tonic syllable.",
-            items: [
-              {
-                original: "A: 'I never said SHE stole the client.' vs. B: 'I never said she STOLE the client.'",
-                answer: "<strong>Sentence A (SHE)</strong>: Someone else stole the client, not her.<br><strong>Sentence B (STOLE)</strong>: She acquired or won the client legitimately through normal business channels, not illicit theft.",
-                phonetics: "Stress on 'SHE' shifts blame; stress on 'STOLE' reframes the action."
-              },
-              {
-                original: "C: 'We expected YOU to lead the presentation.' vs. D: 'We EXPECTED you to lead the presentation.'",
-                answer: "<strong>Sentence C (YOU)</strong>: Expresses surprise/disappointment that someone else stepped in instead of you.<br><strong>Sentence D (EXPECTED)</strong>: It was our original plan/expectation, but that plan fell through or wasn't fulfilled.",
-                phonetics: "Stress on 'YOU' emphasizes personal accountability; stress on 'EXPECTED' highlights unmet prior plans."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Stress-Shift Self-Recording",
-            guidelines: [
-              "Record 5 variations of the Sophie sentence with nuclear stress shifting across words.",
-              "Produce an audible pitch jump (higher musical note) on the tonic word.",
-              "De-accent and compress all surrounding words."
-            ],
-            checklist: [
-              "Prominent pitch jump on the tonic syllable",
-              "Vowel length extended on the stressed word",
-              "Flat, rapid delivery on surrounding non-tonic words"
-            ]
-          },
-          task3: {
-            title: "Task 3: Strategic Executive Communication (Written)",
-            prompts: [
-              {
-                es: "Draft a 6-sentence project update to your executive team using target expressions.",
-                target: "Keep in the loop, On the same page, Touch base, Play it by ear, Across the board, Flesh out, Pencil in",
-                model: "Subject: Project Nexus - Strategic Milestone & Next Steps\n\nHi Team,\n\nI am writing to provide a high-level update on Project Nexus following our mid-quarter review with key stakeholders yesterday. To ensure leadership is kept in the loop, our cross-functional pilot has now been rolled out across the board with very positive initial telemetry. Before finalizing next quarter's roadmap, I want to make sure the entire management steering group remains on the same page regarding resource allocation. Our engineering and commercial leads will touch base on Thursday afternoon to flesh out the technical specifications for Phase 2. While market volatility means we must play it by ear regarding the exact launch date, I suggest we pencil in an all-hands demonstration for the second week of next month. Please let me know if you would like to review the full risk register ahead of our next steering meeting.\n\nBest regards,\nAlicia M."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second Boardroom Pitch Defense",
-            prompt: "Your CFO says: 'Alicia, reallocating budget to digital transformation right now is a very brave proposal. Shouldn't we just play it by ear?' Push back politely and persuade him using targeted sentence stress and at least two target phrases.",
-            modelTranscript: "I appreciate your caution, Simon; to be fair, when economic conditions are volatile, the instinct to play it by ear feels like the safest route. But in this case, adopting a wait-and-see posture is actually our highest-risk option. Our competitors are currently modernizing their tech stack across the board, and if we hesitate, the efficiency gap will quickly become insurmountable. Reallocating this capital is not an reckless bet; it is a calculated measure to safeguard our operating margins. I propose that we touch base with the finance committee tomorrow morning so I can flesh out our modular ROI model."
-          }
-        }
+        status: "locked",
+        subtitle: "Nuclear syllable placement, pitch jumps, decoding workplace subtext, and persuasion.",
+        topics: [
+          "The Nuclear Syllable (Tonic stress): altering meaning through pitch emphasis",
+          "De-accenting background information to highlight key strategic concepts",
+          "Decoding corporate subtext in boardroom statements",
+          "Phrasals: keep in the loop, on the same page, touch base, flesh out, pencil in"
+        ]
       },
       {
         week: 7,
         title: "British Intonation Tunes, Tact & Crisis Management",
-        subtitle: "The British Fall-Rise [\\/], Definitive Fall [\\], Open Rise [/], and conflict de-escalation.",
-        tasks: {
-          task1: {
-            title: "Task 1: Intonation Contour Mapping (Written)",
-            instructions: "Identify whether clauses end with Definitive Fall [ \\ ], Open Rise [ / ], or British Fall-Rise [ \\/ ].",
-            items: [
-              {
-                original: "1. If you ask my opinion [ ___ ], we shouldn't back down just yet [ ___ ].",
-                answer: "If you ask my opinion [ <strong>British Fall-Rise \\/</strong> ], we shouldn't back down just yet [ <strong>Definitive Fall \\</strong> ].",
-                phonetics: "Fall-Rise expresses polite reservation/hedging; Fall asserts decisive conclusion."
-              },
-              {
-                original: "2. Would you be open to talking it through over lunch [ ___ ]?",
-                answer: "Would you be open to talking it through over lunch [ <strong>Open Rise /</strong> ]?",
-                phonetics: "Polite Yes/No inquiry ends with open rising pitch tune."
-              },
-              {
-                original: "3. Although he tried to smooth over the disagreement [ ___ ], the client was still furious [ ___ ].",
-                answer: "Although he tried to smooth over the disagreement [ <strong>British Fall-Rise \\/</strong> ], the client was still furious [ <strong>Definitive Fall \\</strong> ].",
-                phonetics: "Dependent concessive clause carries Fall-Rise; main clause drops into grounding low fall."
-              },
-              {
-                original: "4. To be completely honest [ ___ ], that strategy is skating on thin ice [ ___ ].",
-                answer: "To be completely honest [ <strong>British Fall-Rise \\/</strong> ], that strategy is skating on thin ice [ <strong>Definitive Fall \\</strong> ].",
-                phonetics: "Discourse preface takes Fall-Rise; critical warning takes firm low Fall."
-              },
-              {
-                original: "5. Let sleeping dogs lie [ ___ ], otherwise we will never bury the hatchet [ ___ ].",
-                answer: "Let sleeping dogs lie [ <strong>British Fall-Rise \\/</strong> ], otherwise we will never bury the hatchet [ <strong>Definitive Fall \\</strong> ].",
-                phonetics: "Advisory condition carries Fall-Rise; final warning drops into definitive Fall."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Pitch Shadowing Self-Recording",
-            guidelines: [
-              "Audibly dip and scoop pitch upwards on Fall-Rise phrases ('If you ask my o-pin-ion \\/').",
-              "Drop decisive main clauses into low, authoritative pitch without Spanish question upspeak.",
-              "Project calm diplomatic authority."
-            ],
-            checklist: [
-              "Audible Fall-Rise curl on introductory clauses",
-              "Clean low-fall on assertive statements",
-              "De-escalating vocal warmth"
-            ]
-          },
-          task3: {
-            title: "Task 3: Diplomatic Mediation Writing (Written)",
-            prompts: [
-              {
-                es: "Write a short 5-to-7 sentence email to two feuding department heads inviting them to a neutral mediation session.",
-                target: "Bury the hatchet, Clear the air, Let sleeping dogs lie, Skate on thin ice, Back down, Smooth over, Talk through",
-                model: "Subject: Aligning on Strategy - Informal Sync\n\nDear Sarah and Mark,\n\nThank you both for your immense dedication to delivering the Q3 product release under such tight constraints. It has come to my attention that tensions have arisen regarding operational jurisdiction, and while our instinct might be to let sleeping dogs lie, I believe continuing without addressing this puts our broader roadmap on thin ice. Rather than allowing friction to fester, I would like to invite you both to an informal sync tomorrow afternoon so we can clear the air in a neutral environment. This will not be an exercise in finger-pointing, nor are we asking anyone to unreservedly back down from valid technical positions. Instead, this session will allow us to talk through our overlapping priorities, smooth over recent misunderstandings, and bury the hatchet so that we can lead our teams forward with complete synergy.\n\nWarm regards,\nAlicia M."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 60-Second De-escalation Sprint",
-            prompt: "An aggressive, stressed colleague storms into your office yelling about an incompetent team. De-escalate the situation immediately using calm British Fall-Rise intonation, diplomatic tact, and at least two target idioms.",
-            modelTranscript: "Julian, please take a seat and take a breath for a second. I completely understand your frustration \\/—the delays on the data migration have been immensely stressful for all of us. But going straight to the Board right now is skating on thin ice \\/; it will only escalate hostility and make it impossible for us to resolve the root defect. If we bypass standard channels, nobody wins. Instead of blowing this up into an institutional crisis, let's clear the air between ourselves right now. Give me twenty minutes to review the incident log, and once we talk through what broke down, we can smooth over the workflow without unnecessary casualties."
-          }
-        }
+        status: "locked",
+        subtitle: "The British Fall-Rise [\\/], Definitive Fall [\\], Open Rise [/], and diplomatic mediation.",
+        topics: [
+          "The British Fall-Rise tune: projecting polite reservation and conditional nuance",
+          "Definitive Fall: decisive authoritative closure without rising upspeak",
+          "Conflict de-escalation: burying the hatchet, clearing the air, letting sleeping dogs lie",
+          "Crisis mediation: resolving executive disputes with tact"
+        ]
       },
       {
         week: 8,
-        title: "The 4 Ps, Executive Leadership & 6-Month Autonomous Blueprint",
-        subtitle: "Mastering Power, Pause, Pace, and Pitch; delivering executive keynotes; and self-sustaining fluency.",
-        tasks: {
-          task1: {
-            title: "Task 1: The 4 Ps Speech Annotation (Written)",
-            instructions: "Annotate the executive address with [PAUSE], [POWER], [PACE], and [PITCH].",
-            items: [
-              {
-                original: "Executive Address: 'Good morning colleagues. By and large, this transformation has been our most ambitious undertaking to date. We did not merely wish to modernize our systems; we wanted to position our organization at the forefront of the sector. The success of this rollout bears testimony to the tireless dedication of every single department. However, having a bold vision is only the first step. Our true test begins today, as we follow through on our commitments and carry out the operational reforms that will usher in a prosperous new chapter.'",
-                answer: "[POWER: Confident resonance] 'Good morning colleagues.' [PAUSE: 1.5s]<br><br>[PACE: Measured] [PITCH: Gentle Fall-Rise] 'By and large... \\/ this transformation has been our most ambitious undertaking to date.' [PAUSE: 1.0s]<br><br>[PACE: Accelerating lightly] 'We did not merely wish to modernize our systems; [PAUSE: 0.5s] [POWER: Crescendo] [PITCH: High pitch jump on FOREFRONT] we wanted to position our organization at the FOREFRONT of the sector.' [PAUSE: 2.0s]<br><br>[POWER: Warm sincerity] 'The success of this rollout bears TESTIMONY \\/ to the tireless dedication of every single department.' [PAUSE: 1.5s]<br><br>[PITCH: Low authoritative pitch] 'However, [PAUSE: 0.8s] having a bold vision is only the FIRST step.' [PAUSE: 1.5s]<br><br>[PACE: Punchy deceleration] [POWER: Maximum authority] 'Our TRUE test begins today, [PAUSE: 0.8s] as we follow THROUGH on our commitments, carry OUT the operational reforms, [PITCH: Grounding low-fall] and USHER IN... a prosperous new chapter.' \\ [PAUSE: 3.0s]",
-                phonetics: "The 4 Ps system decouples monotone delivery into dynamic executive authority."
-              }
-            ]
-          },
-          task2: {
-            title: "Task 2: Acoustic Capstone Keynote Recording",
-            guidelines: [
-              "Deliver the annotated speech utilizing 1.5–2.0 second silences ([PAUSE]) instead of filler words.",
-              "Accelerate lightly through background context; decelerate on pivotal nouns.",
-              "Vary vocal pitch from high engagement jumps to low grounding falls."
-            ],
-            checklist: [
-              "Comfortable command of deliberate silences",
-              "Tempo decoupling (Pace variation)",
-              "Seamless RP connected speech and non-rhoticity"
-            ]
-          },
-          task3: {
-            title: "Task 3: Personal Executive Synthesis (Written)",
-            prompts: [
-              {
-                es: "Draft a 6-to-8 sentence executive summary reflecting on your journey across the last 8 weeks and outlining future application.",
-                target: "Bear testimony to, Tip the balance, Set a precedent, By and large, At the forefront, Carry out, Follow through, Usher in",
-                model: "Title: My Professional Voice: Looking Ahead to the Next Six Months\n\nReflecting on the past eight weeks, this training has fundamentally transformed how I conceptualize and project my authority in professional English. By and large, my biggest historical hurdle was the psychological instinct to translate from Spanish in my head, which created hesitation and unnecessary cognitive fatigue. Overcoming that barrier has allowed me to communicate with genuine spontaneous flow and placed my strategic ideas at the forefront of executive discussions. The tangible improvements in my articulatory agility and pitch control bear testimony to the value of consistent phonetic drills and stress-timed rhythm. Mastering the art of pausing and diplomatic understatement has already begun to tip the balance in high-stakes negotiations with international stakeholders. Moving forward into my new leadership role, I am committed to follow through on this autonomous maintenance routine and carry out weekly speech audits. This disciplined practice will set a precedent for continuous professional refinement and usher in a confident, highly persuasive chapter in my international career."
-              }
-            ]
-          },
-          task4: {
-            title: "Task 4: The 6-Month Autonomous Maintenance Routine",
-            prompt: "Pillars for independent lifelong fluency mastery:",
-            modelTranscript: "1. Daily Podcast Shadowing (15 mins/day on BBC Radio 4 or The Rest Is Politics)\n2. The 3-Second Cognitive Rule (Circumlocution instead of translation)\n3. Weekly 2-Minute Speech Memo (Metacognitive 4 Ps audit)\n4. Monthly Maintenance Sessions with Lewis (High-pressure debate sparring)"
-          }
-        }
+        title: "The 4 Ps (Power, Pause, Pace, Pitch) & Capstone Keynote",
+        status: "locked",
+        subtitle: "Vocal modulation system, delivering executive keynotes, and 6-month autonomous maintenance.",
+        topics: [
+          "The 4 Ps framework (Linda James & Olga Smith): Power, Pause, Pace, and Pitch",
+          "Tempo decoupling: eliminating vocal monotony in leadership presentations",
+          "Capstone Keynote Simulation & unscripted Q&A defense",
+          "6-Month Autonomous Maintenance Protocol"
+        ]
       }
     ];
 
-    let currentWeekIndex = 0;
-    let globalReveal = false;
-    let timerInterval = null;
-    let timerSeconds = 60;
-    let isTimerRunning = false;
+    let currentWeek = 1;
 
     function init() {
       renderTabs();
-      renderCurrentWeek();
-      loadSavedAnswers();
+      renderContent();
+      loadStoredData();
     }
 
     function renderTabs() {
-      const container = document.getElementById("weekTabs");
-      container.innerHTML = weeksData.map((w, idx) => `
-        <button onclick="switchWeek(${idx})" class="px-3.5 py-1.5 rounded-lg whitespace-nowrap transition flex items-center gap-1.5 ${
-          idx === currentWeekIndex 
-            ? 'bg-sky-500 text-slate-950 font-bold shadow-md shadow-sky-500/20' 
-            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800'
-        }">
-          <span class="w-2 h-2 rounded-full ${idx === currentWeekIndex ? 'bg-slate-950' : 'bg-slate-600'}"></span>
-          Week ${w.week}
-        </button>
-      `).join('');
+      const container = document.getElementById("weekTabsContainer");
+      container.innerHTML = modules.map(m => {
+        const isActive = m.week === currentWeek;
+        const isLocked = m.status === 'locked';
+
+        return `
+          <button onclick="switchTab(${m.week})" class="px-3 py-1.5 rounded-lg whitespace-nowrap transition flex items-center gap-1.5 ${
+            isActive 
+              ? 'bg-slate-900 text-white font-medium shadow-sm' 
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+          }">
+            ${isLocked ? `<svg class="w-3 h-3 ${isActive ? 'text-slate-300' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>` : ''}
+            <span>Week ${m.week}</span>
+            ${m.week === 1 ? `<span class="w-1.5 h-1.5 rounded-full ${isActive ? 'bg-emerald-400' : 'bg-emerald-500'}"></span>` : ''}
+          </button>
+        `;
+      }).join('');
     }
 
-    function switchWeek(idx) {
-      currentWeekIndex = idx;
+    function switchTab(wk) {
+      currentWeek = wk;
       renderTabs();
-      renderCurrentWeek();
+      renderContent();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    function renderCurrentWeek() {
-      const w = weeksData[currentWeekIndex];
-      const container = document.getElementById("contentContainer");
+    function renderContent() {
+      const main = document.getElementById("mainContainer");
+      const mod = modules.find(m => m.week === currentWeek);
 
-      container.innerHTML = `
-        <!-- Week Header Banner -->
-        <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-indigo-950 border border-slate-700/80 rounded-2xl p-6 shadow-xl mb-6">
-          <div class="flex flex-wrap items-center justify-between gap-3 mb-2">
-            <span class="px-3 py-1 bg-sky-500/10 text-sky-400 border border-sky-500/30 rounded-full text-xs font-semibold uppercase tracking-wider">
-              Module Week ${w.week}
-            </span>
-            <div class="text-xs text-slate-400 flex items-center gap-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-              4 Integrated Pedagogical Tasks
-            </div>
-          </div>
-          <h2 class="text-2xl font-bold text-white mb-1.5">${w.title}</h2>
-          <p class="text-sm text-slate-300 max-w-3xl">${w.subtitle}</p>
-        </div>
-
-        <div class="grid grid-cols-1 gap-6">
-
-          <!-- TASK 1 -->
-          <div class="card bg-[#1e293b] border border-slate-700/80 rounded-2xl p-6 shadow-lg">
-            <div class="flex items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 font-bold flex items-center justify-center text-sm">1</span>
-                <div>
-                  <h3 class="text-base font-bold text-white">${w.tasks.task1.title}</h3>
-                  <p class="text-xs text-slate-400">${w.tasks.task1.instructions}</p>
-                </div>
+      if (mod.status === 'locked') {
+        // CLEAN, ELEGANT "UPCOMING MODULE" PREVIEW (NO HOMEWORK REVEALED)
+        main.innerHTML = `
+          <div class="max-w-2xl mx-auto py-10">
+            <div class="bg-white border border-slate-200 rounded-2xl p-8 shadow-sm text-center">
+              <div class="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-200 text-slate-600 flex items-center justify-center mx-auto mb-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
               </div>
-              <button onclick="toggleCardAnswer('task1-ans')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-sky-400 border border-slate-700 text-xs font-medium rounded-lg transition">
-                Toggle Answer
-              </button>
-            </div>
 
-            <div class="space-y-4">
-              ${w.tasks.task1.items.map((item, i) => `
-                <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                  <p class="text-sm font-medium text-slate-200 mb-2">${item.original}</p>
-                  
-                  <!-- Student Practice Space -->
-                  <div class="mt-2 mb-3">
-                    <input type="text" placeholder="Type your phonetic markup or transcription here..." 
-                           id="w${w.week}_t1_${i}" oninput="saveStudentInput(this.id, this.value)"
-                           class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-1.5 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-sky-500 transition">
-                  </div>
-
-                  <!-- Answer Box -->
-                  <div id="task1-ans-${i}" class="task1-ans ${globalReveal ? 'block' : 'hidden'} mt-3 pt-3 border-t border-slate-800/80">
-                    <div class="text-xs text-emerald-400 font-semibold mb-1 flex items-center gap-1.5">
-                      <span>✓ Model Pronunciation & Linked Markup:</span>
-                    </div>
-                    <p class="text-sm text-slate-100 font-serif leading-relaxed">${item.answer}</p>
-                    <p class="text-xs text-slate-400 mt-1.5 italic">${item.phonetics}</p>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-          </div>
-
-          <!-- TASK 2 -->
-          <div class="card bg-[#1e293b] border border-slate-700/80 rounded-2xl p-6 shadow-lg">
-            <div class="flex items-center gap-2.5 mb-4">
-              <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-sm">2</span>
-              <div>
-                <h3 class="text-base font-bold text-white">${w.tasks.task2.title}</h3>
-                <p class="text-xs text-slate-400">Acoustic self-recording & voice memo calibration</p>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-amber-50 text-amber-800 border border-amber-200 mb-3">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>
+                Module Week ${mod.week} &bull; Unlocks Next Week
               </div>
-            </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-sky-400 mb-2">Acoustic Guidelines</h4>
-                <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-                  ${w.tasks.task2.guidelines.map(g => `<li>${g}</li>`).join('')}
+              <h2 class="text-xl font-bold text-slate-900 mb-2">${mod.title}</h2>
+              <p class="text-sm text-slate-500 max-w-md mx-auto mb-6 leading-relaxed">${mod.subtitle}</p>
+
+              <!-- Upcoming Syllabus Preview -->
+              <div class="bg-slate-50 border border-slate-200/80 rounded-xl p-5 text-left mb-6">
+                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-700 mb-3">What we will cover in our next live session:</h4>
+                <ul class="text-xs text-slate-600 space-y-2.5">
+                  ${mod.topics.map(t => `
+                    <li class="flex items-start gap-2">
+                      <svg class="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                      <span>${t}</span>
+                    </li>
+                  `).join('')}
                 </ul>
               </div>
 
-              <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                <h4 class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-2">Self-Audit Checklist</h4>
-                <div class="space-y-2">
-                  ${w.tasks.task2.checklist.map((c, i) => `
-                    <label class="flex items-start gap-2.5 text-xs text-slate-300 cursor-pointer">
-                      <input type="checkbox" id="w${w.week}_chk_${i}" onchange="saveChecklist(this.id, this.checked)" class="mt-0.5 rounded bg-slate-950 border-slate-700 text-sky-500 focus:ring-0">
-                      <span>${c}</span>
-                    </label>
-                  `).join('')}
-                </div>
-              </div>
-            </div>
-          </div>
+              <p class="text-xs text-slate-400 mb-6">
+                This homework module and acoustic recording tasks will unlock immediately after your next lesson with Lewis.
+              </p>
 
-          <!-- TASK 3 -->
-          <div class="card bg-[#1e293b] border border-slate-700/80 rounded-2xl p-6 shadow-lg">
-            <div class="flex items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-sm">3</span>
-                <div>
-                  <h3 class="text-base font-bold text-white">${w.tasks.task3.title}</h3>
-                  <p class="text-xs text-slate-400">Anti-translation lexical conversion & executive drafting</p>
-                </div>
-              </div>
-              <button onclick="toggleCardAnswer('task3-ans')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-purple-400 border border-slate-700 text-xs font-medium rounded-lg transition">
-                Toggle Model Writing
+              <button onclick="switchTab(1)" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-medium transition shadow-sm inline-flex items-center gap-2">
+                <span>&larr; Back to Week 1 Active Homework</span>
               </button>
             </div>
-
-            <div class="space-y-4">
-              ${w.tasks.task3.prompts.map((p, i) => `
-                <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-                  <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <span class="text-xs font-bold text-slate-400">Prompt / Original Spanish:</span>
-                    <span class="px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-medium">
-                      Target: ${p.target}
-                    </span>
-                  </div>
-                  <p class="text-sm font-medium text-slate-200 italic mb-3">"${p.es}"</p>
-
-                  <div class="mb-3">
-                    <label class="block text-xs text-slate-400 mb-1">Alicia's Response:</label>
-                    <textarea id="w${w.week}_t3_${i}" oninput="saveStudentInput(this.id, this.value)" rows="2" placeholder="Write your British English conversion or email draft here..."
-                              class="w-full bg-slate-950 border border-slate-800 rounded-lg p-3 text-xs text-slate-200 placeholder-slate-600 focus:outline-none focus:border-purple-500 transition"></textarea>
-                  </div>
-
-                  <div id="task3-ans-${i}" class="task3-ans ${globalReveal ? 'block' : 'hidden'} p-3 rounded-lg bg-emerald-950/20 border border-emerald-500/30 mt-2">
-                    <p class="text-xs font-bold text-emerald-400 mb-1">Model British English Solution:</p>
-                    <p class="text-xs text-slate-200 whitespace-pre-line leading-relaxed font-sans">${p.model}</p>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
           </div>
+        `;
+        return;
+      }
 
-          <!-- TASK 4 -->
-          <div class="card bg-[#1e293b] border border-slate-700/80 rounded-2xl p-6 shadow-lg">
-            <div class="flex items-center justify-between gap-3 mb-4">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center text-sm">4</span>
-                <div>
-                  <h3 class="text-base font-bold text-white">${w.tasks.task4.title}</h3>
-                  <p class="text-xs text-slate-400">High-pressure spontaneous verbal sprint</p>
+      // WEEK 1: ACTIVE, LIGHT, MINIMAL WORKBOOK
+      main.innerHTML = `
+        <!-- Week 1 Header Banner -->
+        <div class="mb-8">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold">Active Assignment</span>
+            <span class="text-xs text-slate-400">&bull; Due prior to Week 2 lesson</span>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-2">${mod.title}</h2>
+          <p class="text-sm text-slate-600 leading-relaxed max-w-3xl">${mod.subtitle}</p>
+        </div>
+
+        <!-- Tutor's Reassuring Note -->
+        <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm mb-8 flex items-start gap-4">
+          <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex-shrink-0 flex items-center justify-center text-slate-700 font-semibold text-sm">
+            LO
+          </div>
+          <div class="text-xs text-slate-600 leading-relaxed space-y-2">
+            <div class="flex items-center justify-between">
+              <h4 class="text-sm font-semibold text-slate-900">Note from Lewis (Tutor)</h4>
+              <span class="text-[11px] text-slate-400 font-mono">Week 1 Recap</span>
+            </div>
+            <p>
+              Hi Alicia! In our first session, we concentrated on de-translating your Spanish cognitive loop with 
+              <strong class="text-slate-900">Exercise 1.1 (Rapid-Fire Sprints)</strong> and 
+              <strong class="text-slate-900">Exercise 1.2 (Speed Reframing)</strong>.
+            </p>
+            <p>
+              This homework allows you to consolidate those exact reflexes, and then walk step-by-step through British stress-timing, the Schwa (<code class="text-sky-700 font-mono">/ə/</code>), and catenation at your own pace. When you're ready, record your voice note right here in Part 4 and upload it to Preply!
+            </p>
+          </div>
+        </div>
+
+        <!-- WORKBOOK SECTIONS -->
+        <div class="space-y-8">
+
+          <!-- PART 1: CLASS CONSOLIDATION (EX 1.1 & 1.2) -->
+          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold text-emerald-600 uppercase tracking-wider">Part 1 &bull; Consolidation</span>
+                <h3 class="text-base font-bold text-slate-900">Exercises 1.1 & 1.2 Review</h3>
+              </div>
+              <span class="text-xs text-slate-400">Classwork Follow-up</span>
+            </div>
+
+            <!-- Task 1.1: 3-Second Reflex Sprints -->
+            <div class="mb-6">
+              <h4 class="text-sm font-semibold text-slate-900 mb-1">Exercise 1.1: 3-Second Cognitive Reflex Sprints</h4>
+              <p class="text-xs text-slate-500 mb-3">
+                Look at each trigger word. Give yourself only <strong>3 seconds</strong> to open your mouth. Speak for 20–30 seconds without saying "how do you say" or stalling in Spanish:
+              </p>
+
+              <!-- Practice Timer -->
+              <div class="bg-slate-50 border border-slate-200 rounded-xl p-3.5 flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                  <span class="text-xl font-mono font-bold text-slate-900 bg-white px-3 py-1 rounded-lg border border-slate-200" id="sprintClock">00:30</span>
+                  <span class="text-xs text-slate-500">Practice 30-Second Sprint Clock</span>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <button onclick="startSprintClock(20)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-100 rounded-lg border border-slate-200 text-slate-700">20s</button>
+                  <button onclick="startSprintClock(30)" class="px-2.5 py-1 text-xs bg-white hover:bg-slate-100 rounded-lg border border-slate-200 text-slate-700">30s</button>
+                  <button onclick="toggleSprintClock()" id="sprintClockBtn" class="px-3 py-1 text-xs bg-slate-900 hover:bg-slate-800 text-white font-medium rounded-lg">Start</button>
                 </div>
               </div>
-              <div class="flex items-center gap-2">
-                <button onclick="startSprintForWeek(${w.week === 4 ? 90 : 60})" class="px-2.5 py-1 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-semibold rounded-lg transition">
-                  ⏱️ Launch Sprint (${w.week === 4 ? '90s' : '60s'})
-                </button>
-                <button onclick="toggleCardAnswer('task4-ans')" class="px-3 py-1 bg-slate-800 hover:bg-slate-700 text-amber-400 border border-slate-700 text-xs font-medium rounded-lg transition">
-                  Toggle Model Transcript
-                </button>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 1</span>
+                  <p class="font-bold text-slate-900 text-sm mb-1">"Complacency"</p>
+                  <p class="text-slate-500 mb-2">What happens when citizens or teams take comfort for granted?</p>
+                  <input type="text" id="t1_note_1" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 2</span>
+                  <p class="font-bold text-slate-900 text-sm mb-1">"Orchestrated"</p>
+                  <p class="text-slate-500 mb-2">Describe a PR stunt, media narrative, or concert that was staged.</p>
+                  <input type="text" id="t1_note_2" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 3</span>
+                  <p class="font-bold text-slate-900 text-sm mb-1">"A Gathering"</p>
+                  <p class="text-slate-500 mb-2">Contrast an informal family gathering with a large public protest.</p>
+                  <input type="text" id="t1_note_3" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                </div>
+
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                  <span class="text-[10px] font-semibold text-slate-400 uppercase">Trigger 4</span>
+                  <p class="font-bold text-slate-900 text-sm mb-1">"Spontaneous"</p>
+                  <p class="text-slate-500 mb-2">Describe an unplanned trip or unexpected decision you once took.</p>
+                  <input type="text" id="t1_note_4" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs text-slate-700 focus:outline-none focus:border-slate-900">
+                </div>
               </div>
             </div>
 
-            <div class="p-4 rounded-xl bg-slate-900/70 border border-slate-800">
-              <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1.5">Live Spontaneous Prompt</div>
-              <blockquote class="text-sm font-medium text-slate-200 border-l-2 border-amber-500 pl-3 py-1 mb-4 italic">
-                "${w.tasks.task4.prompt}"
-              </blockquote>
+            <!-- Task 1.2: Speed Reframers -->
+            <div class="pt-4 border-t border-slate-100">
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-sm font-semibold text-slate-900">Exercise 1.2: Spanish-to-British Discourse Starters</h4>
+                <button onclick="toggleHint('ex12_hints')" class="text-xs text-slate-500 hover:text-slate-900 transition flex items-center gap-1">
+                  <span>Reveal Model Phrasing</span>
+                </button>
+              </div>
+              <p class="text-xs text-slate-500 mb-4">
+                Reframe these Spanish thoughts immediately into natural British English using the required discourse starter:
+              </p>
 
-              <!-- Live In-Browser Audio Recording Booth -->
-              <div class="p-4 rounded-xl bg-slate-950 border border-rose-500/30 mb-4 text-center">
-                <div class="flex items-center justify-between gap-2 mb-2">
-                  <span class="text-xs font-bold text-rose-400 flex items-center gap-1.5">
-                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
-                    Live Audio Recording Booth
-                  </span>
-                  <span id="portalRecBadge" class="hidden px-2 py-0.5 rounded-full bg-rose-500 text-white font-mono text-[10px] font-bold">REC LIVE</span>
-                </div>
-                <div class="text-3xl font-mono font-bold text-slate-200 my-2" id="portalRecTimer">00:00</div>
-                <p class="text-xs text-slate-400 mb-3" id="portalRecStatus">Click "Start Recording" to capture your speech directly in the browser.</p>
-                
-                <div class="flex flex-wrap items-center justify-center gap-2">
-                  <button id="portalRecordBtn" onclick="togglePortalAudioRecording()" class="px-5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs shadow-md transition flex items-center gap-2">
-                    <span id="portalRecordIcon" class="w-2.5 h-2.5 rounded-full bg-white"></span>
-                    <span id="portalRecordText">Start Recording</span>
-                  </button>
-                  <button id="portalResetBtn" onclick="resetPortalAudioRecording()" class="hidden px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-medium transition">
-                    Reset
-                  </button>
+              <div class="space-y-3.5 text-xs">
+                <!-- Item 1 -->
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="font-medium text-slate-700 italic">"El jefe no nos dio tiempo suficiente, pero él tampoco tenía la información."</span>
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">To be fair,...</span>
+                  </div>
+                  <input type="text" id="reframer_1" placeholder="Start your sentence with 'To be fair,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
+                    <strong>Model:</strong> <em>"To be fair, the manager didn't give us enough time, but to be fair to him, he didn't have all the facts either."</em>
+                  </div>
                 </div>
 
-                <!-- Audio Playback & Download -->
-                <div id="portalAudioContainer" class="hidden mt-4 pt-3 border-t border-slate-800 flex flex-col items-center space-y-2.5">
-                  <span class="text-xs text-emerald-400 font-semibold">✓ Audio Captured! Listen to your pronunciation:</span>
-                  <audio id="portalAudioPlayback" controls class="w-full max-w-sm rounded bg-slate-900 border border-slate-800"></audio>
-                  <div class="flex items-center gap-2">
-                    <a id="portalDownloadLink" download="Alicia_Week${w.week}_Spontaneous_Sprint.webm" class="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-lg text-xs flex items-center gap-1.5 shadow transition">
-                      ⬇️ Download Audio File
-                    </a>
+                <!-- Item 2 -->
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="font-medium text-slate-700 italic">"Sinceramente, creo que este informe no sirve para nada y está mal enfocado."</span>
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">Quite frankly,...</span>
+                  </div>
+                  <input type="text" id="reframer_2" placeholder="Start your sentence with 'Quite frankly,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
+                    <strong>Model:</strong> <em>"Quite frankly, I think this report is completely unhelpful and misses the core issues."</em>
+                  </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="font-medium text-slate-700 italic">"Decir que tendremos todo listo el viernes es imposible."</span>
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">A bit of a stretch...</span>
+                  </div>
+                  <input type="text" id="reframer_3" placeholder="Start your sentence with 'It's a bit of a stretch to...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
+                    <strong>Model:</strong> <em>"It's a bit of a stretch to expect the entire deliverable to be completed by Friday."</em>
+                  </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="p-3.5 rounded-xl border border-slate-200 bg-white">
+                  <div class="flex items-center justify-between mb-1.5">
+                    <span class="font-medium text-slate-700 italic">"Al final lo que importa es si el cliente está contento con los resultados."</span>
+                    <span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">At the end of the day,...</span>
+                  </div>
+                  <input type="text" id="reframer_4" placeholder="Start your sentence with 'At the end of the day,...'" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 mb-1.5">
+                  <div class="ex12_hints hidden text-[11px] text-emerald-700 bg-emerald-50/70 p-2 rounded border border-emerald-200">
+                    <strong>Model:</strong> <em>"At the end of the day, all that truly matters is whether the client is satisfied with the results."</em>
                   </div>
                 </div>
               </div>
+            </div>
+          </section>
 
-              <!-- Preply Upload Guide -->
-              <div class="p-4 rounded-xl bg-[#0b101d] border border-sky-500/30 mb-4">
-                <div class="flex items-center justify-between flex-wrap gap-2 mb-2">
-                  <span class="text-xs font-bold text-white flex items-center gap-1.5">
-                    <span class="w-5 h-5 rounded-md bg-sky-500/20 text-sky-400 flex items-center justify-center text-[10px]">📎</span>
-                    How to Upload Audio to Preply (3 Steps)
-                  </span>
-                  <a href="https://preply.com/messages" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-[11px] rounded transition">
-                    Open Preply Messages &nearr;
-                  </a>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 text-[11px] text-slate-300 mb-2">
-                  <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                    <span class="font-bold text-sky-400">1. Download:</span> Save your audio file above.
-                  </div>
-                  <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                    <span class="font-bold text-sky-400">2. Open Preply:</span> Go to messages with Lewis O.
-                  </div>
-                  <div class="p-2 rounded-lg bg-slate-900 border border-slate-800">
-                    <span class="font-bold text-sky-400">3. Attach:</span> Click the paperclip (📎) and send!
-                  </div>
-                </div>
-                <div class="flex items-center justify-between p-2 rounded bg-slate-950 border border-slate-800 text-[11px] text-slate-400">
-                  <span>Note: <em>"Hi Lewis! Here is my Week ${w.week} spontaneous sprint. Looking forward to your feedback!"</em></span>
-                  <button onclick="copyPortalNote(${w.week})" id="portalCopyBtn" class="px-2 py-0.5 bg-slate-800 hover:bg-slate-700 text-sky-300 rounded text-[10px] ml-2">📋 Copy</button>
-                </div>
+          <!-- PART 2: SELF-GUIDED PRONUNCIATION CLINIC -->
+          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold text-sky-600 uppercase tracking-wider">Part 2 &bull; Pronunciation Clinic</span>
+                <h3 class="text-base font-bold text-slate-900">British Rhythm, Schwa (/ə/) & Catenation</h3>
               </div>
+              <span class="text-xs text-slate-400">Acoustic Mastery</span>
+            </div>
 
-              <div id="task4-ans" class="task4-ans ${globalReveal ? 'block' : 'hidden'} p-4 rounded-xl bg-slate-950 border border-slate-800 mt-3">
-                <div class="flex items-center justify-between mb-2">
-                  <span class="text-xs font-bold text-emerald-400">Model Native Speaker Transcript (SSBE Flow):</span>
-                  <span class="text-xs text-slate-400 font-mono">Continuous Cadence</span>
-                </div>
-                <p class="text-xs text-slate-300 leading-relaxed italic whitespace-pre-line">
-                  "${w.tasks.task4.modelTranscript}"
+            <!-- The Metronome Rule -->
+            <div class="mb-6">
+              <h4 class="text-sm font-semibold text-slate-900 mb-1.5">1. The Metronome Rule: "Drum Beat" vs. "Machine Gun"</h4>
+              <p class="text-xs text-slate-600 leading-relaxed mb-3">
+                Spanish is <strong>syllable-timed</strong> (every syllable takes equal length: <em>da-da-da-da</em>). 
+                British English is <strong>stress-timed</strong>: only stressed syllables hit a regular musical beat. All syllables in between are squashed and reduced to <strong>Schwa (/ə/)</strong>.
+              </p>
+
+              <!-- Desk Tap Box -->
+              <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs">
+                <span class="font-bold text-slate-800 block mb-2">🥁 Try the Physical Desk Tap Drill:</span>
+                <p class="text-slate-600 mb-3">
+                  Tap your knuckle on your desk at a steady, rhythmic pace: <em>Tap ... Tap ... Tap</em>. 
+                  Do <strong>NOT</strong> slow down your hand! Say each sentence below, fitting all extra words between the beats in the exact same duration:
                 </p>
+                <div class="space-y-1.5 font-mono text-slate-800">
+                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
+                    <span>[Tap!] <strong class="text-slate-900">CATS</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-900">EAT</strong> &nbsp;&nbsp;&nbsp;&nbsp; [Tap!] <strong class="text-slate-900">FISH</strong>.</span>
+                    <span class="text-slate-400 text-[10px]">3 beats / 3 syllables</span>
+                  </div>
+                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
+                    <span>[Tap!] The <strong class="text-slate-900">CATS</strong> &nbsp;&nbsp; [Tap!] will <strong class="text-slate-900">EAT</strong> &nbsp;&nbsp; [Tap!] the <strong class="text-slate-900">FISH</strong>.</span>
+                    <span class="text-slate-400 text-[10px]">3 beats / 5 syllables</span>
+                  </div>
+                  <div class="p-2 rounded bg-white border border-slate-200 flex justify-between">
+                    <span>[Tap!] The <strong class="text-slate-900">CATS</strong> might have &nbsp;&nbsp; [Tap!] <strong class="text-slate-900">EAT</strong>-en all the &nbsp;&nbsp; [Tap!] <strong class="text-slate-900">FISH</strong>.</span>
+                    <span class="text-slate-400 text-[10px]">3 beats / 8 syllables (same time!)</span>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+
+            <!-- The Lazy Sigh Technique -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mb-6">
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                <span class="font-bold text-slate-900 block mb-1">How to Make the Schwa (/ə/)</span>
+                <p class="text-slate-500 mb-2">The sound your mouth makes when doing zero work:</p>
+                <ul class="space-y-1 text-slate-600 list-disc list-inside">
+                  <li>Relax your jaw half-open.</li>
+                  <li>Do not round your lips (no "o"), do not smile (no "e").</li>
+                  <li>Tongue rests limp in the bottom of your mouth.</li>
+                  <li>Make a quiet lazy sigh: <code class="text-sky-700 font-mono font-semibold">/ə/</code>.</li>
+                </ul>
+              </div>
+
+              <div class="p-4 rounded-xl border border-slate-200 bg-slate-50/50">
+                <span class="font-bold text-slate-900 block mb-1">Consonant-to-Vowel Catenation (‿)</span>
+                <p class="text-slate-500 mb-2">Gliding across word boundaries like one single word:</p>
+                <div class="grid grid-cols-2 gap-2 text-center font-mono">
+                  <div class="p-1.5 rounded bg-white border border-slate-200">hold + on ➔ <strong>hol-don</strong></div>
+                  <div class="p-1.5 rounded bg-white border border-slate-200">turned + out ➔ <strong>turn-dout</strong></div>
+                  <div class="p-1.5 rounded bg-white border border-slate-200">pick + it + up ➔ <strong>pi-ki-tup</strong></div>
+                  <div class="p-1.5 rounded bg-white border border-slate-200">first + of + all ➔ <strong>firs-tə-vɔːl</strong></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Phonetic Practice Sentences -->
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <h4 class="text-sm font-semibold text-slate-900">Practice Sentences (Read Aloud with Catenation & Schwa)</h4>
+                <button onclick="toggleHint('phono_markup_answers')" class="text-xs text-slate-500 hover:text-slate-900 transition">
+                  Toggle Phonetic Markings
+                </button>
+              </div>
+              
+              <div class="space-y-2 text-xs">
+                <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                  <p class="text-slate-800 font-medium">1. It turned out to be an unexpected gathering of community leaders.</p>
+                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                    It turned <span class="catenate-mark">‿</span> out to be <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> un<span class="schwa-mark">e</span>xp<span class="schwa-mark">e</span>ct<span class="schwa-mark">e</span>d gath<span class="schwa-mark">e</span>ring <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f c<span class="schwa-mark">o</span>mmun<span class="schwa-mark">i</span>ty l<span class="schwa-mark">ea</span>d<span class="schwa-mark">e</span>rs.
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                  <p class="text-slate-800 font-medium">2. Hold on a second, to be fair he made an enormous effort.</p>
+                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                    Hold <span class="catenate-mark">‿</span> on <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> second, t<span class="schwa-mark">o</span> be fair he made <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">e</span>norm<span class="schwa-mark">ou</span>s <span class="catenate-mark">‿</span> effort.
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                  <p class="text-slate-800 font-medium">3. At the end of the day, an official announcement was made in Hampshire.</p>
+                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                    <span class="schwa-mark">A</span>t th<span class="schwa-mark">e</span> end <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f th<span class="schwa-mark">e</span> day, <span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>ffic<span class="schwa-mark">ia</span>l <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span>nnounc<span class="schwa-mark">e</span>m<span class="schwa-mark">e</span>nt w<span class="schwa-mark">a</span>s made <span class="catenate-mark">‿</span> in Hampsh<span class="schwa-mark">i</span>re (/ˈhæmp.ʃə/).
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                  <p class="text-slate-800 font-medium">4. Quite frankly, it is a bit of a stretch to suppose she will brush it off.</p>
+                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                    Quite frankly, it <span class="catenate-mark">‿</span> is <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> bit <span class="catenate-mark">‿</span> <span class="schwa-mark">o</span>f <span class="catenate-mark">‿</span> <span class="schwa-mark">a</span> stretch t<span class="schwa-mark">o</span> s<span class="schwa-mark">u</span>ppose she will brush <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> off.
+                  </p>
+                </div>
+                <div class="p-3 rounded-xl border border-slate-200 bg-white">
+                  <p class="text-slate-800 font-medium">5. Can I pick it up from the woman at the front desk?</p>
+                  <p class="phono_markup_answers hidden text-slate-600 font-serif mt-1 pt-1 border-t border-slate-100">
+                    C<span class="schwa-mark">a</span>n <span class="catenate-mark">‿</span> I pick <span class="catenate-mark">‿</span> it <span class="catenate-mark">‿</span> up fr<span class="schwa-mark">o</span>m th<span class="schwa-mark">e</span> wom<span class="schwa-mark">a</span>n <span class="schwa-mark">a</span>t th<span class="schwa-mark">e</span> front desk?
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- PART 3: EXTENDING THE LEXICON -->
+          <section class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+            <div class="border-b border-slate-100 pb-3 mb-4">
+              <span class="text-[11px] font-bold text-indigo-600 uppercase tracking-wider">Part 3 &bull; Lexicon</span>
+              <h3 class="text-base font-bold text-slate-900">3 Essential British Expressions</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                <span class="font-bold text-slate-900 text-sm block mb-1">Come across (as)</span>
+                <p class="text-slate-500 mb-2">How one is perceived by others.</p>
+                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"In the meeting, she came across as very decisive."</p>
+                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "give the impression of"</span>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                <span class="font-bold text-slate-900 text-sm block mb-1">Turn out</span>
+                <p class="text-slate-500 mb-2">To result in or end up as.</p>
+                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"We expected delays, but it turned out fine."</p>
+                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "result in" / "end up"</span>
+              </div>
+
+              <div class="p-3.5 rounded-xl border border-slate-200 bg-slate-50/50">
+                <span class="font-bold text-slate-900 text-sm block mb-1">Brush off</span>
+                <p class="text-slate-500 mb-2">To dismiss criticism or setbacks lightly.</p>
+                <p class="italic text-slate-700 bg-white p-2 rounded border border-slate-200">"He just brushed off the rumor and kept working."</p>
+                <span class="text-[10px] text-rose-500 mt-2 block font-medium">🚫 Don't say: "pass from" / "ignore"</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- PART 4: LIVE AUDIO RECORDER BOOTH & PREPLY SUBMISSION -->
+          <section id="recorderBooth" class="bg-white border-2 border-slate-900/10 rounded-2xl p-6 shadow-sm">
+            <div class="border-b border-slate-100 pb-3 mb-5 flex items-center justify-between">
+              <div>
+                <span class="text-[11px] font-bold text-rose-600 uppercase tracking-wider">Part 4 &bull; Final Submission</span>
+                <h3 class="text-base font-bold text-slate-900">Audio Recording Studio & Preply Submission</h3>
+              </div>
+              <span id="liveRecBadge" class="hidden px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200 text-xs font-semibold flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-600 live-pulse"></span> REC LIVE
+              </span>
+            </div>
+
+            <!-- Prompt -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 mb-6">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">60-Second Spontaneous Speech Prompt</span>
+              <blockquote class="text-sm font-medium text-slate-800 italic leading-relaxed">
+                "Think about a recent news story or social media trend that caught your attention. In your opinion, was it an authentic social movement, or was it orchestrated to distract the public? Give your honest thoughts using at least two target phrases from Week 1."
+              </blockquote>
+            </div>
+
+            <!-- Live Browser Recorder Box -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-6 text-center mb-6">
+              <div class="text-3xl font-mono font-bold text-slate-900 mb-1" id="recTimer">00:00</div>
+              <p class="text-xs text-slate-500 mb-4" id="recStatus">Click below to record your voice note directly in your browser.</p>
+
+              <div class="flex items-center justify-center gap-2">
+                <button id="mainRecBtn" onclick="toggleRecording()" class="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs shadow-sm transition flex items-center gap-2">
+                  <span id="recDot" class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                  <span id="recText">Start Recording</span>
+                </button>
+                <button id="resetRecBtn" onclick="resetRecording()" class="hidden px-3.5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-slate-600 border border-slate-200 text-xs font-medium transition">
+                  Reset
+                </button>
+              </div>
+
+              <!-- Audio Player & Download -->
+              <div id="playbackContainer" class="hidden mt-5 pt-4 border-t border-slate-200/80 flex flex-col items-center space-y-3">
+                <span class="text-xs text-emerald-700 font-medium">✓ Recording Complete! Listen back before sending:</span>
+                <audio id="audioElement" controls class="w-full max-w-sm rounded bg-white shadow-sm border border-slate-200"></audio>
+                <a id="downloadBtn" download="Alicia_Week1_Spontaneous_Sprint.webm" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold shadow-sm transition inline-flex items-center gap-1.5">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                  <span>Download Audio File</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- How to Upload to Preply Guide -->
+            <div class="bg-white border border-slate-200 rounded-xl p-5 mb-5">
+              <div class="flex items-center justify-between mb-3">
+                <h4 class="text-xs font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1.5">
+                  <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"/></svg>
+                  How to Send Your Audio to Lewis on Preply
+                </h4>
+                <a href="https://preply.com/messages" target="_blank" rel="noopener noreferrer" class="text-xs text-slate-900 font-semibold hover:underline flex items-center gap-1">
+                  <span>Open Preply Messages</span> &nearr;
+                </a>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs text-slate-600 mb-3">
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-900 block mb-1">1. Download File</span>
+                  Click "Download Audio File" above to save your recording.
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-900 block mb-1">2. Open Preply Chat</span>
+                  Open your message thread with your tutor <strong>Lewis O.</strong>
+                </div>
+                <div class="p-3 rounded-lg bg-slate-50 border border-slate-100">
+                  <span class="font-bold text-slate-900 block mb-1">3. Attach & Send</span>
+                  Click the <strong>Paperclip (📎)</strong>, attach the file, and press send.
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between p-2.5 rounded-lg bg-slate-50 border border-slate-100 text-xs text-slate-500">
+                <span>Copy note for chat: <em>"Hi Lewis! Here is my Week 1 spontaneous speech sprint. Looking forward to your feedback!"</em></span>
+                <button onclick="copyPreplyNote()" id="copyBtn" class="px-2.5 py-1 bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 rounded text-[11px] font-medium transition ml-2">Copy</button>
+              </div>
+            </div>
+
+            <!-- Self-Audit Checklist -->
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs">
+              <span class="font-bold text-slate-800 block mb-2">Checklist Before Sending:</span>
+              <div class="space-y-1.5 text-slate-600">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="chk_1" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <span>Started speaking within 3 seconds without saying "how do you say"</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="chk_2" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <span>Used at least two target starters (To be fair, Quite frankly, At the end of the day, A bit of a stretch)</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="chk_3" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <span>Linked words smoothly (catenation) across boundaries</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="checkbox" id="chk_4" onchange="saveCheck(this.id, this.checked)" class="rounded text-slate-900">
+                  <span>Relaxed unstressed vowels into neutral Schwa (/ə/)</span>
+                </label>
+              </div>
+            </div>
+          </section>
 
         </div>
       `;
 
-      loadSavedAnswers();
+      loadStoredData();
     }
 
-    function toggleCardAnswer(className) {
-      const els = document.querySelectorAll('.' + className);
-      els.forEach(el => el.classList.toggle('hidden'));
+    function toggleHint(className) {
+      document.querySelectorAll('.' + className).forEach(el => el.classList.toggle('hidden'));
     }
 
-    function toggleGlobalAnswers() {
-      globalReveal = !globalReveal;
-      document.getElementById('modeText').innerText = globalReveal ? 'Hide Answers' : 'Reveal All Answers';
-      document.getElementById('modeIcon').innerText = globalReveal ? '🙈' : '👁️';
-      
-      const allAnswers = document.querySelectorAll('.task1-ans, .task3-ans, .task4-ans');
-      allAnswers.forEach(el => {
-        if (globalReveal) {
-          el.classList.remove('hidden');
-        } else {
-          el.classList.add('hidden');
-        }
-      });
+    // Sprint Timer Logic
+    let sprintTimer = null;
+    let sprintSecs = 30;
+    let isSprintRunning = false;
+
+    function startSprintClock(s) {
+      clearInterval(sprintTimer);
+      isSprintRunning = false;
+      sprintSecs = s;
+      updateSprintClockDisplay();
+      toggleSprintClock();
     }
 
-    // Local Storage for persistence
-    function saveStudentInput(key, val) {
-      localStorage.setItem('alicia_hw_' + key, val);
+    function updateSprintClockDisplay() {
+      const mins = Math.floor(sprintSecs / 60);
+      const secs = sprintSecs % 60;
+      const el = document.getElementById('sprintClock');
+      if (el) el.innerText = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     }
 
-    function saveChecklist(key, checked) {
-      localStorage.setItem('alicia_hw_' + key, checked ? 'true' : 'false');
-    }
-
-    function loadSavedAnswers() {
-      document.querySelectorAll('input[type="text"], textarea').forEach(el => {
-        const val = localStorage.getItem('alicia_hw_' + el.id);
-        if (val) el.value = val;
-      });
-
-      document.querySelectorAll('input[type="checkbox"]').forEach(el => {
-        const val = localStorage.getItem('alicia_hw_' + el.id);
-        if (val === 'true') el.checked = true;
-      });
-    }
-
-    // Timer Logic
-    function toggleTimerModal() {
-      const modal = document.getElementById('timerModal');
-      modal.classList.toggle('hidden');
-    }
-
-    function setTimerDuration(sec) {
-      timerSeconds = sec;
-      updateTimerDisplay();
-      if (isTimerRunning) toggleTimer();
-    }
-
-    function startSprintForWeek(sec) {
-      const modal = document.getElementById('timerModal');
-      modal.classList.remove('hidden');
-      setTimerDuration(sec);
-      toggleTimer();
-    }
-
-    function updateTimerDisplay() {
-      const mins = Math.floor(timerSeconds / 60);
-      const secs = timerSeconds % 60;
-      document.getElementById('timerDisplay').innerText = 
-        String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
-    }
-
-    function toggleTimer() {
-      const btn = document.getElementById('startTimerBtn');
-      if (isTimerRunning) {
-        clearInterval(timerInterval);
-        isTimerRunning = false;
+    function toggleSprintClock() {
+      const btn = document.getElementById('sprintClockBtn');
+      if (!btn) return;
+      if (isSprintRunning) {
+        clearInterval(sprintTimer);
+        isSprintRunning = false;
         btn.innerText = 'Resume';
-        btn.classList.remove('bg-rose-500');
-        btn.classList.add('bg-amber-500');
       } else {
-        isTimerRunning = true;
+        isSprintRunning = true;
         btn.innerText = 'Pause';
-        btn.classList.remove('bg-amber-500');
-        btn.classList.add('bg-rose-500');
-        
-        timerInterval = setInterval(() => {
-          if (timerSeconds > 0) {
-            timerSeconds--;
-            updateTimerDisplay();
+        sprintTimer = setInterval(() => {
+          if (sprintSecs > 0) {
+            sprintSecs--;
+            updateSprintClockDisplay();
           } else {
-            clearInterval(timerInterval);
-            isTimerRunning = false;
-            btn.innerText = 'Finished!';
-            alert("⏰ Time's up! Conclude your sentence and review your delivery.");
+            clearInterval(sprintTimer);
+            isSprintRunning = false;
+            btn.innerText = 'Done!';
+            alert('⏰ 30-Second Sprint Complete! Well done keeping the forward flow.');
           }
         }, 1000);
       }
     }
 
-    function resetTimer() {
-      clearInterval(timerInterval);
-      isTimerRunning = false;
-      timerSeconds = 60;
-      updateTimerDisplay();
-      const btn = document.getElementById('startTimerBtn');
-      btn.innerText = 'Start Sprint';
-      btn.classList.remove('bg-rose-500');
-      btn.classList.add('bg-amber-500');
-    }
+    // Audio Recorder
+    let mediaRecorder = null;
+    let audioChunks = [];
+    let recTimerInterval = null;
+    let recSeconds = 0;
+    let isRecording = false;
 
-    // Portal Live Audio Recorder Logic
-    let portalMediaRecorder = null;
-    let portalAudioChunks = [];
-    let portalRecordInterval = null;
-    let portalRecordSeconds = 0;
-    let isPortalRecording = false;
-
-    async function togglePortalAudioRecording() {
-      if (!isPortalRecording) {
+    async function toggleRecording() {
+      if (!isRecording) {
         try {
           const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
           let mimeType = 'audio/webm';
@@ -1041,107 +748,137 @@
             if (MediaRecorder.isTypeSupported('audio/mp4')) mimeType = 'audio/mp4';
             else mimeType = '';
           }
-          portalMediaRecorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
-          portalAudioChunks = [];
+          mediaRecorder = mimeType ? new MediaRecorder(stream, { mimeType }) : new MediaRecorder(stream);
+          audioChunks = [];
 
-          portalMediaRecorder.ondataavailable = e => {
-            if (e.data && e.data.size > 0) portalAudioChunks.push(e.data);
+          mediaRecorder.ondataavailable = e => {
+            if (e.data && e.data.size > 0) audioChunks.push(e.data);
           };
 
-          portalMediaRecorder.onstop = () => {
-            const blobType = portalMediaRecorder.mimeType || 'audio/webm';
-            const audioBlob = new Blob(portalAudioChunks, { type: blobType });
+          mediaRecorder.onstop = () => {
+            const blobType = mediaRecorder.mimeType || 'audio/webm';
+            const audioBlob = new Blob(audioChunks, { type: blobType });
             const audioUrl = URL.createObjectURL(audioBlob);
 
-            const playback = document.getElementById('portalAudioPlayback');
-            playback.src = audioUrl;
+            const audioEl = document.getElementById('audioElement');
+            if (audioEl) audioEl.src = audioUrl;
 
-            const downloadLink = document.getElementById('portalDownloadLink');
-            downloadLink.href = audioUrl;
+            const dl = document.getElementById('downloadBtn');
+            if (dl) dl.href = audioUrl;
 
-            document.getElementById('portalAudioContainer').classList.remove('hidden');
-            document.getElementById('portalRecStatus').innerText = '✓ Recording complete. Listen or download below to upload to Preply!';
-            
-            stream.getTracks().forEach(track => track.stop());
+            const pContainer = document.getElementById('playbackContainer');
+            if (pContainer) pContainer.classList.remove('hidden');
+
+            const status = document.getElementById('recStatus');
+            if (status) status.innerText = '✓ Recording complete. Listen or download below to upload to Preply!';
+
+            stream.getTracks().forEach(t => t.stop());
           };
 
-          portalMediaRecorder.start();
-          isPortalRecording = true;
-          portalRecordSeconds = 0;
-          updatePortalRecordDisplay();
+          mediaRecorder.start();
+          isRecording = true;
+          recSeconds = 0;
+          updateRecTimer();
 
-          document.getElementById('portalRecBadge').classList.remove('hidden');
-          document.getElementById('portalResetBtn').classList.remove('hidden');
-          document.getElementById('portalAudioContainer').classList.add('hidden');
+          document.getElementById('liveRecBadge')?.classList.remove('hidden');
+          document.getElementById('resetRecBtn')?.classList.remove('hidden');
+          document.getElementById('playbackContainer')?.classList.add('hidden');
 
-          const btn = document.getElementById('portalRecordBtn');
-          btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
-          btn.classList.add('bg-amber-500', 'hover:bg-amber-400', 'text-slate-950');
-          document.getElementById('portalRecordText').innerText = 'Stop Recording';
-          document.getElementById('portalRecordIcon').classList.add('rounded-sm');
-          document.getElementById('portalRecStatus').innerText = '🔴 Recording live audio... Speak naturally!';
+          const btn = document.getElementById('mainRecBtn');
+          if (btn) {
+            btn.classList.remove('bg-slate-900', 'hover:bg-slate-800');
+            btn.classList.add('bg-rose-600', 'hover:bg-rose-500');
+            document.getElementById('recText').innerText = 'Stop Recording';
+            document.getElementById('recDot').classList.add('rounded-sm');
+          }
+          const status = document.getElementById('recStatus');
+          if (status) status.innerText = '🔴 Recording live audio... Speak naturally!';
 
-          portalRecordInterval = setInterval(() => {
-            portalRecordSeconds++;
-            updatePortalRecordDisplay();
+          recTimerInterval = setInterval(() => {
+            recSeconds++;
+            updateRecTimer();
           }, 1000);
+
         } catch (err) {
-          console.error(err);
           alert('Microphone access is required to record audio. Please allow microphone permissions in your browser.');
         }
       } else {
-        if (portalMediaRecorder && portalMediaRecorder.state !== 'inactive') {
-          portalMediaRecorder.stop();
+        if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+          mediaRecorder.stop();
         }
-        clearInterval(portalRecordInterval);
-        isPortalRecording = false;
+        clearInterval(recTimerInterval);
+        isRecording = false;
 
-        document.getElementById('portalRecBadge').classList.add('hidden');
-        const btn = document.getElementById('portalRecordBtn');
-        btn.classList.remove('bg-amber-500', 'hover:bg-amber-400', 'text-slate-950');
-        btn.classList.add('bg-rose-600', 'hover:bg-rose-500', 'text-white');
-        document.getElementById('portalRecordText').innerText = 'Record Again';
-        document.getElementById('portalRecordIcon').classList.remove('rounded-sm');
+        document.getElementById('liveRecBadge')?.classList.add('hidden');
+        const btn = document.getElementById('mainRecBtn');
+        if (btn) {
+          btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
+          btn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+          document.getElementById('recText').innerText = 'Record Again';
+          document.getElementById('recDot').classList.remove('rounded-sm');
+        }
       }
     }
 
-    function updatePortalRecordDisplay() {
-      const mins = Math.floor(portalRecordSeconds / 60);
-      const secs = portalRecordSeconds % 60;
-      document.getElementById('portalRecTimer').innerText = 
-        String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
+    function updateRecTimer() {
+      const mins = Math.floor(recSeconds / 60);
+      const secs = recSeconds % 60;
+      const el = document.getElementById('recTimer');
+      if (el) el.innerText = String(mins).padStart(2, '0') + ':' + String(secs).padStart(2, '0');
     }
 
-    function resetPortalAudioRecording() {
-      if (portalMediaRecorder && portalMediaRecorder.state !== 'inactive') {
-        portalMediaRecorder.stop();
+    function resetRecording() {
+      if (mediaRecorder && mediaRecorder.state !== 'inactive') mediaRecorder.stop();
+      clearInterval(recTimerInterval);
+      isRecording = false;
+      recSeconds = 0;
+      updateRecTimer();
+
+      document.getElementById('liveRecBadge')?.classList.add('hidden');
+      document.getElementById('resetRecBtn')?.classList.add('hidden');
+      document.getElementById('playbackContainer')?.classList.add('hidden');
+
+      const btn = document.getElementById('mainRecBtn');
+      if (btn) {
+        btn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
+        btn.classList.add('bg-slate-900', 'hover:bg-slate-800');
+        document.getElementById('recText').innerText = 'Start Recording';
       }
-      clearInterval(portalRecordInterval);
-      isPortalRecording = false;
-      portalRecordSeconds = 0;
-      updatePortalRecordDisplay();
-
-      document.getElementById('portalRecBadge').classList.add('hidden');
-      document.getElementById('portalResetBtn').classList.add('hidden');
-      document.getElementById('portalAudioContainer').classList.add('hidden');
-
-      const btn = document.getElementById('portalRecordBtn');
-      btn.classList.remove('bg-amber-500', 'hover:bg-amber-400', 'text-slate-950');
-      btn.classList.add('bg-rose-600', 'hover:bg-rose-500', 'text-white');
-      document.getElementById('portalRecordText').innerText = 'Start Recording';
-      document.getElementById('portalRecStatus').innerText = 'Click "Start Recording" to capture your speech directly in the browser.';
+      const status = document.getElementById('recStatus');
+      if (status) status.innerText = 'Click below to record your voice note directly in your browser.';
     }
 
-    function copyPortalNote(wk) {
-      const text = `Hi Lewis! Here is my Week ${wk} spontaneous sprint. Looking forward to your feedback!`;
+    function copyPreplyNote() {
+      const text = "Hi Lewis! Here is my Week 1 spontaneous speech sprint. Looking forward to your feedback!";
       navigator.clipboard.writeText(text).then(() => {
-        const btn = document.getElementById('portalCopyBtn');
-        btn.innerText = "✓ Copied!";
-        setTimeout(() => { btn.innerText = "📋 Copy"; }, 2500);
+        const btn = document.getElementById('copyBtn');
+        if (btn) {
+          btn.innerText = "✓ Copied!";
+          setTimeout(() => { btn.innerText = "Copy"; }, 2500);
+        }
       });
     }
 
-    // Initialize on page load
+    // Auto-save logic
+    function saveCheck(id, checked) {
+      localStorage.setItem('alicia_light_chk_' + id, checked ? 'true' : 'false');
+    }
+
+    function loadStoredData() {
+      document.querySelectorAll('input[type="text"]').forEach(el => {
+        const val = localStorage.getItem('alicia_light_' + el.id);
+        if (val) el.value = val;
+        el.addEventListener('input', () => {
+          localStorage.setItem('alicia_light_' + el.id, el.value);
+        });
+      });
+
+      document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+        const val = localStorage.getItem('alicia_light_chk_' + el.id);
+        if (val === 'true') el.checked = true;
+      });
+    }
+
     window.addEventListener('DOMContentLoaded', init);
   </script>
 </body>
