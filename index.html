@@ -568,17 +568,41 @@
             <div class="border-b border-slate-200 pb-3 mb-5 flex items-center justify-between">
               <div>
                 <span class="text-[11px] font-bold text-emerald-700 uppercase tracking-wider">Part 1 &bull; Consolidation</span>
-                <h3 class="text-base font-bold text-slate-900">Exercises 1.1 & 1.2 Review</h3>
+                <h3 class="text-base font-bold text-slate-900">Exercises 1.1 & 1.2 Review &bull; "Define What It Is" Speed Matrix</h3>
               </div>
               <span class="text-xs text-slate-500 bg-slate-100 px-2 py-0.5 rounded border border-slate-200 font-medium">Classwork Follow-up</span>
             </div>
 
-            <!-- Task 1.1: 3-Second Reflex Sprints -->
+            <!-- Task 1.1: 3-Second Reflex Sprints & Definition Matrix -->
             <div class="mb-6">
-              <h4 class="text-sm font-bold text-slate-900 mb-1">Exercise 1.1: 3-Second Cognitive Reflex Sprints</h4>
-              <p class="text-xs text-slate-600 mb-3">
-                Look at each trigger word. Give yourself only <strong>3 seconds</strong> to open your mouth. Speak for 20–30 seconds without saying "how do you say" or stalling in Spanish:
+              <div class="flex items-center justify-between mb-1">
+                <h4 class="text-sm font-bold text-slate-900">Exercise 1.1: 3-Second Cognitive Reflex Sprints ("Define What It Is")</h4>
+                <button onclick="toggleHint('definition_hints')" class="text-xs text-emerald-700 hover:text-emerald-900 font-semibold transition flex items-center gap-1">
+                  <span>Toggle Model Definitions</span>
+                </button>
+              </div>
+              <p class="text-xs text-slate-600 mb-3 leading-relaxed">
+                Look at each trigger word. Give yourself only <strong>3 seconds</strong> to open your mouth. Speak for 20–30 seconds continuously without saying <em>"how do you say"</em> or stalling in Spanish. Your goal is to immediately <strong>define or describe what it is</strong> in English using simple, fluid language.
               </p>
+
+              <!-- 3-Angle Definition Strategy Banner -->
+              <div class="bg-gradient-to-r from-emerald-50 via-teal-50 to-sky-50 border border-emerald-200 rounded-xl p-3.5 mb-4 text-xs">
+                <span class="font-bold text-emerald-900 block mb-1">💡 The 3-Angle Definition Formula (Variations of How to Define):</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 mt-2">
+                  <div class="bg-white p-2.5 rounded-lg border border-emerald-100 shadow-xs">
+                    <span class="font-semibold text-emerald-800 block text-[11px]">1. Functional Meaning</span>
+                    <p class="text-slate-600 text-[11px] italic">"It essentially refers to a situation where people/teams..."</p>
+                  </div>
+                  <div class="bg-white p-2.5 rounded-lg border border-emerald-100 shadow-xs">
+                    <span class="font-semibold text-emerald-800 block text-[11px]">2. Direct Contrast</span>
+                    <p class="text-slate-600 text-[11px] italic">"It's practically the polar opposite of X; instead of Y..."</p>
+                  </div>
+                  <div class="bg-white p-2.5 rounded-lg border border-emerald-100 shadow-xs">
+                    <span class="font-semibold text-emerald-800 block text-[11px]">3. Real-World Vignette</span>
+                    <p class="text-slate-600 text-[11px] italic">"Picture an executive meeting where management does X..."</p>
+                  </div>
+                </div>
+              </div>
 
               <!-- Practice Timer Box with Crisp Contrast -->
               <div class="bg-slate-100 border border-slate-200 rounded-xl p-3.5 flex items-center justify-between mb-4 shadow-inner">
@@ -593,33 +617,315 @@
                 </div>
               </div>
 
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 1</span>
-                  <p class="font-bold text-slate-900 text-sm mb-1">"Complacency"</p>
-                  <p class="text-slate-600 mb-2">What happens when citizens or executive teams take peace and comfort for granted?</p>
-                  <input type="text" id="t1_note_1" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
+              <!-- 10 Concept Triggers Grid -->
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs mb-6">
+                <!-- Trigger 1 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 1</span>
+                      <button onclick="playBritishRPSpeech('Complacency essentially refers to a dangerous comfort zone where people stop being vigilant.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Complacency" <span class="font-mono text-xs font-normal text-slate-500">/kəmˈpleɪ.sən.si/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Define what happens when citizens or executive teams take peace, comfort, and success for granted.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>breed complacency &bull; corporate complacency &bull; slide into complacency</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_1" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"Complacency essentially refers to a dangerous comfort zone where an organization or society stops being vigilant because things have gone smoothly for so long."</em>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 2</span>
-                  <p class="font-bold text-slate-900 text-sm mb-1">"Orchestrated"</p>
-                  <p class="text-slate-600 mb-2">Describe a PR stunt, media narrative, or concert that felt completely staged.</p>
-                  <input type="text" id="t1_note_2" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
+                <!-- Trigger 2 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 2</span>
+                      <button onclick="playBritishRPSpeech('Orchestrated describes an event or media narrative planned meticulously behind closed doors.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Orchestrated" <span class="font-mono text-xs font-normal text-slate-500">/ˈɔː.kɪ.streɪ.tɪd/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Describe a PR stunt, media narrative, or concert that felt completely staged rather than organic.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>orchestrated campaign &bull; orchestrated leak &bull; highly orchestrated</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_2" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It describes an event or public narrative that pretends to be spontaneous, but behind closed doors, every single detail was pre-planned."</em>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 3</span>
-                  <p class="font-bold text-slate-900 text-sm mb-1">"A Gathering"</p>
-                  <p class="text-slate-600 mb-2">Contrast an informal family gathering with a large, tense public protest.</p>
-                  <input type="text" id="t1_note_3" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
+                <!-- Trigger 3 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 3</span>
+                      <button onclick="playBritishRPSpeech('A gathering can range from an intimate family roast to a massive political demonstration.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"A Gathering" <span class="font-mono text-xs font-normal text-slate-500">/ə ˈɡæð.ər.ɪŋ/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Contrast an informal family gathering with a large, tense public rally or protest assembly.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>informal gathering &bull; family gathering &bull; unlawful gathering</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_3" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"A gathering can be anything from a warm Sunday roast with family to a massive, politically charged crowd outside parliament."</em>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50">
-                  <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">Trigger 4</span>
-                  <p class="font-bold text-slate-900 text-sm mb-1">"Spontaneous"</p>
-                  <p class="text-slate-600 mb-2">Describe an unplanned journey or unexpected career risk you once took.</p>
-                  <input type="text" id="t1_note_4" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm">
+                <!-- Trigger 4 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 4</span>
+                      <button onclick="playBritishRPSpeech('Spontaneous means acting on impulse in the spur of the moment without overthinking.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Spontaneous" <span class="font-mono text-xs font-normal text-slate-500">/spɒnˈteɪ.ni.əs/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Describe an unplanned journey, sudden impulse, or unexpected career risk you once took.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>spontaneous decision &bull; spontaneous applause &bull; lack of spontaneity</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_4" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It's the polar opposite of a planned itinerary—it means deciding on impulse in the spur of the moment without overthinking."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 5 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 5</span>
+                      <button onclick="playBritishRPSpeech('Ferocious describes savage intensity, like a fierce boardroom debate over budget cuts.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Ferocious" <span class="font-mono text-xs font-normal text-slate-500">/fəˈrəʊ.ʃəs/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Define savage intensity: a ferocious boardroom debate, elite market competitor, or harsh weather.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>ferocious debate &bull; ferocious competitor &bull; unrelenting ferocity</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_5" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"Ferocious describes intense, savage energy—like a ferocious boardroom debate where colleagues defend their budgets tooth and nail."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 6 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 6</span>
+                      <button onclick="playBritishRPSpeech('A common occurrence means something routine that happens on a daily basis.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"A Common Occurrence" <span class="font-mono text-xs font-normal text-slate-500">/ə ˈkɒm.ən əˈkʌr.əns/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Define something ordinary and habitual that happens frequently rather than a shocking anomaly.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>everyday occurrence &bull; frequent occurrence &bull; isolated occurrence</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_6" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It means something routine and ordinary that happens on a daily basis, rather than an isolated shock or rare exception."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 7 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 7</span>
+                      <button onclick="playBritishRPSpeech('A rude awakening is when an organization suddenly realizes an ignored risk has become an emergency.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Awoken to a Problem" <span class="font-mono text-xs font-normal text-slate-500">/ruːd əˈweɪ.kən.ɪŋ/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Describe a moment where reality strikes and you realize a long-ignored risk has turned urgent.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>a wake-up call &bull; a rude awakening &bull; awaken to the reality</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_7" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It's a sudden, rude awakening where a company or government suddenly realizes a long-ignored risk has turned into an emergency."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 8 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 8</span>
+                      <button onclick="playBritishRPSpeech('A sleepover is casual with friends, whereas a summit is a high-level conference between leaders.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Sleepover vs. Summit" <span class="font-mono text-xs font-normal text-slate-500">/ˈsliːp.əʊ.və/ vs /ˈsʌm.ɪt/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Contrast a cozy, casual domestic stay with friends against a formal, high-stakes executive conference.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>casual sleepover &bull; weekend retreat &bull; bilateral summit</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_8" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"A sleepover is completely casual and domestic with friends, whereas a summit is a high-level, tightly guarded conference between leaders."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 9 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 9</span>
+                      <button onclick="playBritishRPSpeech('Polarization describes when two factions pull apart to extreme opposites and refuse dialogue.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Polarization" <span class="font-mono text-xs font-normal text-slate-500">/ˌpəʊ.lə.raɪˈzeɪ.ʃən/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Describe the atmosphere when two political or corporate factions pull apart and refuse to compromise.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>deeply polarized &bull; at loggerheads &bull; strained relations</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_9" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It describes when two political or executive factions pull apart to extreme opposites and refuse to find common ground."</em>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Trigger 10 -->
+                <div class="p-4 rounded-xl border border-slate-200 bg-slate-50 flex flex-col justify-between">
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Trigger 10</span>
+                      <button onclick="playBritishRPSpeech('Pushback is the immediate revolt that happens when an unpopular policy is rolled out.')" class="px-2 py-0.5 rounded bg-white hover:bg-slate-100 text-slate-700 text-[10px] font-bold border border-slate-300 transition flex items-center gap-1">
+                        <span>🔊 RP Audio</span>
+                      </button>
+                    </div>
+                    <p class="font-bold text-slate-900 text-sm">"Pushback / Backlash" <span class="font-mono text-xs font-normal text-slate-500">/ˈpʊʃ.bæk/ &bull; /ˈbæk.læʃ/</span></p>
+                    <p class="text-slate-600 mt-1 mb-2">Describe the resistance from employees, consumers, or citizens when an unpopular directive is announced.</p>
+                    <div class="text-[11px] text-slate-500 font-medium mb-2">
+                      <span class="font-semibold text-slate-700">Variations & Collocations:</span> <em>face fierce pushback &bull; spark a public backlash &bull; encounter resistance</em>
+                    </div>
+                  </div>
+                  <div>
+                    <input type="text" id="t1_note_10" placeholder="Type key thoughts or self-evaluation..." class="w-full bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 focus:outline-none focus:border-slate-900 shadow-sm mb-1.5">
+                    <div class="definition_hints hidden text-[11px] text-emerald-800 bg-emerald-50 p-2.5 rounded border border-emerald-200">
+                      <strong>Model British Definition:</strong> <em>"It's the immediate public or employee revolt that happens when an unpopular policy is rolled out without their consent."</em>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Interactive Variation Board: Beyond "I Like It" -->
+              <div class="bg-indigo-50/70 border border-indigo-200 rounded-xl p-4.5 mb-6">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                  <div>
+                    <span class="text-[10px] font-bold text-indigo-700 uppercase tracking-wider">Vocabulary Upgrade &bull; Preference Nuance</span>
+                    <h5 class="text-xs font-bold text-indigo-950">Beyond "I Like It" — Nuanced British Reaction Variations</h5>
+                  </div>
+                  <span class="text-[10px] bg-white px-2 py-0.5 rounded-full border border-indigo-200 text-indigo-800 font-semibold">C1 Fluency Upgrade</span>
+                </div>
+                <p class="text-xs text-slate-600 mb-3">
+                  Spanish speakers often default to translating <em>"me gusta"</em> as <em>"I like it"</em>. Upgrade to these authentic British conversational variations:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+                  <!-- Tier 1 -->
+                  <div class="p-3 rounded-lg bg-white border border-indigo-100 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="font-bold text-indigo-900 text-[11px]">🌟 High Enthusiasm</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-700">
+                      <li class="flex items-center justify-between">
+                        <span>"It's right up my alley."</span>
+                        <button onclick="playBritishRPSpeech('It is right up my alley.')" class="text-[10px] text-indigo-600 hover:text-indigo-800 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"I'm a massive fan of it."</span>
+                        <button onclick="playBritishRPSpeech('I am a massive fan of it, quite frankly.')" class="text-[10px] text-indigo-600 hover:text-indigo-800 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"I'm thoroughly impressed."</span>
+                        <button onclick="playBritishRPSpeech('I am thoroughly impressed by that approach.')" class="text-[10px] text-indigo-600 hover:text-indigo-800 font-bold">🔊</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Tier 2 -->
+                  <div class="p-3 rounded-lg bg-white border border-indigo-100 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="font-bold text-emerald-900 text-[11px]">☕ Understated Warmth</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-700">
+                      <li class="flex items-center justify-between">
+                        <span>"It's not half bad, actually."</span>
+                        <button onclick="playBritishRPSpeech('It is not half bad, actually.')" class="text-[10px] text-emerald-600 hover:text-emerald-800 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"It certainly ticks the boxes."</span>
+                        <button onclick="playBritishRPSpeech('It certainly ticks all the right boxes.')" class="text-[10px] text-emerald-600 hover:text-emerald-800 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"I wouldn't say no to that!"</span>
+                        <button onclick="playBritishRPSpeech('I would not say no to that!')" class="text-[10px] text-emerald-600 hover:text-emerald-800 font-bold">🔊</button>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- Tier 3 -->
+                  <div class="p-3 rounded-lg bg-white border border-indigo-100 shadow-xs">
+                    <div class="flex items-center justify-between mb-1.5">
+                      <span class="font-bold text-amber-900 text-[11px]">🍵 Diplomatic Reservation</span>
+                    </div>
+                    <ul class="space-y-1.5 text-slate-700">
+                      <li class="flex items-center justify-between">
+                        <span>"Not quite my cup of tea."</span>
+                        <button onclick="playBritishRPSpeech('It is not quite my cup of tea.')" class="text-[10px] text-amber-700 hover:text-amber-900 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"I can take it or leave it."</span>
+                        <button onclick="playBritishRPSpeech('I can take it or leave it, to be fair.')" class="text-[10px] text-amber-700 hover:text-amber-900 font-bold">🔊</button>
+                      </li>
+                      <li class="flex items-center justify-between">
+                        <span>"Leaves a little to be desired."</span>
+                        <button onclick="playBritishRPSpeech('It leaves a little to be desired.')" class="text-[10px] text-amber-700 hover:text-amber-900 font-bold">🔊</button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
