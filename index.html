@@ -36,8 +36,36 @@
       50% { opacity: 0.35; transform: scale(1.2); }
       100% { opacity: 1; transform: scale(1); }
     }
-    .live-pulse {
-      animation: pulse-dot 1.2s infinite ease-in-out;
+    /* 3D Memory Card Flip Mechanics */
+    .perspective-1000 {
+      perspective: 1000px;
+    }
+    .transform-style-3d {
+      transform-style: preserve-3d;
+    }
+    .backface-hidden {
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+    .card-matched {
+      animation: match-bounce 0.6s ease-out;
+    }
+    @keyframes match-bounce {
+      0% { transform: rotateY(180deg) scale(1); }
+      40% { transform: rotateY(180deg) scale(1.06); }
+      70% { transform: rotateY(180deg) scale(0.97); }
+      100% { transform: rotateY(180deg) scale(1); }
+    }
+    .card-mismatch {
+      animation: mismatch-shake 0.45s ease-in-out;
+    }
+    @keyframes mismatch-shake {
+      0%, 100% { transform: rotateY(180deg) translateX(0); }
+      20%, 60% { transform: rotateY(180deg) translateX(-5px); }
+      40%, 80% { transform: rotateY(180deg) translateX(5px); }
     }
     @media print {
       body { background: white !important; }
@@ -928,6 +956,81 @@
                   </div>
                 </div>
               </div>
+
+              <!-- INTERACTIVE PREPLY MEMORY LAB (CALL-OUT NUMBERS GAME) -->
+              <div id="memoryGameLab" class="bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 text-white rounded-2xl p-6 border-2 border-indigo-500/40 shadow-xl mb-6">
+                <!-- Header with Live Session Badge & Controls -->
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-indigo-800/80 pb-4 mb-5">
+                  <div>
+                    <div class="flex items-center gap-2 mb-1">
+                      <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950 shadow-sm flex items-center gap-1">
+                        <span>🎲</span> Live Preply Session Tool
+                      </span>
+                      <span class="text-xs text-indigo-300 font-medium">Turn-Taking Call-Out Game</span>
+                    </div>
+                    <h4 class="text-base font-bold text-white tracking-tight">The British Lexical Memory Match</h4>
+                    <p class="text-xs text-indigo-200/80 mt-0.5">
+                      Numbers on the reverse are designed for online video classes: Alicia calls out two numbers (e.g. <em>"Card 4 and Card 11!"</em>). Flip, match the pairs, and practice spontaneous speech!
+                    </p>
+                  </div>
+
+                  <!-- Game Status & Score -->
+                  <div class="flex items-center gap-3">
+                    <div class="bg-indigo-900/60 border border-indigo-700/60 px-3.5 py-1.5 rounded-xl text-center">
+                      <span class="text-[9px] uppercase tracking-wider text-indigo-300 block font-semibold">Matches</span>
+                      <span class="text-lg font-mono font-bold text-amber-300" id="memoryMatches">0 / 8</span>
+                    </div>
+                    <div class="bg-indigo-900/60 border border-indigo-700/60 px-3.5 py-1.5 rounded-xl text-center">
+                      <span class="text-[9px] uppercase tracking-wider text-indigo-300 block font-semibold">Tries</span>
+                      <span class="text-lg font-mono font-bold text-white" id="memoryMoves">0</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Game Deck Switcher & Action Bar -->
+                <div class="flex flex-wrap items-center justify-between gap-2.5 mb-5 bg-slate-950/60 p-2.5 rounded-xl border border-indigo-900/60">
+                  <div class="flex items-center gap-1.5">
+                    <button onclick="setMemoryGameDeck('triggers')" id="deckBtnTriggers" class="px-3 py-1.5 rounded-lg text-xs font-bold transition border border-amber-400 bg-amber-400 text-slate-950 shadow-sm flex items-center gap-1.5">
+                      <span>🎯</span> Concept Triggers (What It Is)
+                    </button>
+                    <button onclick="setMemoryGameDeck('preferences')" id="deckBtnPreferences" class="px-3 py-1.5 rounded-lg text-xs font-bold transition border border-indigo-700 bg-indigo-900/40 text-indigo-200 hover:bg-indigo-800/60 flex items-center gap-1.5">
+                      <span>🇬🇧</span> Beyond "I Like It" (Preference Variations)
+                    </button>
+                  </div>
+
+                  <div class="flex items-center gap-2">
+                    <button onclick="togglePeekMemoryCards()" id="peekBtn" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition flex items-center gap-1">
+                      <span>👁️</span> <span id="peekBtnText">Peek All</span>
+                    </button>
+                    <button onclick="resetMemoryGame()" class="px-3.5 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 hover:bg-indigo-500 text-white shadow-md transition flex items-center gap-1.5">
+                      <span>🔀</span> Shuffle & New Game
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Interactive Card Grid Container -->
+                <div id="memoryCardsGrid" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-3">
+                  <!-- Rendered dynamically via renderMemoryGame() -->
+                </div>
+
+                <!-- Match Celebration Banner (Hidden by default) -->
+                <div id="memoryWinBanner" class="hidden mt-5 p-4 rounded-xl bg-gradient-to-r from-emerald-600 via-teal-600 to-emerald-700 text-white border-2 border-emerald-400 text-center shadow-lg">
+                  <div class="text-xl font-bold mb-1">🎉 Brilliant Job, Alicia! All Pairs Matched!</div>
+                  <p class="text-xs text-emerald-100 mb-3" id="winBannerDetails">You cleared all pairs with great forward momentum!</p>
+                  <button onclick="switchDeckAndRestart()" class="px-4 py-2 rounded-lg bg-white text-emerald-950 font-bold text-xs shadow hover:bg-emerald-50 transition">
+                    Play The Other Deck Next ➔
+                  </button>
+                </div>
+
+                <!-- Callout Teacher Tip Banner -->
+                <div class="mt-5 pt-4 border-t border-indigo-900/80 flex flex-wrap items-center justify-between gap-2 text-xs text-indigo-300">
+                  <span class="flex items-center gap-1.5">
+                    <span class="text-amber-400">💡</span> 
+                    <strong>Teacher Preply Tip:</strong> When a match is made, have Alicia speak for 15–20 seconds using that phrase or definition!
+                  </span>
+                  <span class="text-[11px] text-indigo-400 font-mono">🔊 British RP audio automatically pronounces words upon flip</span>
+                </div>
+              </div>
             </div>
 
             <!-- Task 1.2: Speed Reframers -->
@@ -1311,7 +1414,496 @@
       `;
 
       renderIntonationDevice();
+      renderMemoryGame();
       loadStoredData();
+    }
+
+    // ==========================================
+    // 🎲 INTERACTIVE PREPLY MEMORY GAME ENGINE
+    // ==========================================
+    const memoryDecks = {
+      triggers: [
+        {
+          id: "t1",
+          type: "word",
+          display: "Complacency",
+          sub: "/kəmˈpleɪ.sən.si/",
+          tag: "Trigger Word",
+          speechText: "Complacency"
+        },
+        {
+          id: "t1",
+          type: "def",
+          display: "Dangerous comfort zone; taking peace & success for granted without vigilance",
+          sub: "Collocations: breed complacency • slide into complacency",
+          tag: "What It Is",
+          speechText: "Complacency is a dangerous comfort zone where people stop being vigilant."
+        },
+        {
+          id: "t2",
+          type: "word",
+          display: "Orchestrated",
+          sub: "/ˈɔː.kɪ.streɪ.tɪd/",
+          tag: "Trigger Word",
+          speechText: "Orchestrated"
+        },
+        {
+          id: "t2",
+          type: "def",
+          display: "Pre-planned behind closed doors to create a false illusion of spontaneity",
+          sub: "Collocations: orchestrated campaign • orchestrated leak",
+          tag: "What It Is",
+          speechText: "Orchestrated means planned behind closed doors to appear spontaneous."
+        },
+        {
+          id: "t3",
+          type: "word",
+          display: "A Gathering",
+          sub: "/ə ˈɡæð.ər.ɪŋ/",
+          tag: "Trigger Word",
+          speechText: "A gathering"
+        },
+        {
+          id: "t3",
+          type: "def",
+          display: "An assembly of people ranging from an intimate family roast to a public rally",
+          sub: "Collocations: informal gathering • family gathering",
+          tag: "What It Is",
+          speechText: "A gathering can be an intimate family dinner or a massive political rally."
+        },
+        {
+          id: "t4",
+          type: "word",
+          display: "Spontaneous",
+          sub: "/spɒnˈteɪ.ni.əs/",
+          tag: "Trigger Word",
+          speechText: "Spontaneous"
+        },
+        {
+          id: "t4",
+          type: "def",
+          display: "Acting on sudden impulse in the spur of the moment without overthinking",
+          sub: "Collocations: spontaneous decision • lack of spontaneity",
+          tag: "What It Is",
+          speechText: "Spontaneous means acting on impulse in the spur of the moment without overthinking."
+        },
+        {
+          id: "t5",
+          type: "word",
+          display: "Ferocious",
+          sub: "/fəˈrəʊ.ʃəs/",
+          tag: "Trigger Word",
+          speechText: "Ferocious"
+        },
+        {
+          id: "t5",
+          type: "def",
+          display: "Savagely intense, fiercely competitive, or aggressively relentless",
+          sub: "Collocations: ferocious debate • ferocious competitor",
+          tag: "What It Is",
+          speechText: "Ferocious describes savage intensity, like a fierce boardroom debate."
+        },
+        {
+          id: "t6",
+          type: "word",
+          display: "A Common Occurrence",
+          sub: "/ə ˈkɒm.ən əˈkʌr.əns/",
+          tag: "Trigger Word",
+          speechText: "A common occurrence"
+        },
+        {
+          id: "t6",
+          type: "def",
+          display: "A routine, everyday event that surprises nobody rather than a rare anomaly",
+          sub: "Collocations: everyday occurrence • frequent occurrence",
+          tag: "What It Is",
+          speechText: "A common occurrence means something routine that happens on a daily basis."
+        },
+        {
+          id: "t7",
+          type: "word",
+          display: "Awoken to a Problem",
+          sub: "/ruːd əˈweɪ.kən.ɪŋ/",
+          tag: "Trigger Word",
+          speechText: "Awoken to a problem"
+        },
+        {
+          id: "t7",
+          type: "def",
+          display: "A jarring rude awakening where a long-ignored risk suddenly becomes urgent",
+          sub: "Collocations: a wake-up call • rude awakening",
+          tag: "What It Is",
+          speechText: "A rude awakening is when someone suddenly realizes an ignored risk has become an emergency."
+        },
+        {
+          id: "t8",
+          type: "word",
+          display: "Pushback / Backlash",
+          sub: "/ˈpʊʃ.bæk/ • /ˈbæk.læʃ/",
+          tag: "Trigger Word",
+          speechText: "Pushback and backlash"
+        },
+        {
+          id: "t8",
+          type: "def",
+          display: "Collective employee or public resistance against an unpopular executive directive",
+          sub: "Collocations: face fierce pushback • spark public backlash",
+          tag: "What It Is",
+          speechText: "Pushback is the immediate revolt when an unpopular policy is rolled out."
+        }
+      ],
+      preferences: [
+        {
+          id: "p1",
+          type: "phrase",
+          display: "\"It's right up my street / alley\"",
+          sub: "🌟 High Enthusiasm",
+          tag: "British Expression",
+          speechText: "It is right up my alley."
+        },
+        {
+          id: "p1",
+          type: "meaning",
+          display: "Perfect match for my tastes, personal interests, or natural abilities",
+          sub: "Replaces generic: 'Me gusta mucho'",
+          tag: "Meaning & Nuance",
+          speechText: "It means something is a perfect match for my personal tastes."
+        },
+        {
+          id: "p2",
+          type: "phrase",
+          display: "\"I'm a massive fan of it, quite frankly\"",
+          sub: "🌟 High Enthusiasm",
+          tag: "British Expression",
+          speechText: "I am a massive fan of it, quite frankly."
+        },
+        {
+          id: "p2",
+          type: "meaning",
+          display: "Strong honest personal endorsement and passionate backing",
+          sub: "Pair with British discourse marker 'quite frankly'",
+          tag: "Meaning & Nuance",
+          speechText: "Expressing strong honest personal endorsement and passionate backing."
+        },
+        {
+          id: "p3",
+          type: "phrase",
+          display: "\"I'm thoroughly impressed by that approach\"",
+          sub: "🌟 High Enthusiasm",
+          tag: "British Expression",
+          speechText: "I am thoroughly impressed by that approach."
+        },
+        {
+          id: "p3",
+          type: "meaning",
+          display: "Professional executive admiration for high standard or clever execution",
+          sub: "Use in boardroom reviews or client pitches",
+          tag: "Meaning & Nuance",
+          speechText: "Professional executive admiration for high standards."
+        },
+        {
+          id: "p4",
+          type: "phrase",
+          display: "\"It's not half bad, actually\"",
+          sub: "☕ Understated Warmth",
+          tag: "British Expression",
+          speechText: "It is not half bad, actually."
+        },
+        {
+          id: "p4",
+          type: "meaning",
+          display: "Pleasant British surprise; noticeably better than initially anticipated",
+          sub: "Classic British litotes (understatement)",
+          tag: "Meaning & Nuance",
+          speechText: "A pleasant surprise; noticeably better than expected."
+        },
+        {
+          id: "p5",
+          type: "phrase",
+          display: "\"It certainly ticks all the right boxes\"",
+          sub: "☕ Understated Warmth",
+          tag: "British Expression",
+          speechText: "It certainly ticks all the right boxes."
+        },
+        {
+          id: "p5",
+          type: "meaning",
+          display: "Meets every single practical requirement, criteria, and standard",
+          sub: "Essential executive appraisal idiom",
+          tag: "Meaning & Nuance",
+          speechText: "Meets every single practical requirement and criteria."
+        },
+        {
+          id: "p6",
+          type: "phrase",
+          display: "\"I wouldn't say no to that!\"",
+          sub: "☕ Understated Warmth",
+          tag: "British Expression",
+          speechText: "I would not say no to that!"
+        },
+        {
+          id: "p6",
+          type: "meaning",
+          display: "Enthusiastic agreement diplomatically disguised as polite reservation",
+          sub: "Great for accepting social drinks, dinners, or proposals",
+          tag: "Meaning & Nuance",
+          speechText: "Enthusiastic agreement politely disguised as a double negative."
+        },
+        {
+          id: "p7",
+          type: "phrase",
+          display: "\"It's not quite my cup of tea\"",
+          sub: "🍵 Diplomatic Reservation",
+          tag: "British Expression",
+          speechText: "It is not quite my cup of tea."
+        },
+        {
+          id: "p7",
+          type: "meaning",
+          display: "The quintessential polite British refusal; softens 'I don't like it'",
+          sub: "Zero offense given; purely subjective taste",
+          tag: "Meaning & Nuance",
+          speechText: "The quintessential polite British refusal to soften dislike."
+        },
+        {
+          id: "p8",
+          type: "phrase",
+          display: "\"I can take it or leave it, to be fair\"",
+          sub: "🍵 Diplomatic Reservation",
+          tag: "British Expression",
+          speechText: "I can take it or leave it, to be fair."
+        },
+        {
+          id: "p8",
+          type: "meaning",
+          display: "Casual neutral indifference; neither enthusiastic nor offended",
+          sub: "Use when evaluating moderate options or movies",
+          tag: "Meaning & Nuance",
+          speechText: "Casual neutral indifference; neither enthusiastic nor offended."
+        }
+      ]
+    };
+
+    let activeMemoryDeckKey = 'triggers';
+    let memoryCards = [];
+    let flippedMemoryIndices = [];
+    let matchedMemoryCardIds = new Set();
+    let memoryMovesCount = 0;
+    let isMemoryProcessing = false;
+    let isPeekingAllMemory = false;
+
+    function renderMemoryGame() {
+      if (!memoryCards || memoryCards.length === 0) {
+        initMemoryGame(activeMemoryDeckKey);
+      } else {
+        updateMemoryStats();
+        updateDeckButtons();
+        renderMemoryCardsGrid();
+      }
+    }
+
+    function initMemoryGame(deckKey) {
+      if (deckKey) activeMemoryDeckKey = deckKey;
+      const rawDeck = memoryDecks[activeMemoryDeckKey] || memoryDecks.triggers;
+      
+      // Shuffle using Fisher-Yates algorithm
+      memoryCards = JSON.parse(JSON.stringify(rawDeck));
+      for (let i = memoryCards.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [memoryCards[i], memoryCards[j]] = [memoryCards[j], memoryCards[i]];
+      }
+
+      flippedMemoryIndices = [];
+      matchedMemoryCardIds = new Set();
+      memoryMovesCount = 0;
+      isMemoryProcessing = false;
+      isPeekingAllMemory = false;
+
+      updateMemoryStats();
+      updateDeckButtons();
+      renderMemoryCardsGrid();
+
+      const winBanner = document.getElementById("memoryWinBanner");
+      if (winBanner) winBanner.classList.add("hidden");
+      const peekBtnText = document.getElementById("peekBtnText");
+      if (peekBtnText) peekBtnText.innerText = "Peek All";
+    }
+
+    function setMemoryGameDeck(deckKey) {
+      activeMemoryDeckKey = deckKey;
+      initMemoryGame(deckKey);
+    }
+
+    function updateDeckButtons() {
+      const btnTriggers = document.getElementById("deckBtnTriggers");
+      const btnPreferences = document.getElementById("deckBtnPreferences");
+      if (!btnTriggers || !btnPreferences) return;
+
+      if (activeMemoryDeckKey === 'triggers') {
+        btnTriggers.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition border border-amber-400 bg-amber-400 text-slate-950 shadow-sm flex items-center gap-1.5";
+        btnPreferences.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition border border-indigo-700 bg-indigo-900/40 text-indigo-200 hover:bg-indigo-800/60 flex items-center gap-1.5";
+      } else {
+        btnPreferences.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition border border-amber-400 bg-amber-400 text-slate-950 shadow-sm flex items-center gap-1.5";
+        btnTriggers.className = "px-3 py-1.5 rounded-lg text-xs font-bold transition border border-indigo-700 bg-indigo-900/40 text-indigo-200 hover:bg-indigo-800/60 flex items-center gap-1.5";
+      }
+    }
+
+    function updateMemoryStats() {
+      const matchElem = document.getElementById("memoryMatches");
+      const movesElem = document.getElementById("memoryMoves");
+      const totalPairs = (memoryCards.length / 2) || 8;
+      if (matchElem) matchElem.innerText = `${matchedMemoryCardIds.size} / ${totalPairs}`;
+      if (movesElem) movesElem.innerText = memoryMovesCount;
+    }
+
+    function renderMemoryCardsGrid() {
+      const grid = document.getElementById("memoryCardsGrid");
+      if (!grid) return;
+
+      grid.innerHTML = memoryCards.map((card, idx) => {
+        const isMatched = matchedMemoryCardIds.has(card.id);
+        const isFlipped = flippedMemoryIndices.includes(idx);
+        const shouldShowFront = isMatched || isFlipped || isPeekingAllMemory;
+
+        return `
+          <div class="perspective-1000 h-36 select-none cursor-pointer" onclick="handleMemoryCardClick(${idx})">
+            <div id="memcard_inner_${idx}" class="relative w-full h-full transition-transform duration-500 transform-style-3d ${shouldShowFront ? 'rotate-y-180' : ''}">
+              
+              <!-- BACK OF CARD: The Bold Call-Out Number (Face down) -->
+              <div class="absolute inset-0 w-full h-full backface-hidden rounded-xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border-2 border-indigo-500/50 text-white flex flex-col items-center justify-center p-3 shadow-md hover:border-amber-400 hover:scale-[1.02] transition-all">
+                <div class="w-10 h-10 rounded-full bg-indigo-900/80 border border-indigo-400/50 flex items-center justify-center text-amber-300 font-mono font-black text-xl mb-1 shadow-inner">
+                  ${idx + 1}
+                </div>
+                <span class="text-[9px] uppercase tracking-wider text-indigo-300 font-bold">Call Out #${idx + 1}</span>
+              </div>
+
+              <!-- FRONT OF CARD: Content (Face up when flipped) -->
+              <div class="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-xl p-3 flex flex-col justify-between text-center shadow-lg transition-colors ${
+                isMatched 
+                  ? 'bg-emerald-50 border-2 border-emerald-500 text-emerald-950 card-matched ring-2 ring-emerald-300' 
+                  : 'bg-white border-2 border-indigo-500 text-slate-900'
+              }">
+                <div class="flex items-center justify-between w-full mb-1">
+                  <span class="text-[10px] font-bold px-1.5 py-0.5 rounded ${isMatched ? 'bg-emerald-200 text-emerald-900' : 'bg-indigo-100 text-indigo-800'} font-mono">
+                    #${idx + 1}
+                  </span>
+                  <span class="text-[9px] font-bold uppercase tracking-wider ${isMatched ? 'text-emerald-700' : 'text-indigo-600'}">
+                    ${isMatched ? '✓ MATCHED' : card.tag}
+                  </span>
+                </div>
+
+                <div class="my-auto">
+                  <p class="font-bold text-xs ${isMatched ? 'text-emerald-900' : 'text-slate-900'} leading-tight">
+                    ${card.display}
+                  </p>
+                  ${card.sub ? `<p class="text-[10px] mt-1 ${isMatched ? 'text-emerald-700' : 'text-slate-500'} italic">${card.sub}</p>` : ''}
+                </div>
+
+                <div class="mt-1 pt-1 border-t ${isMatched ? 'border-emerald-200' : 'border-slate-100'} text-[9px] font-mono text-slate-400">
+                  Click to speak 🔊
+                </div>
+              </div>
+
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function handleMemoryCardClick(idx) {
+      if (isMemoryProcessing) return;
+      if (idx < 0 || idx >= memoryCards.length) return;
+      
+      const card = memoryCards[idx];
+      if (matchedMemoryCardIds.has(card.id)) {
+        // Already matched - just speak audio again if clicked
+        playBritishRPSpeech(card.speechText);
+        return;
+      }
+
+      if (flippedMemoryIndices.includes(idx)) {
+        // Already open
+        playBritishRPSpeech(card.speechText);
+        return;
+      }
+
+      // Flip card
+      flippedMemoryIndices.push(idx);
+      const inner = document.getElementById(`memcard_inner_${idx}`);
+      if (inner) inner.classList.add('rotate-y-180');
+
+      // Speak pronunciation in authentic British RP
+      playBritishRPSpeech(card.speechText);
+
+      if (flippedMemoryIndices.length === 2) {
+        memoryMovesCount++;
+        updateMemoryStats();
+
+        const [idx1, idx2] = flippedMemoryIndices;
+        const card1 = memoryCards[idx1];
+        const card2 = memoryCards[idx2];
+
+        if (card1.id === card2.id) {
+          // MATCH FOUND!
+          matchedMemoryCardIds.add(card1.id);
+          flippedMemoryIndices = [];
+          updateMemoryStats();
+
+          setTimeout(() => {
+            renderMemoryCardsGrid();
+            checkMemoryWin();
+          }, 350);
+        } else {
+          // MISMATCH
+          isMemoryProcessing = true;
+          const inner1 = document.getElementById(`memcard_inner_${idx1}`);
+          const inner2 = document.getElementById(`memcard_inner_${idx2}`);
+          if (inner1) inner1.classList.add('card-mismatch');
+          if (inner2) inner2.classList.add('card-mismatch');
+
+          setTimeout(() => {
+            if (inner1) {
+              inner1.classList.remove('rotate-y-180');
+              inner1.classList.remove('card-mismatch');
+            }
+            if (inner2) {
+              inner2.classList.remove('rotate-y-180');
+              inner2.classList.remove('card-mismatch');
+            }
+            flippedMemoryIndices = [];
+            isMemoryProcessing = false;
+          }, 1300);
+        }
+      }
+    }
+
+    function checkMemoryWin() {
+      const totalPairs = (memoryCards.length / 2) || 8;
+      if (matchedMemoryCardIds.size >= totalPairs) {
+        const winBanner = document.getElementById("memoryWinBanner");
+        const winDetails = document.getElementById("winBannerDetails");
+        if (winBanner && winDetails) {
+          winDetails.innerText = `You completed the ${activeMemoryDeckKey === 'triggers' ? 'Concept Triggers' : 'Preference Variations'} board in ${memoryMovesCount} tries!`;
+          winBanner.classList.remove("hidden");
+        }
+        playBritishRPSpeech("Brilliant job, Alicia! You matched all pairs!");
+      }
+    }
+
+    function togglePeekMemoryCards() {
+      isPeekingAllMemory = !isPeekingAllMemory;
+      const peekBtnText = document.getElementById("peekBtnText");
+      if (peekBtnText) peekBtnText.innerText = isPeekingAllMemory ? "Hide All" : "Peek All";
+      renderMemoryCardsGrid();
+    }
+
+    function resetMemoryGame() {
+      initMemoryGame(activeMemoryDeckKey);
+    }
+
+    function switchDeckAndRestart() {
+      const nextDeck = activeMemoryDeckKey === 'triggers' ? 'preferences' : 'triggers';
+      setMemoryGameDeck(nextDeck);
     }
 
     // INTONATION DEVICE CONTROLLER
